@@ -13,9 +13,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 offset-md-4 login_form site_form">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="/login">
                         @csrf
-
                         <!-- Email Address -->
                         <div class="mb-3 row">
                             <label for="email" class="col-sm-2 col-form-label required">{{ __('Email') }}</label>
@@ -23,9 +22,9 @@
                                 <input type="email" name="email" class="form-control-plaintext" id="email"
                                        value="{{ old('email') }}" required>
                                 @error('email')
-                                <div class="invalid-feedback">
+                                <p class="invalid-feedback">
                                     {{ $message }}
-                                </div>
+                                </p>
                                 @enderror
                             </div>
                         </div>

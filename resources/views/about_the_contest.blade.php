@@ -11,8 +11,8 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <div class="text">
-                        {!! $text->text !!}
+                    <div class="text" style="word-break: break-all">
+                        {{ $text ? $text->text :  Str::random(1000) }}
                     </div>
                 </div>
             </div>

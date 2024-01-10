@@ -9,6 +9,6 @@ class News extends BaseModel
     protected $fillable = [
         'id',
         'title',
-        'content'
+        'content',
     ];
 }

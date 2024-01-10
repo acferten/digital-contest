@@ -29,7 +29,7 @@
                             <a class="nav-link" href="{{ route('partners') }}">Партнеры</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('news') }}">Новости</a>
+                            <a class="nav-link" href="{{ route('news.index') }}">Новости</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('feedback') }}">Обратная связь</a>

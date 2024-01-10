@@ -1,10 +1,3 @@
-<?php
-
-use App\Helpers\ImageHelper;
-use App\Helpers\Text;
-
-$file_prefix = config('filesystems.disks.public.url');
-?>
 @extends('layout')
 @section('title', 'Галерея')
 @section('body_type', 'background_type4_1')
@@ -28,22 +21,25 @@ $file_prefix = config('filesystems.disks.public.url');
             <div class="gallery">
                 <div class="row">
                     @foreach($works as $work)
+
                         <div class="col-lg-3 col-md-4 col-sm-6 col-12 item">
                             <div class="img">
                                 <img
-                                    src="{{ $file_prefix . ImageHelper::getThumbnailImage($work, $work->photo, 'large') }}"
+                                    src="{{ $work->file }}"
                                     alt="{{ $work->title }}">
                             </div>
                             <div class="row">
                                 <div class="col">
                                     <div class="title"><a
-                                            href="{{ route('gallery.card', [$work->slug]) }}">{{ $work->title }}</a>
+                                            href="{{ route('works.show', [$work->id]) }}"
+                                        >{{ $work->title }}</a>
                                     </div>
                                     <div class="description">
-                                        <span class="js-work__rating js-work_{{ $work->id }}_rating">{{ $work->votes }}</span> {{ Text::plural($work->votes, ['голос', 'голоса', 'голосов']) }}</div>
+                                        <span class="js-work__rating js-work_{{ $work->id }}_rating">{{ 1 }}</span> {{ "55 голосов" }}</div>
                                 </div>
                                 <div class="col">
-                                    <a href="{{ route('vote', [$work->id]) }}"
+                                    <a
+{{--                                        href="{{ route('vote', [$work->id]) }}"--}}
                                        class="btn btn-danger float-end js-gallery-vote">Голосовать</a>
                                 </div>
                             </div>

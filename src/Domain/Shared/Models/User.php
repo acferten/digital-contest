@@ -20,6 +20,8 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $fillable = [
         'first_name',
         'last_name',
+        'password',
+        'email',
         'about',
         'username',
         'profile_picture',
@@ -32,7 +34,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     protected static function newFactory()
     {
-//        return app(UserFactory::class);
+        //        return app(UserFactory::class);
     }
 
     public function works(): hasMany

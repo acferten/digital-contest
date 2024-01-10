@@ -9,7 +9,7 @@ class Genre extends BaseModel
 {
     protected $fillable = [
         'id',
-        'name'
+        'name',
     ];
 
     public function works(): hasMany
