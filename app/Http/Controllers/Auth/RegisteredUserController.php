@@ -41,7 +41,7 @@ class RegisteredUserController extends Controller
             'username' => $request->nickname,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'profile_picture' => $request->hasFile('photo') ? $request->file('photo') : null,
+            'profile_picture' => $request->hasFile('photo') ? $request->file('photo') : 'default.jpg',
             'about' => $request->about_yourself ?? null,
         ]);
 
