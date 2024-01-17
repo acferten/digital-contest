@@ -21,7 +21,6 @@ use Laravel\Sanctum\HasApiTokens;
  * @property string $email
  * @property string $about
  * @property string $profile_picture
- *
  * @property Collection $works
  * @property Collection $votes
  */

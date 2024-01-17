@@ -17,7 +17,7 @@ class CreateWorkAction
                 ...$data->all(),
                 'file' => $data->file->storePublicly('', ['disk' => 'artworks']),
                 'genre_id' => $data->genre->id,
-                'user_id' => auth()->user()->id
+                'user_id' => auth()->user()->id,
             ]
         );
     }

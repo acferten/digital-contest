@@ -23,7 +23,7 @@ class WorkData extends Data
         return self::from([
             ...$work->toArray(),
             'file' => $work->getWorkFileUrl(),
-            'genre' => $work->genre
+            'genre' => $work->genre,
         ]);
     }
 

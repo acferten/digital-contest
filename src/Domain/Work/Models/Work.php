@@ -6,13 +6,13 @@ use Domain\Shared\Models\BaseModel;
 use Domain\Shared\Models\User;
 use Domain\Work\DataTransferObjects\WorkData;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Facades\Storage;
 use Spatie\LaravelData\WithData;
 
 /**
  * @property string $title
  * @property string $file
- *
  * @property Genre $genre
  * @property User $user
  */
@@ -42,5 +42,10 @@ class Work extends BaseModel
     public function genre(): BelongsTo
     {
         return $this->belongsTo(Genre::class, 'genre_id');
+    }
+
+    public function votes(): belongsToMany
+    {
+        return $this->belongsToMany(User::class);
     }
 }

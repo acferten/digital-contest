@@ -17,7 +17,7 @@ class WorkController extends Controller
     public function index(): View
     {
         $data = [
-            'works' => Work::all()->map(fn (Work $work) => $work->getData()),
+            'works' => Work::all(),
         ];
 
         return view('gallery', $data);
@@ -44,7 +44,12 @@ class WorkController extends Controller
 
     public function show(Work $work): View
     {
-        return view('work', ['work' => $work]);
+        $data = [
+            'work' => $work,
+            'other_works' => $work->user->works,
+        ];
+
+        return view('work', $data);
     }
 
     public function edit(string $id): View

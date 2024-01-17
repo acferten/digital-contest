@@ -21,7 +21,8 @@ Route::get('feedback', [PagesController::class, 'feedback'])->name('feedback');
 
 Route::get('prizes_for_winners', [PagesController::class, 'prizes_for_winners'])->name('prizes_for_winners');
 
-Route::get('how_to_become_a_member', [PagesController::class, 'how_to_become_a_member'])->name('how_to_become_a_member');
+Route::get('how_to_become_a_member', [PagesController::class, 'how_to_become_a_member'])
+    ->name('how_to_become_a_member');
 
 // Auth
 //----------------------------------
@@ -60,7 +61,7 @@ Route::get('gallery', [WorkController::class, 'index'])->name('gallery');
 
 Route::get('participants', [UserController::class, 'index'])->name('participants');
 
-Route::get('participants_rating', [WorkController::class, 'rating'])->name('participants_rating');
+Route::get('participants_rating', [UserController::class, 'rating'])->name('participants_rating');
 
 // News
 //----------------------------------

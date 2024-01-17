@@ -19,12 +19,17 @@
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <div class="work__rating js-work__rating js-work_{{ $work->id }}_rating">{{ $work->votes }}</div>
                                         <div
-                                            class="work__rating-unit">25 ujkjcjd</div>
+                                            class="work__rating js-work__rating js-work_{{ $work->id }}_rating">{{$work->votes()->count()}}</div>
+                                        <div
+                                            class="work__rating-unit">голосов
+                                        </div>
                                     </div>
                                     <div class="col">
-                                        <a href="{{ route('vote', [$work->id]) }}" class="btn btn-danger float-end js-gallery-vote">Голосовать</a>
+                                        <form method="POST" action="{{ route('vote', [$work->id]) }}">
+                                            @csrf
+                                            <button type="submit" class="btn btn-danger float-end">Голосовать</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -32,18 +37,21 @@
                                 <div class="name">
                                     {{ $work->user->first_name }} {{ $work->user->last_name }}
                                 </div>
-{{--                                @if($other_works)--}}
-{{--                                <div class="row">--}}
-{{--                                    <div class="col-12">--}}
-{{--                                        Работы автора:--}}
-{{--                                        <ul class="work__other-work">--}}
-{{--                                            @foreach($other_works as $other_work)--}}
-{{--                                            <li><a href="{{ route('gallery.card', [$other_work->slug]) }}">«{{ $other_work->title }}»</a></li>--}}
-{{--                                            @endforeach--}}
-{{--                                        </ul>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                @endif--}}
+
+                                @if($other_works)
+                                    <div class="row">
+                                        <div class="col-12">
+                                            Работы автора:
+                                            <ul class="work__other-work">
+                                                @foreach($other_works as $other_work)
+                                                    <li>
+                                                        <a href="{{ route('works.show', [$other_work->id]) }}">«{{ $other_work->title }}
+                                                            »</a></li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>

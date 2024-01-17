@@ -9,6 +9,7 @@
                     <h1>Участники</h1>
                 </div>
             </div>
+
             <div class="participants">
                 <ul class="letters">
                     @foreach($letters as $letter)

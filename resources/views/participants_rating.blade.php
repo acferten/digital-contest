@@ -22,18 +22,18 @@
                 </div>
             </div>
             <div class="rating">
-                @foreach($works as $i => $work)
+                @foreach($works as $work)
                     @php
                         $class = collect(['first', 'second', 'third']);
                     @endphp
-                    <div class="row place align-items-end {{ $class[$i] ?? '' }}">
+                    <div class="row place align-items-end {{ $class[$loop->iteration] ?? '' }}">
                         <div class="col-8">
-                            <div class="title">{{ $i+1 }}. <a href="{{ route('gallery.card', [$work->slug]) }}">«{{ $work->title }}»</a></div>
-                            <div class="participant">{{ $work->user->fio }}</div>
+                            <div class="title">{{ $loop->iteration }}. <a href="{{ route('works.show', [$work->id]) }}">«{{ $work->title }}»</a></div>
+                            <div class="participant">{{ $work->user->first_name }}</div>
                         </div>
                         <div class="col-md-2 voices">
-                            <div class="number">{{ $work->votes }}</div>
-                            {{ Text::plural($work->votes, ['голос', 'голоса', 'голосов']) }}
+                            <div class="number">{{ $work->votes()->count() }}</div>
+                            {{ "'голос', 'голоса', 'голосов')" }}
                         </div>
                     </div>
                 @endforeach

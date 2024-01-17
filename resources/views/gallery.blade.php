@@ -25,7 +25,7 @@
                         <div class="col-lg-3 col-md-4 col-sm-6 col-12 item">
                             <div class="img">
                                 <img
-                                    src="{{ $work->file }}"
+                                    src="{{ $work->getWorkFileUrl() }}"
                                     alt="{{ $work->title }}">
                             </div>
                             <div class="row">
@@ -35,13 +35,14 @@
                                         >{{ $work->title }}</a>
                                     </div>
                                     <div class="description">
-                                        <span class="js-work__rating js-work_{{ $work->id }}_rating">{{ 1 }}</span> {{ "55 голосов" }}</div>
+                                        <span class="js-work__rating js-work_{{ $work->id }}_rating">{{ $work->votes()->count() }}</span> голосов</div>
                                 </div>
-                                <div class="col">
-                                    <a
-{{--                                        href="{{ route('vote', [$work->id]) }}"--}}
-                                       class="btn btn-danger float-end js-gallery-vote">Голосовать</a>
-                                </div>
+{{--                                <div class="col">--}}
+{{--                                    <form method="POST" action="{{ route('vote', [$work->id]) }}">--}}
+{{--                                        @csrf--}}
+{{--                                        <button type="submit" class="btn btn-danger float-end">Голосовать</button>--}}
+{{--                                    </form>--}}
+{{--                                </div>--}}
                             </div>
                         </div>
                     @endforeach
