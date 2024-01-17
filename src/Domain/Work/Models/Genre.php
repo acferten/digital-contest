@@ -5,10 +5,13 @@ namespace Domain\Work\Models;
 use Domain\Shared\Models\BaseModel;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/**
+ * @property string $name
+ * @property int $id
+ */
 class Genre extends BaseModel
 {
     protected $fillable = [
-        'id',
         'name',
     ];
 

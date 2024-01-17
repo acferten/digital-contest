@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\News\NewsController;
+use App\Http\Controllers\Prizes\PrizesController;
 use App\Http\Controllers\Shared\PagesController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\UserController;
@@ -19,7 +20,7 @@ Route::get('partners', [PagesController::class, 'partners'])->name('partners');
 
 Route::get('feedback', [PagesController::class, 'feedback'])->name('feedback');
 
-Route::get('prizes_for_winners', [PagesController::class, 'prizes_for_winners'])->name('prizes_for_winners');
+Route::get('prizes_for_winners', [PrizesController::class, 'index'])->name('prizes_for_winners');
 
 Route::get('how_to_become_a_member', [PagesController::class, 'how_to_become_a_member'])
     ->name('how_to_become_a_member');
@@ -60,6 +61,13 @@ Route::get('gallery', [WorkController::class, 'index'])->name('gallery');
 //----------------------------------
 
 Route::get('participants', [UserController::class, 'index'])->name('participants');
+
+Route::get('participants_rating', [UserController::class, 'rating'])->name('participants_rating');
+
+// Prizes
+//----------------------------------
+
+Route::resource('prizes', PrizesController::class);
 
 Route::get('participants_rating', [UserController::class, 'rating'])->name('participants_rating');
 

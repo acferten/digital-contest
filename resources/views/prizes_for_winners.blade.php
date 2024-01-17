@@ -10,22 +10,17 @@
                 </div>
             </div>
             <div class="prizes">
+
                 <div class="row">
-                    <div class="col-md-4 col-12 item">
-                        <img src="/images/dest/first_place.jpg" alt="">
-                        <div class="place first"><span>1.</span> Место</div>
-                        <div class="description">sdjhlssdlfs sdgf dslgjh sdlg</div>
-                    </div>
-                    <div class="col-md-4 col-12 item">
-                        <img src="/images/dest/second_place.jpg" alt="">
-                        <div class="place"><span>2.</span> Место</div>
-                        <div class="description">sdjhlssdlfs sdgf dslgjh sdlg</div>
-                    </div>
-                    <div class="col-md-4 col-12 item">
-                        <img src="/images/dest/third_place.jpg" alt="">
-                        <div class="place"><span>3.</span> Место</div>
-                        <div class="description">sdjhlssdlfs sdgf dslgjh sdlg</div>
-                    </div>
+                    @foreach($prizes as $prize)
+
+                        <div class="col-md-4 col-12 item">
+                            <img src="{{$prize->getPrizePhotoUrl()}}" alt="prize photo">
+                            <div class="place first"><span>{{$loop->iteration}}</span> Место</div>
+                            <div class="description">{{$prize->description}}</div>
+                        </div>
+
+                    @endforeach
                 </div>
             </div>
         </div>

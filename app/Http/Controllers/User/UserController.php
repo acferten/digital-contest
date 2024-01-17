@@ -18,14 +18,18 @@ class UserController extends Controller
         $user_group = collect();
         foreach ($users as $user) {
             $letter = $user->letter;
-            if (!$user_group->has($letter)) {
+            if (! $user_group->has($letter)) {
                 $user_group->put($letter, []);
             }
             $user_group->transform(function ($item, $key) use ($letter, $user) {
-                if ($key == $letter) $item[] = $user;
+                if ($key == $letter) {
+                    $item[] = $user;
+                }
+
                 return $item;
             });
         }
+
         return view('participants', ['letters' => $letters, 'user_group' => $user_group]);
     }
 

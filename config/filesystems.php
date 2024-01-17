@@ -59,6 +59,14 @@ return [
             'throw' => false,
         ],
 
+        'prizes_photo' => [
+            'driver' => 'local',
+            'root' => storage_path('app/prizes_photo'),
+            'url' => env('APP_URL').'/prizes_photo',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
         'artworks' => [
             'driver' => 'local',
             'root' => storage_path('app/artworks'),
@@ -96,6 +104,7 @@ return [
         public_path('storage') => storage_path('app/public'),
         public_path('profile_pictures') => storage_path('app/profile_pictures'),
         public_path('artworks') => storage_path('app/artworks'),
+        public_path('prizes_photo') => storage_path('app/prizes_photo'),
     ],
 
 ];
