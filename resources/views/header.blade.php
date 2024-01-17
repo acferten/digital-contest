@@ -23,10 +23,10 @@
                             <a class="nav-link" href="{{ route('how_to_become_a_member') }}">Как стать участником</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('prizes_for_winners') }}">Призы победителям</a>
+                            <a class="nav-link" href="{{ route('prizes.index') }}">Призы победителям</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('partners') }}">Партнеры</a>
+                            <a class="nav-link" href="{{ route('partners.index') }}">Партнеры</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('news.index') }}">Новости</a>

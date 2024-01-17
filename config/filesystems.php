@@ -75,6 +75,14 @@ return [
             'throw' => false,
         ],
 
+        'logos' => [
+            'driver' => 'local',
+            'root' => storage_path('app/logos'),
+            'url' => env('APP_URL').'/logos',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
@@ -104,6 +112,7 @@ return [
         public_path('storage') => storage_path('app/public'),
         public_path('profile_pictures') => storage_path('app/profile_pictures'),
         public_path('artworks') => storage_path('app/artworks'),
+        public_path('logos') => storage_path('app/logos'),
         public_path('prizes_photo') => storage_path('app/prizes_photo'),
     ],
 

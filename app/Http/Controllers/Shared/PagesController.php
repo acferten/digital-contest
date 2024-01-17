@@ -27,16 +27,6 @@ class PagesController extends Controller
         return view('how_to_become_a_member');
     }
 
-    public function prizes_for_winners(): View
-    {
-        return view('prizes_for_winners');
-    }
-
-    public function partners(): View
-    {
-        return view('partners');
-    }
-
     public function feedback(): View
     {
         return view('feedback');

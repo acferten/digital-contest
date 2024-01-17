@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Prizes;
+namespace App\Http\Controllers\Partners;
 
 use App\Http\Controllers\Controller;
+use Domain\Partners\DataTransferObjects\PartnerData;
+use Domain\Partners\Models\Partner;
 use Domain\Prize\DataTransferObjects\PrizeData;
 use Domain\Prize\Models\Prize;
 use Illuminate\Http\RedirectResponse;
@@ -10,33 +12,33 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
-class PrizesController extends Controller
+class PartnersController extends Controller
 {
     public function index(): View
     {
         $data = [
-            'prizes' => Prize::all(),
+            'partners' => Partner::all(),
         ];
 
-        return view('prizes_for_winners', $data);
+        return view('partners.partners', $data);
     }
 
     public function create(): View
     {
-        return view('prizes.add_prize');
+        return view('partners.add_partner');
     }
 
     public function store(Request $request): RedirectResponse
     {
-        $request->validate(PrizeData::rules());
-        $data = PrizeData::fromRequest($request);
+        $request->validate(PartnerData::rules());
+        $data = PartnerData::fromRequest($request);
 
-        Prize::create([
+        Partner::create([
             ...$data->all(),
-            'photo' => $data->photo->storePublicly('', 'prizes_photo')
+            'logo' => $data->logo->storePublicly('', 'logos')
         ]);
 
-        return Redirect::route('prizes.index');
+        return Redirect::route('partners.index');
     }
 
     public function show(string $id)

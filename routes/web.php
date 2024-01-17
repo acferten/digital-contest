@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\News\NewsController;
+use App\Http\Controllers\Partners\PartnersController;
 use App\Http\Controllers\Prizes\PrizesController;
 use App\Http\Controllers\Shared\PagesController;
 use App\Http\Controllers\User\ProfileController;
@@ -15,8 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('about_the_contest', [PagesController::class, 'about_the_contest'])->name('about_the_contest');
 
 Route::get('/', [PagesController::class, 'main'])->name('main');
-
-Route::get('partners', [PagesController::class, 'partners'])->name('partners');
 
 Route::get('feedback', [PagesController::class, 'feedback'])->name('feedback');
 
@@ -68,6 +67,11 @@ Route::get('participants_rating', [UserController::class, 'rating'])->name('part
 //----------------------------------
 
 Route::resource('prizes', PrizesController::class);
+
+// Partners
+//----------------------------------
+
+Route::resource('partners', PartnersController::class);
 
 Route::get('participants_rating', [UserController::class, 'rating'])->name('participants_rating');
 
