@@ -5,49 +5,45 @@
     <main class="flex-grow-1">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 offset-md-2 registere_form site_form">
-                    <form method="POST" action="{{ route('work.store') }}" enctype="multipart/form-data">
+                <div class="col-md-8 offset-md-2 register_form site_form">
+                    <form method="POST" action="{{route('works.store')}}" enctype="multipart/form-data">
                         @csrf
 
-                        <!-- title -->
+                        <!-- Title -->
                         <div class="mb-3 row">
                             <label for="title" class="col-xl-3 col-xxl-2 col-form-label required">{{ __('Название') }}</label>
                             <div class="col-xl-9 col-xxl-10">
-                                <input type="title" name="title" class="form-control-plaintext" id="title"
+                                <input type="text" name="title" class="form-control-plaintext" id="title"
                                        value="{{ old('title') }}" required>
                                 @error('title')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                <p class="error"> {{$message}} </p>
                                 @enderror
                             </div>
                         </div>
-                        <!-- type -->
+
+                        <!-- Genre -->
                         <div class="mb-3 row">
                             <label for="type" class="col-xl-3 col-xxl-2 col-form-label required">{{ __('Форма') }}</label>
                             <div class="col-xl-9 col-xxl-10">
-                                <select name="type" id="type" class="form-select" aria-label="Форма" required>
-                                    @foreach($types as $type)
-                                        <option value="{{ $type->id }}">{{ $type->title }}</option>
+                                <select name="genre_id" id="genre" class="form-select" aria-label="Форма" required>
+                                    @foreach($genres as $genre)
+                                        <option value="{{ $genre->id }}">{{ $genre->name }}</option>
                                     @endforeach
                                 </select>
-                                @error('type')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                @error('genre_id')
+                                <p class="error"> {{$message}} </p>
                                 @enderror
                             </div>
                         </div>
-                        <!-- Photo -->
+
+                        <!-- File -->
                         <div class="mb-3 row">
-                            <label for="photo" class="col-xl-3 col-xxl-2 col-form-label required">{{ __('Работа (JPG, GIF, WEBM)') }}</label>
+                            <label for="file"
+                                   class="col-xl-3 col-xxl-2 col-form-label required">{{ __('Работа (JPG, GIF, WEBM)') }}</label>
                             <div class="col-xl-9 col-xxl-10">
-                                <input type="file" name="photo" class="form-control-plaintext" id="photo"
-                                       value="" required>
-                                @error('photo')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                <input type="file" name="file" class="form-control-plaintext" id="file" required>
+                                @error('file')
+                                <p class="error"> {{$message}} </p>
                                 @enderror
                             </div>
                         </div>
@@ -57,6 +53,7 @@
                                 <button type="submit" class="btn btn-danger ml-4">{{ __('Добавить') }}</button>
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>

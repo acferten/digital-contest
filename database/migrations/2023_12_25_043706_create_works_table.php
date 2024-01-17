@@ -9,7 +9,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('works', function (Blueprint $table) {
-            $table->id();
+            $table->integer('id')->autoIncrement();
             $table->string('title');
             $table->string('file');
 

@@ -13,7 +13,7 @@
     <main class="flex-grow-1">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 offset-md-2 registere_form site_form">
+                <div class="col-md-8 offset-md-2 register_form site_form">
                     <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
 
@@ -25,9 +25,7 @@
                                 <input type="email" name="email" class="form-control-plaintext" id="email"
                                        value="{{ old('email') }}" required>
                                 @error('email')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                <p style="color:red; font-weight: bold">{{$message}}</p>
                                 @enderror
                             </div>
                         </div>
@@ -39,9 +37,7 @@
                                 <input type="password" name="password" class="form-control-plaintext" id="password"
                                        value="" required>
                                 @error('password')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                <p style="color:red; font-weight: bold">{{$message}}</p>
                                 @enderror
                             </div>
                         </div>
@@ -54,76 +50,64 @@
                                        id="password_confirmation"
                                        value="" required>
                                 @error('password_confirmation')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                <p style="color:red; font-weight: bold">{{$message}}</p>
                                 @enderror
                             </div>
                         </div>
-                        <!-- Surname -->
+                        <!-- last_name -->
                         <div class="mb-3 row">
-                            <label for="surname" class="col-xl-3 col-xxl-2 col-form-label">{{ __('Фамилия') }}</label>
+                            <label for="last_name" class="col-xl-3 col-xxl-2 col-form-label">{{ __('Фамилия') }}</label>
                             <div class="col-xl-9 col-xxl-10">
-                                <input type="text" name="surname" class="form-control-plaintext" id="surname"
-                                       value="{{ old('surname') }}">
-                                @error('surname')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                <input type="text" name="last_name" class="form-control-plaintext" id="last_name"
+                                       value="{{ old('last_name') }}">
+                                @error('last_name')
+                                <p style="color:red; font-weight: bold">{{$message}}</p>
                                 @enderror
                             </div>
                         </div>
                         <!-- Name -->
                         <div class="mb-3 row">
-                            <label for="name" class="col-xl-3 col-xxl-2 col-form-label">{{ __('Имя') }}</label>
+                            <label for="first_name" class="col-xl-3 col-xxl-2 col-form-label">{{ __('Имя') }}</label>
                             <div class="col-xl-9 col-xxl-10">
-                                <input type="text" name="name" class="form-control-plaintext" id="name"
-                                       value="{{ old('name') }}">
-                                @error('name')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                <input type="text" name="first_name" class="form-control-plaintext" id="first_name"
+                                       value="{{ old('first_name') }}">
+                                @error('first_name')
+                                <p style="color:red; font-weight: bold">{{$message}}</p>
                                 @enderror
                             </div>
                         </div>
-                        <!-- Nickname -->
+                        <!-- username -->
                         <div class="mb-3 row">
-                            <label for="nickname"
+                            <label for="username"
                                    class="col-xl-3 col-xxl-2 col-form-label required">{{ __('Псевдоним') }}</label>
                             <div class="col-xl-9 col-xxl-10">
-                                <input type="text" name="nickname" class="form-control-plaintext" id="nickname"
-                                       value="{{ old('nickname') }}" required>
-                                @error('nickname')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                <input type="text" name="username" class="form-control-plaintext" id="username"
+                                       value="{{ old('username') }}" required>
+                                @error('username')
+                                <p style="color:red; font-weight: bold">{{$message}}</p>
                                 @enderror
                             </div>
                         </div>
-                        <!-- Photo -->
+                        <!-- profile_picture -->
                         <div class="mb-3 row">
-                            <label for="photo" class="col-xl-3 col-xxl-2 col-form-label">{{ __('Фото/аватар') }}</label>
+                            <label for="profile_picture" class="col-xl-3 col-xxl-2 col-form-label">{{ __('Фото/аватар') }}</label>
                             <div class="col-xl-9 col-xxl-10">
-                                <input type="file" name="photo" class="form-control-plaintext" id="photo"
+                                <input type="file" name="profile_picture" class="form-control-plaintext" id="profile_picture"
                                        value="">
-                                @error('photo')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                @error('profile_picture')
+                                <p style="color:red; font-weight: bold">{{$message}}</p>
                                 @enderror
                             </div>
                         </div>
-                        <!-- About_yourself -->
+                        <!-- about -->
                         <div class="mb-3 row">
-                            <label for="about_yourself"
+                            <label for="about"
                                    class="col-xl-3 col-xxl-2 col-form-label">{{ __('Краткая информация о себе') }}</label>
                             <div class="col-xl-9 col-xxl-10">
-                                <textarea name="about_yourself" class="form-control" id="about_yourself"
-                                          rows="3">{{ old('about_yourself') }}</textarea>
-                                @error('about_yourself')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                <textarea name="about" class="form-control" id="about"
+                                          rows="3">{{ old('about') }}</textarea>
+                                @error('about')
+                                <p style="color:red; font-weight: bold">{{$message}}</p>
                                 @enderror
                             </div>
                         </div>

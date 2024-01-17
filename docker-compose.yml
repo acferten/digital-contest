@@ -9,7 +9,7 @@ services:
     volumes:
       - ./:/var/www
     networks:
-      - nginx-php-postgres-network
+        - digital-contest
 
   proxy:
     build:
@@ -26,16 +26,16 @@ services:
       - ./storage:/var/www/storage
       - ./images/proxy:/etc/nginx/conf.d/
     networks:
-      - nginx-php-postgres-network
+        - digital-contest
 
   adminer:
     image: adminer
     restart: unless-stopped
     container_name: adminer
     networks:
-      - nginx-php-postgres-network
+        - digital-contest
 
-  db:
+  postgres:
     image: postgres:alpine
     container_name: postgres
     restart: unless-stopped
@@ -48,12 +48,12 @@ services:
     volumes:
       - dbdata:/var/lib/postgres
     networks:
-      - nginx-php-postgres-network
+        - digital-contest
 
 volumes:
   dbdata:
     driver: local
 
 networks:
-  nginx-php-postgres-network:
-    driver: bridge
+    digital-contest:
+        driver: bridge

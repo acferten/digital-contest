@@ -12,7 +12,7 @@
                     <div class="container profile">
                         <div class="row">
                             <div class="col-lg-3 col-md-4 col-sm-12 col-12 profile_photo">
-                                <img src="{{ Storage::disk('profile_pictures')->url($user->profile_picture)}}">
+                                <img src="{{ $user->getProfilePictureUrl() }}" alt="profile picture">
                             </div>
                             <div class="offset-lg-1 col-lg-8 col-md-8 col-sm-12 col-12 profile_data">
                                 <div class="name">

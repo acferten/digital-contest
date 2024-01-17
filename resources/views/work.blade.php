@@ -14,7 +14,7 @@
                             <div class="col-3 work_photo">
                                 <div class="img">
                                     <img
-                                        src=""
+                                        src="{{ $work->getWorkFileUrl() }}"
                                         alt="{{ $work->title }}">
                                 </div>
                                 <div class="row">
@@ -30,7 +30,7 @@
                             </div>
                             <div class="offset-1 col-8 work_data">
                                 <div class="name">
-                                    {{ $work->user->fio }}
+                                    {{ $work->user->first_name }} {{ $work->user->last_name }}
                                 </div>
 {{--                                @if($other_works)--}}
 {{--                                <div class="row">--}}

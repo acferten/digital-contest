@@ -3,8 +3,13 @@
 namespace App\Http\Controllers\Work;
 
 use App\Http\Controllers\Controller;
+use Domain\Work\Actions\CreateWorkAction;
+use Domain\Work\DataTransferObjects\WorkData;
+use Domain\Work\Models\Genre;
 use Domain\Work\Models\Work;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
 class WorkController extends Controller
@@ -18,22 +23,31 @@ class WorkController extends Controller
         return view('gallery', $data);
     }
 
-    public function create()
+    public function create(): View
     {
-        //
+        $data = [
+            'genres' => Genre::all(),
+        ];
+
+        return view('profile.add_work', $data);
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        //
+        $request->validate(WorkData::rules());
+        $data = WorkData::fromRequest($request);
+
+        CreateWorkAction::execute($data);
+
+        return Redirect::route('gallery');
     }
 
-    public function show(Work $work)
+    public function show(Work $work): View
     {
         return view('work', ['work' => $work]);
     }
 
-    public function edit(string $id)
+    public function edit(string $id): View
     {
         //
     }

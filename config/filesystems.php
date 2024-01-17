@@ -59,10 +59,10 @@ return [
             'throw' => false,
         ],
 
-        'works' => [
+        'artworks' => [
             'driver' => 'local',
-            'root' => storage_path('app/works'),
-            'url' => env('APP_URL').'/works',
+            'root' => storage_path('app/artworks'),
+            'url' => env('APP_URL').'/artworks',
             'visibility' => 'public',
             'throw' => false,
         ],
@@ -95,7 +95,7 @@ return [
     'links' => [
         public_path('storage') => storage_path('app/public'),
         public_path('profile_pictures') => storage_path('app/profile_pictures'),
-        public_path('works') => storage_path('app/works'),
+        public_path('artworks') => storage_path('app/artworks'),
     ],
 
 ];

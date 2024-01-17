@@ -23,31 +23,10 @@ Route::get('prizes_for_winners', [PagesController::class, 'prizes_for_winners'])
 
 Route::get('how_to_become_a_member', [PagesController::class, 'how_to_become_a_member'])->name('how_to_become_a_member');
 
-// Gallery
-//----------------------------------
-
-Route::resource('works', WorkController::class)->only('show');
-
-Route::post('works/{work}/vote', VoteForWorkController::class)->name('vote');
-
-Route::get('gallery', [WorkController::class, 'index'])->name('gallery');
-
-// Participants
-//----------------------------------
-
-Route::get('participants', [UserController::class, 'index'])->name('participants');
-
-Route::get('participants_rating', [WorkController::class, 'rating'])->name('participants_rating');
-
-// News
-//----------------------------------
-
-Route::resource('news', NewsController::class);
-
 // Auth
 //----------------------------------
 
-Route::middleware('auth')->group(function () {
+Route::group(['middleware' => ['auth:sanctum']], function () {
 
     // Profile
     //----------------------------------
@@ -66,5 +45,26 @@ Route::middleware('auth')->group(function () {
     Route::resource('works', WorkController::class)->except('index', 'show');
 
 });
+
+// Gallery
+//----------------------------------
+
+Route::post('works/{work}/vote', VoteForWorkController::class)->name('vote');
+
+Route::resource('works', WorkController::class)->only('index', 'show');
+
+Route::get('gallery', [WorkController::class, 'index'])->name('gallery');
+
+// Participants
+//----------------------------------
+
+Route::get('participants', [UserController::class, 'index'])->name('participants');
+
+Route::get('participants_rating', [WorkController::class, 'rating'])->name('participants_rating');
+
+// News
+//----------------------------------
+
+Route::resource('news', NewsController::class);
 
 require __DIR__.'/auth.php';
