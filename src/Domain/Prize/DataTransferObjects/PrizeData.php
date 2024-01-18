@@ -17,15 +17,6 @@ class PrizeData extends Data
     ) {
     }
 
-    public static function fromModel(Prize $work): self
-    {
-        return self::from([
-            ...$work->toArray(),
-            'file' => $work->getWorkFileUrl(),
-            'genre' => $work->genre,
-        ]);
-    }
-
     public static function fromRequest(Request $request): self
     {
         return self::from([

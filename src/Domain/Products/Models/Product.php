@@ -21,6 +21,6 @@ class Product extends BaseModel
     public function orders(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'orders')
-            ->withPivot();
+            ->withPivot('work_id')->withTimestamps();
     }
 }
