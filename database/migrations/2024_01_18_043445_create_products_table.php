@@ -8,14 +8,11 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('user_work', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
 
-            $table->bigInteger('user_id');
-            $table->bigInteger('work_id');
-
-            $table->foreign('work_id')->references('id')->on('works');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('name');
+            $table->integer('price');
 
             $table->timestamps();
         });
@@ -23,6 +20,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('user_work');
+        Schema::dropIfExists('products');
     }
 };
