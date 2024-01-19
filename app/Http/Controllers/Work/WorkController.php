@@ -20,7 +20,7 @@ class WorkController extends Controller
             'works' => Work::all(),
         ];
 
-        return view('gallery', $data);
+        return view('works.gallery', $data);
     }
 
     public function create(): View
@@ -29,7 +29,7 @@ class WorkController extends Controller
             'genres' => Genre::all(),
         ];
 
-        return view('profile.add_work', $data);
+        return view('works.add_work', $data);
     }
 
     public function store(Request $request): RedirectResponse
@@ -49,7 +49,7 @@ class WorkController extends Controller
             'other_works' => $work->user->works,
         ];
 
-        return view('work', $data);
+        return view('works.work', $data);
     }
 
     public function edit(string $id): View

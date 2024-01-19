@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('prizes', function (Blueprint $table) {
             $table->id();
             $table->string('place');
-            $table->string('description');
+            $table->text('description');
             $table->string('photo');
             $table->timestamps();
         });

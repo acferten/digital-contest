@@ -2,7 +2,6 @@
 
 namespace Domain\Prize\DataTransferObjects;
 
-use Domain\Prize\Models\Prize;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Spatie\LaravelData\Data;

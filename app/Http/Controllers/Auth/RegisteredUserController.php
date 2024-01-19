@@ -28,7 +28,7 @@ class RegisteredUserController extends Controller
             'profile_picture' => $request->hasFile('profile_picture') ?
                 $request->file('profile_picture')->storePublicly('', ['disk' => 'profile_pictures'])
             : 'default.jpg',
-            'password' => Hash::make($request->input('password'))
+            'password' => Hash::make($request->input('password')),
         ]);
 
         event(new Registered($user));

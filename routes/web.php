@@ -22,9 +22,30 @@ Route::get('feedback', [PagesController::class, 'feedback'])->name('feedback');
 Route::get('how_to_become_a_member', [PagesController::class, 'how_to_become_a_member'])
     ->name('how_to_become_a_member');
 
+require __DIR__.'/auth.php';
 
-require __DIR__ . '/auth.php';
+// Auth
+//----------------------------------
 
+Route::group(['middleware' => ['auth:sanctum']], function () {
+
+    // Profile
+    //----------------------------------
+
+    Route::get('/profile', [ProfileController::class, 'card'])->name('profile.card');
+
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+
+    Route::patch('/profile/edit', [ProfileController::class, 'update'])->name('profile.update');
+
+    Route::delete('/profile/edit', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    // Works
+    //----------------------------------
+
+    Route::resource('works', WorkController::class)->except('index', 'show');
+
+});
 
 // Gallery
 //----------------------------------
@@ -56,26 +77,3 @@ Route::resource('partners', PartnersController::class);
 //----------------------------------
 
 Route::resource('news', NewsController::class);
-
-// Auth
-//----------------------------------
-
-Route::group(['middleware' => ['auth:sanctum']], function () {
-
-    // Profile
-    //----------------------------------
-
-    Route::get('/profile', [ProfileController::class, 'card'])->name('profile.card');
-
-    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
-
-    Route::patch('/profile/edit', [ProfileController::class, 'update'])->name('profile.update');
-
-    Route::delete('/profile/edit', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
-    // Works
-    //----------------------------------
-
-    Route::resource('works', WorkController::class)->except('index', 'show');
-
-});

@@ -33,7 +33,7 @@ class PrizesController extends Controller
 
         Prize::create([
             ...$data->all(),
-            'photo' => $data->photo->storePublicly('', 'prizes_photo')
+            'photo' => $data->photo->storePublicly('', 'prizes_photo'),
         ]);
 
         return Redirect::route('prizes.index');

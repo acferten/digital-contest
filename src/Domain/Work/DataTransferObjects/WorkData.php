@@ -15,6 +15,7 @@ class WorkData extends Data
         public readonly string $title,
         public readonly UploadedFile|string $file,
         public readonly ?Genre $genre,
+        public readonly int $year,
     ) {
     }
 
@@ -42,6 +43,7 @@ class WorkData extends Data
         return [
             'file' => 'image|max:4192',
             'title' => 'required|string',
+            'year' => 'required|int|max:2023|min:2000',
             'genre_id' => 'required|exists:genres,id',
         ];
     }

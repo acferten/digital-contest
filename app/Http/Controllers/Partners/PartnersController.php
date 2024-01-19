@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Partners;
 use App\Http\Controllers\Controller;
 use Domain\Partners\DataTransferObjects\PartnerData;
 use Domain\Partners\Models\Partner;
-use Domain\Prize\DataTransferObjects\PrizeData;
-use Domain\Prize\Models\Prize;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -35,7 +33,7 @@ class PartnersController extends Controller
 
         Partner::create([
             ...$data->all(),
-            'logo' => $data->logo->storePublicly('', 'logos')
+            'logo' => $data->logo->storePublicly('', 'logos'),
         ]);
 
         return Redirect::route('partners.index');

@@ -12,6 +12,7 @@ return new class extends Migration
             $table->integer('id')->autoIncrement();
             $table->string('title');
             $table->string('file');
+            $table->integer('year');
 
             $table->bigInteger('genre_id');
             $table->bigInteger('user_id');

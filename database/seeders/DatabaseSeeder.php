@@ -12,7 +12,9 @@ class DatabaseSeeder extends Seeder
             ProductsSeeder::class,
             RolesAndPermissionsSeeder::class,
             UsersSeeder::class,
-            WorkSeeder::class
+            WorkSeeder::class,
+            PrizeSeeder::class,
+            PartnersSeeder::class,
         ]);
     }
 }

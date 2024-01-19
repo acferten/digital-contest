@@ -19,8 +19,8 @@ class RegisteredUserRequest extends FormRequest
         $allowedTypes = 'jpeg,jpg,png,gif';
 
         return [
-            'first_name' => ['nullable', 'string', 'max:255'],
-            'last_name' => ['nullable', 'string', 'max:255'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
             'username' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Password::defaults()],

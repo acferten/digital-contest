@@ -25,6 +25,7 @@ class Work extends BaseModel
     protected $fillable = [
         'title',
         'file',
+        'year',
         'genre_id',
         'user_id',
     ];
