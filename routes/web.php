@@ -19,10 +19,43 @@ Route::get('/', [PagesController::class, 'main'])->name('main');
 
 Route::get('feedback', [PagesController::class, 'feedback'])->name('feedback');
 
-Route::get('prizes_for_winners', [PrizesController::class, 'index'])->name('prizes_for_winners');
-
 Route::get('how_to_become_a_member', [PagesController::class, 'how_to_become_a_member'])
     ->name('how_to_become_a_member');
+
+
+require __DIR__ . '/auth.php';
+
+
+// Gallery
+//----------------------------------
+
+Route::post('works/{work}/vote', VoteForWorkController::class)->name('vote');
+
+Route::resource('works', WorkController::class)->only('show');
+
+Route::get('gallery', [WorkController::class, 'index'])->name('gallery');
+
+// Participants
+//----------------------------------
+
+Route::get('participants', [UserController::class, 'index'])->name('participants');
+
+Route::get('participants_rating', [UserController::class, 'rating'])->name('participants_rating');
+
+// Prizes
+//----------------------------------
+
+Route::resource('prizes', PrizesController::class)->only('index');
+
+// Partners
+//----------------------------------
+
+Route::resource('partners', PartnersController::class);
+
+// News
+//----------------------------------
+
+Route::resource('news', NewsController::class);
 
 // Auth
 //----------------------------------
@@ -46,38 +79,3 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::resource('works', WorkController::class)->except('index', 'show');
 
 });
-
-// Gallery
-//----------------------------------
-
-Route::post('works/{work}/vote', VoteForWorkController::class)->name('vote');
-
-Route::resource('works', WorkController::class)->only('index', 'show');
-
-Route::get('gallery', [WorkController::class, 'index'])->name('gallery');
-
-// Participants
-//----------------------------------
-
-Route::get('participants', [UserController::class, 'index'])->name('participants');
-
-Route::get('participants_rating', [UserController::class, 'rating'])->name('participants_rating');
-
-// Prizes
-//----------------------------------
-
-Route::resource('prizes', PrizesController::class);
-
-// Partners
-//----------------------------------
-
-Route::resource('partners', PartnersController::class);
-
-Route::get('participants_rating', [UserController::class, 'rating'])->name('participants_rating');
-
-// News
-//----------------------------------
-
-Route::resource('news', NewsController::class);
-
-require __DIR__.'/auth.php';

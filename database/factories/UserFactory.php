@@ -2,19 +2,36 @@
 
 namespace Database\Factories;
 
+use Domain\Shared\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class UserFactory extends Factory
 {
+    protected $model = User::class;
+
     public function definition(): array
     {
         return [
-            'first_name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token' => Str::random(10),
+            'first_name' => fake()->firstName('female'),
+            'last_name' => fake()->lastName('female'),
+            'password' => Hash::make('password'),
+            'email' => fake()->email,
+            'about' => fake()->realTextBetween(200, 300),
+            'username' => 'username',
+            'profile_picture' => 'default.jpg',
         ];
+    }
+
+    public function admin(string $login = 'admin'): Factory
+    {
+        return $this->state(function (array $attributes) use ($login) {
+            return [
+                'email' => "{$login}@gmail.com",
+                'username' => $login,
+            ];
+        })->afterCreating(function (User $user) {
+            $user->assignRole('admin');
+        });
     }
 }

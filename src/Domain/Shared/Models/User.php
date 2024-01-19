@@ -2,6 +2,7 @@
 
 namespace Domain\Shared\Models;
 
+use Database\Factories\UserFactory;
 use Domain\Work\Models\Work;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -12,6 +13,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 /**
  * @property string $first_name
@@ -29,6 +31,7 @@ class User extends Authenticatable implements MustVerifyEmail
     use HasApiTokens;
     use HasFactory;
     use Notifiable;
+    use HasRoles;
 
     protected $fillable = [
         'first_name',
@@ -47,7 +50,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     protected static function newFactory()
     {
-        //        return app(UserFactory::class);
+        return app(UserFactory::class);
     }
 
     public function getProfilePictureUrl(): ?string
