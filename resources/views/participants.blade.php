@@ -22,7 +22,9 @@
                             <div class="letter">{{$letter}}</div>
                             <ul class="titles">
                                 @foreach($users as $user)
-                                    <li>{{$user->nickname}}</li>
+                                    <a style="text-decoration: none" href="{{route('participants.show', $user)}}">
+                                        <li>  {{$user->last_name}} {{$user->first_name}}</li>
+                                    </a>
                                 @endforeach
                             </ul>
                         </div>

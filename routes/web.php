@@ -59,7 +59,7 @@ Route::get('gallery', [WorkController::class, 'index'])->name('gallery');
 // Participants
 //----------------------------------
 
-Route::get('participants', [UserController::class, 'index'])->name('participants');
+Route::resource('participants', UserController::class)->only('index', 'show');
 
 Route::get('participants_rating', [UserController::class, 'rating'])->name('participants_rating');
 

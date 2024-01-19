@@ -7,13 +7,15 @@ use Domain\Shared\Models\User;
 use Domain\Work\Models\Work;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 
 class UserController extends Controller
 {
-    public function index()
+    public function index(): View
     {
-        $letters = User::select(DB::raw('SUBSTRING(username, 1, 1) as letter'))->groupBy('letter')->orderBy('letter')->get();
-        $users = User::select(DB::raw('id, username, SUBSTRING(username, 1, 1) as letter'))->orderBy('username')->get();
+        $letters = User::select(DB::raw('SUBSTRING(last_name, 1, 1) as letter'))->groupBy('letter')->orderBy('letter')->get();
+        $users = User::select(DB::raw('id, last_name, first_name, username, SUBSTRING(last_name, 1, 1) as letter'))->orderBy('last_name')->get();
+
 
         $user_group = collect();
         foreach ($users as $user) {
@@ -33,7 +35,7 @@ class UserController extends Controller
         return view('participants', ['letters' => $letters, 'user_group' => $user_group]);
     }
 
-    public function rating()
+    public function rating(): View
     {
         $data = [
             'works' => Work::all(),
@@ -52,9 +54,13 @@ class UserController extends Controller
         //
     }
 
-    public function show(string $id)
+    public function show(int $id): View
     {
-        //
+        $user = User::find($id);
+
+        return view('profile.card', [
+            'user' => $user,
+        ]);
     }
 
     public function edit(string $id)
