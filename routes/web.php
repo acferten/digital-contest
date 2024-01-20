@@ -3,6 +3,7 @@
 use App\Http\Controllers\News\NewsController;
 use App\Http\Controllers\Partners\PartnersController;
 use App\Http\Controllers\Prizes\PrizesController;
+use App\Http\Controllers\Shared\ContentController;
 use App\Http\Controllers\Shared\PagesController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\UserController;
@@ -56,6 +57,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
         Route::resource('news', NewsController::class)->except('index');
 
+        Route::post('contents/{content}/update', [ContentController::class, 'update'])->name('contents.update');
+
+        Route::get('contents/{content}/edit', [ContentController::class, 'edit'])->name('contents.edit');
     });
 });
 

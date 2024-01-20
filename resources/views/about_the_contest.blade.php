@@ -12,9 +12,16 @@
             <div class="row">
                 <div class="col-12">
                     <div class="text" style="word-break: break-all">
-                        {{ $text ? $text->text :  Str::random(1000) }}
+                        {{ $content ? $content->text :  'Текст этого раздела еще не добавлен администратором.' }}
                     </div>
                 </div>
+                @role('admin')
+                <div class="col-12">
+                    <a href="{{ route('contents.edit', $content ) }}" class="btn btn-danger">Редактировать
+                        текст</a>
+                </div>
+                <br>
+                @endrole
             </div>
         </div>
     </main>
