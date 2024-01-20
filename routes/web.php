@@ -47,6 +47,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     Route::resource('works', WorkController::class)->except('index', 'show');
 
+    Route::post('works/{work}/vote', VoteForWorkController::class)->name('vote');
+
     // Admin
     //----------------------------------
 
@@ -70,8 +72,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
 // Gallery
 //----------------------------------
-
-Route::post('works/{work}/vote', VoteForWorkController::class)->name('vote');
 
 Route::resource('works', WorkController::class)->only('show');
 

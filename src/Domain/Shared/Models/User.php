@@ -4,6 +4,7 @@ namespace Domain\Shared\Models;
 
 use Database\Factories\UserFactory;
 use Domain\Work\Models\Work;
+use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -26,12 +27,13 @@ use Spatie\Permission\Traits\HasRoles;
  * @property Collection $works
  * @property Collection $votes
  */
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable implements MustVerifyEmail, \Illuminate\Contracts\Auth\CanResetPassword
 {
     use HasApiTokens;
     use HasFactory;
     use HasRoles;
     use Notifiable;
+    use CanResetPassword;
 
     protected $fillable = [
         'first_name',
