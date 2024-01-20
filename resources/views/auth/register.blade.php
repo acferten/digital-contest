@@ -10,54 +10,21 @@
     {{--    </video>--}}
 @endsection
 @section('content')
-    <main class="flex-grow-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 offset-md-2 register_form site_form">
-                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
-                        @csrf
-
-                        <!-- Email -->
-                        <div class="mb-3 row">
-                            <label for="email"
-                                   class="col-xl-3 col-xxl-2 col-form-label required">{{ __('Email') }}</label>
-                            <div class="col-xl-9 col-xxl-10">
-                                <input type="email" name="email" class="form-control-plaintext" id="email"
-                                       value="{{ old('email') }}" required>
-                                @error('email')
-                                <p style="color:red; font-weight: bold">{{$message}}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <!-- password -->
-                        <div class="mb-3 row">
-                            <label for="password"
-                                   class="col-xl-3 col-xxl-2 col-form-label required">{{ __('Пароль') }}</label>
-                            <div class="col-xl-9 col-xxl-10">
-                                <input type="password" name="password" class="form-control-plaintext" id="password"
-                                       value="" required>
-                                @error('password')
-                                <p style="color:red; font-weight: bold">{{$message}}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <!-- password_confirmation -->
-                        <div class="mb-3 row">
-                            <label for="password_confirmation"
-                                   class="col-xl-3 col-xxl-2 col-form-label required">{{ __('Подтверждение пароля') }}</label>
-                            <div class="col-xl-9 col-xxl-10">
-                                <input type="password" name="password_confirmation" class="form-control-plaintext"
-                                       id="password_confirmation"
-                                       value="" required>
-                                @error('password_confirmation')
-                                <p style="color:red; font-weight: bold">{{$message}}</p>
-                                @enderror
-                            </div>
-                        </div>
+    <main class="d-flex flex-column flex-grow-1">
+        <div class="container gap-4 d-flex flex-column justify-content-center align-items-center flex-grow-1">
+            <div class="row w-100">
+                <div>
+                    <h2 class="text-center main-text">регистрация</h2>
+                </div>
+            </div>
+            <div class="col-md-4 register_form site_form">
+                <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+                    @csrf
+                    <div class="d-flex gap-3">
                         <!-- last_name -->
-                        <div class="mb-3 row">
-                            <label for="last_name" class="col-xl-3 col-xxl-2 col-form-label">{{ __('Фамилия') }}</label>
-                            <div class="col-xl-9 col-xxl-10">
+                        <div class="mb-3 flex-grow-1">
+                            <label for="last_name" class="col-form-label">{{ __('Фамилия') }}</label>
+                            <div>
                                 <input type="text" name="last_name" class="form-control-plaintext" id="last_name"
                                        value="{{ old('last_name') }}">
                                 @error('last_name')
@@ -66,9 +33,9 @@
                             </div>
                         </div>
                         <!-- Name -->
-                        <div class="mb-3 row">
-                            <label for="first_name" class="col-xl-3 col-xxl-2 col-form-label">{{ __('Имя') }}</label>
-                            <div class="col-xl-9 col-xxl-10">
+                        <div class="mb-3 flex-grow-1">
+                            <label for="first_name" class="col-form-label">{{ __('Имя') }}</label>
+                            <div>
                                 <input type="text" name="first_name" class="form-control-plaintext" id="first_name"
                                        value="{{ old('first_name') }}">
                                 @error('first_name')
@@ -76,52 +43,90 @@
                                 @enderror
                             </div>
                         </div>
-                        <!-- username -->
-                        <div class="mb-3 row">
-                            <label for="username"
-                                   class="col-xl-3 col-xxl-2 col-form-label required">{{ __('Псевдоним') }}</label>
-                            <div class="col-xl-9 col-xxl-10">
-                                <input type="text" name="username" class="form-control-plaintext" id="username"
-                                       value="{{ old('username') }}" required>
-                                @error('username')
-                                <p style="color:red; font-weight: bold">{{$message}}</p>
-                                @enderror
-                            </div>
+                    </div>
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label for="email"
+                               class="R col-form-label">{{ __('Email') }}</label>
+                        <div>
+                            <input type="email" name="email" class="form-control-plaintext" id="email"
+                                   value="{{ old('email') }}" required>
+                            @error('email')
+                            <p style="color:red; font-weight: bold">{{$message}}</p>
+                            @enderror
                         </div>
-                        <!-- profile_picture -->
-                        <div class="mb-3 row">
-                            <label for="profile_picture" class="col-xl-3 col-xxl-2 col-form-label">{{ __('Фото/аватар') }}</label>
-                            <div class="col-xl-9 col-xxl-10">
-                                <input type="file" name="profile_picture" class="form-control-plaintext" id="profile_picture"
-                                       value="">
-                                @error('profile_picture')
-                                <p style="color:red; font-weight: bold">{{$message}}</p>
-                                @enderror
-                            </div>
+                    </div>
+                    <!-- username -->
+                    <div class="mb-3">
+                        <label for="username"
+                               class="col-form-label">{{ __('Псевдоним') }}</label>
+                        <div>
+                            <input type="text" name="username" class="form-control-plaintext" id="username"
+                                   value="{{ old('username') }}" required>
+                            @error('username')
+                            <p style="color:red; font-weight: bold">{{$message}}</p>
+                            @enderror
                         </div>
-                        <!-- about -->
-                        <div class="mb-3 row">
-                            <label for="about"
-                                   class="col-xl-3 col-xxl-2 col-form-label">{{ __('Краткая информация о себе') }}</label>
-                            <div class="col-xl-9 col-xxl-10">
-                                <textarea name="about" class="form-control" id="about"
-                                          rows="3">{{ old('about') }}</textarea>
-                                @error('about')
-                                <p style="color:red; font-weight: bold">{{$message}}</p>
-                                @enderror
-                            </div>
+                    </div>
+                    <!-- password -->
+                    <div class="mb-3">
+                        <label for="password"
+                               class="col-form-label">{{ __('Пароль') }}</label>
+                        <div>
+                            <input type="password" name="password" class="form-control-plaintext" id="password"
+                                   value="" required>
+                            @error('password')
+                            <p style="color:red; font-weight: bold">{{$message}}</p>
+                            @enderror
                         </div>
+                    </div>
+                    <!-- password_confirmation -->
+                    <div class="mb-3">
+                        <label for="password_confirmation"
+                               class="col-form-label">{{ __('Подтверждение пароля') }}</label>
+                        <div>
+                            <input type="password" name="password_confirmation" class="form-control-plaintext"
+                                   id="password_confirmation"
+                                   value="" required>
+                            @error('password_confirmation')
+                            <p style="color:red; font-weight: bold">{{$message}}</p>
+                            @enderror
+                        </div>
+                    </div>
+                    {{--                    <!-- profile_picture -->--}}
+                    {{--                    <div class="mb-3">--}}
+                    {{--                        <label for="profile_picture"--}}
+                    {{--                               class="col-form-label">{{ __('Фото/аватар') }}</label>--}}
+                    {{--                        <div>--}}
+                    {{--                            <input type="file" name="profile_picture" class="form-control-plaintext"--}}
+                    {{--                                   id="profile_picture"--}}
+                    {{--                                   value="">--}}
+                    {{--                            @error('profile_picture')--}}
+                    {{--                            <p style="color:red; font-weight: bold">{{$message}}</p>--}}
+                    {{--                            @enderror--}}
+                    {{--                        </div>--}}
+                    {{--                    </div>--}}
+                    {{--                    <!-- about -->--}}
+                    {{--                    <div class="mb-3">--}}
+                    {{--                        <label for="about"--}}
+                    {{--                               class="col-form-label">{{ __('Краткая информация о себе') }}</label>--}}
+                    {{--                        <div>--}}
+                    {{--                                <textarea name="about" class="form-control" id="about"--}}
+                    {{--                                          rows="3">{{ old('about') }}</textarea>--}}
+                    {{--                            @error('about')--}}
+                    {{--                            <p style="color:red; font-weight: bold">{{$message}}</p>--}}
+                    {{--                            @enderror--}}
+                    {{--                        </div>--}}
+                    {{--                    </div>--}}
 
-                        <div class="d-flex justify-content-between flex-wrap mt-4">
-                            <div class="mb-4">
-                                <a class="" href="{{ route('login') }}">{{ __('Уже зарегистрированы?') }}</a>
-                            </div>
-                            <div class="mb-4">
-                                <button type="submit" class="btn btn-danger ml-4">{{ __('Регистрация') }}</button>
-                            </div>
+                    <div class="d-flex flex-column mb-4 mt-4">
+                        <div class="mb-4 flex-grow-1">
+                            <button type="submit" class="btn btn-danger w-100">{{ __('Регистрация') }}</button>
                         </div>
-                    </form>
-                </div>
+                        <a class="text-decoration-none text-center text-sm text-white dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
+                           href="{{ route('login') }}">{{ __('Уже зарегистрированы?') }}</a>
+                    </div>
+                </form>
             </div>
         </div>
     </main>

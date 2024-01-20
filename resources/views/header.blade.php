@@ -57,8 +57,8 @@
                                                 this.closest('form').submit();">{{ __('Выход') }}</a>
                         </form>
                     @else
-                        <a class="navbar-item login" href="{{ route('login') }}">Вход</a>/<a class="navbar-item registration"
-                                                                               href="{{ route('register') }}">регистрация</a>
+                        <div><a class="navbar-item registration" href="{{ route('register') }}">регистрация</a></div>
+                        <div><a class="navbar-item login" href="{{ route('login') }}">Вход</a></div>
                     @endif
                 </div>
             </div>
