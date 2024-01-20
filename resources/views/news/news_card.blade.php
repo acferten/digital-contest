@@ -12,26 +12,33 @@
             <div class="news-card">
                 <div class="row">
                     <div class="col-12 item">
-                        <div class="date">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $news->publication_date)->format('d.m.Y') }}</div>
+                        <div class="date">{{ \Carbon\Carbon::create($news->publication_date)->translatedFormat('d.m.Y') }}</div>
                         <div class="title">{{ $news->title }}</div>
-                        <div class="description">{{ $news->description }}</div>
+                        <div class="description">{{ $news->content }}</div>
                     </div>
                 </div>
                 @if($next || $prev)
                     <div class="row news-nav">
                         <div class="prev">
                             @if($prev)
-                                <a href="{{ route('news.card', ['url' => $prev->url]) }}" class="prev" title="Предыдущая новость"><span class="arrow"></span></a>
+                                <a href="{{ route('news.show', $prev) }}" class="prev" title="Предыдущая новость"><span class="arrow"></span></a>
                             @endif
                         </div>
                         <div class="next">
                             @if($next)
-                                <a href="{{ route('news.card', ['url' => $next->url]) }}" class="next" title="Следующая новость"><span class="arrow"></span></a>
+                                <a href="{{ route('news.show', $next) }}" class="next" title="Следующая новость"><span class="arrow"></span></a>
                             @endif
                         </div>
                     </div>
                 @endif
+                <div class="row">
+                <a href="{{route('news.index')}}">Возврат к списку новостей</a>
+                </div>
             </div>
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
     </main>
 @endsection

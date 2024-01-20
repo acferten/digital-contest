@@ -7,8 +7,8 @@ use Domain\Shared\Models\BaseModel;
 class News extends BaseModel
 {
     protected $fillable = [
-        'id',
         'title',
         'content',
+        'publication_date'
     ];
 }

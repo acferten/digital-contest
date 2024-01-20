@@ -7,7 +7,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h1>Профиль</h1>
+                        @role('admin')
+                        <h1>Профиль администратора</h1>
+                        @else
+                            <h1>Профиль</h1>
+                            @endrole
                     </div>
                     <div class="container profile">
                         <div class="row">
@@ -27,13 +31,34 @@
                                         <br>
                                     </div>
 
+                                    @role('admin')
                                     <div class="col-12">
-                                        <a href="{{ route('works.create') }}" class="btn btn-danger">Добавить работу</a>
+                                        <a href="{{ route('prizes.create') }}" class="btn btn-danger">Добавить
+                                            приз</a>
                                     </div>
+                                    <br>
+                                    <div class="col-12">
+                                        <a href="{{ route('partners.create') }}" class="btn btn-danger">Добавить
+                                            партнера</a>
+                                    </div>
+                                    <br>
+                                    <div class="col-12">
+                                        <a href="{{ route('news.create') }}" class="btn btn-danger">Добавить
+                                            новость</a>
+                                    </div>
+                                    @else
+
+                                        <div class="col-12">
+                                            <a href="{{ route('works.create') }}" class="btn btn-danger">Добавить
+                                                работу</a>
+                                        </div>
+                                        @endrole
+
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     @if($user->works)
                         <div class="container">
                             <div class="row">
@@ -61,6 +86,7 @@
                             </div>
                         </div>
                     @endif
+
                 </div>
             </div>
         </div>

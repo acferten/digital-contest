@@ -45,6 +45,18 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     Route::resource('works', WorkController::class)->except('index', 'show');
 
+    // Admin
+    //----------------------------------
+
+    Route::group(['middleware' => ['role:admin']], function () {
+
+        Route::resource('partners', PartnersController::class)->except('index');
+
+        Route::resource('prizes', PrizesController::class)->except('index');
+
+        Route::resource('news', NewsController::class)->except('index');
+
+    });
 });
 
 // Gallery
@@ -71,9 +83,9 @@ Route::resource('prizes', PrizesController::class)->only('index');
 // Partners
 //----------------------------------
 
-Route::resource('partners', PartnersController::class);
+Route::resource('partners', PartnersController::class)->only('index');
 
 // News
 //----------------------------------
 
-Route::resource('news', NewsController::class);
+Route::resource('news', NewsController::class)->only('index', 'show');
