@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
             WorkSeeder::class,
             PrizeSeeder::class,
             PartnersSeeder::class,
+            NewsSeeder::class
         ]);
     }
 }
