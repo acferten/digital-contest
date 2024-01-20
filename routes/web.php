@@ -3,6 +3,7 @@
 use App\Http\Controllers\News\NewsController;
 use App\Http\Controllers\Partners\PartnersController;
 use App\Http\Controllers\Prizes\PrizesController;
+use App\Http\Controllers\Products\ProductController;
 use App\Http\Controllers\Shared\ContentController;
 use App\Http\Controllers\Shared\PagesController;
 use App\Http\Controllers\User\ProfileController;
@@ -60,6 +61,10 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::post('contents/{content}/update', [ContentController::class, 'update'])->name('contents.update');
 
         Route::get('contents/{content}/edit', [ContentController::class, 'edit'])->name('contents.edit');
+
+        Route::post('products/{product}/update', [ProductController::class, 'update'])->name('products.update');
+
+        Route::get('products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
     });
 });
 

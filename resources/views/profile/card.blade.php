@@ -46,6 +46,15 @@
                                         <a href="{{ route('news.create') }}" class="btn btn-danger">Добавить
                                             новость</a>
                                     </div>
+                                    <br>
+                                    <div class="col-12">
+                                        <a href="{{ route('products.edit', 2) }}" class="btn btn-danger">Изменить цену голосования</a>
+                                    </div>
+                                    <br>
+                                    <div class="col-12">
+                                        <a href="{{ route('products.edit', 1) }}" class="btn btn-danger">Изменить цену размещения</a>
+                                    </div>
+
                                     @else
 
                                         <div class="col-12">
