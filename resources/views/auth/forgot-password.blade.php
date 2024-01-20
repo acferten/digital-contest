@@ -1,10 +1,8 @@
 @extends('layout')
-@section('title', 'Добавление приза')
+@section('title', 'Забыли пароль?')
 @section('body_type', 'background_type6')
 @section('content')
     <main class="flex-grow-1">
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
         <div class="container">
             <div class="row">
                 <div class="col-md-8 offset-md-2 register_form site_form">
@@ -26,7 +24,8 @@
                                 @enderror
                             </div>
                         </div>
-
+                        <!-- Session Status -->
+                        <x-auth-session-status class="mb-4" :status="session('status')" />
                         <div class="d-flex justify-content-between flex-wrap mt-4">
                             <div class="mb-4">
                                 <button type="submit" class="btn btn-danger ml-4">{{ __('Добавить') }}</button>
