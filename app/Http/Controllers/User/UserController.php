@@ -13,11 +13,17 @@ class UserController extends Controller
 {
     public function index(): View
     {
-        $letters = User::select(DB::raw('SUBSTRING(last_name, 1, 1) as letter'))->groupBy('letter')->orderBy('letter')->get();
-        $users = User::select(DB::raw('id, last_name, first_name, username, SUBSTRING(last_name, 1, 1) as letter'))->orderBy('last_name')->get();
+        $letters = User::select(DB::raw('SUBSTRING(last_name, 1, 1) as letter'))
+            ->groupBy('letter')
+            ->orderBy('letter')
+            ->get();
 
+        $users = User::select(DB::raw('id, last_name, first_name, username, SUBSTRING(last_name, 1, 1) as letter'))
+            ->orderBy('last_name')
+            ->get();
 
         $user_group = collect();
+
         foreach ($users as $user) {
             $letter = $user->letter;
             if (! $user_group->has($letter)) {
@@ -32,7 +38,7 @@ class UserController extends Controller
             });
         }
 
-        return view('participants', ['letters' => $letters, 'user_group' => $user_group]);
+        return view('participants.participants', ['letters' => $letters, 'user_group' => $user_group]);
     }
 
     public function rating(): View
@@ -41,24 +47,14 @@ class UserController extends Controller
             'works' => Work::all(),
         ];
 
-        return view('participants_rating', $data);
-    }
-
-    public function create()
-    {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //
+        return view('participants.participants_rating', $data);
     }
 
     public function show(int $id): View
     {
         $user = User::find($id);
 
-        return view('profile.card', [
+        return view('participants.participant_card', [
             'user' => $user,
         ]);
     }

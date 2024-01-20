@@ -23,7 +23,10 @@
                                 <div class="row">
                                     <div class="col-12">
                                         {{ $user->email }}
+                                        <br>
+                                        <br>
                                     </div>
+
                                     <div class="col-12">
                                         <a href="{{ route('works.create') }}" class="btn btn-danger">Добавить работу</a>
                                     </div>
@@ -31,7 +34,7 @@
                             </div>
                         </div>
                     </div>
-                    @if($user->work)
+                    @if($user->works)
                         <div class="container">
                             <div class="row">
                                 <h2>Работы</h2>
@@ -41,7 +44,7 @@
                                             <div class="col-lg-3 col-md-4 col-sm-6 col-12 item">
                                                 <div class="img">
                                                     <img
-                                                        src=""
+                                                        src="{{$work->getWorkFileUrl()}}"
                                                         alt="{{ $work->title }}">
                                                 </div>
                                                 <div class="row">
@@ -49,9 +52,6 @@
                                                         <div class="title"><a
                                                                 href="{{ route('works.show', [$work->id]) }}">{{ $work->title }}</a>
                                                         </div>
-                                                    </div>
-                                                    <div class="col">
-                                                        <a href="" class="btn btn-danger float-end js-gallery-vote">Голосовать</a>
                                                     </div>
                                                 </div>
                                             </div>
