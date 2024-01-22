@@ -28,7 +28,7 @@
                         </div>
                     </div>
                 </div>
-                @if($user->works)
+                @if($user->works->isNotEmpty())
                 <div class="container">
                     <br>
                     <div class="row">

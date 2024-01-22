@@ -68,7 +68,7 @@
                         </div>
                     </div>
 
-                    @if($user->works)
+                    @if($user->works->isNotEmpty())
                         <div class="container">
                             <div class="row">
                                 <h2>Работы</h2>

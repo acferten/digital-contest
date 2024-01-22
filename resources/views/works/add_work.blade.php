@@ -23,7 +23,7 @@
 
                         <!-- Year -->
                         <div class="mb-3 row">
-                            <label for="title" class="col-xl-3 col-xxl-2 col-form-label required">{{ __('Год создания') }}</label>
+                            <label for="year" class="col-xl-3 col-xxl-2 col-form-label required">{{ __('Год создания') }}</label>
                             <div class="col-xl-9 col-xxl-10">
                                 <input type="number" min="2000" max="{{date("Y")}}" name="year" class="form-control-plaintext" id="year"
                                        value="{{ old('year') }}" required>
@@ -35,7 +35,7 @@
 
                         <!-- Genre -->
                         <div class="mb-3 row">
-                            <label for="type" class="col-xl-3 col-xxl-2 col-form-label required">{{ __('Категория') }}</label>
+                            <label for="genre" class="col-xl-3 col-xxl-2 col-form-label required">{{ __('Категория') }}</label>
                             <div class="col-xl-9 col-xxl-10">
                                 <select name="genre_id" id="genre" class="form-select" aria-label="Форма" required>
                                     @foreach($genres as $genre)
