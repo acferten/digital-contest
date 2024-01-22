@@ -727,6 +727,15 @@ footer a {
     max-height: 100%
 }
 
+
+.profile .profile_photo img:hover + .btn-hide, .btn-hide:hover {
+    display: inline-block;
+}
+
+.btn-hide {
+    display: none;
+}
+
 .profile .profile_data {
     font-weight: 700;
     font-size: 2.5rem;

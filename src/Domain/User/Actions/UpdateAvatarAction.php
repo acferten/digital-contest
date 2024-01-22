@@ -15,7 +15,7 @@ class UpdateAvatarAction
         }
 
         $user->update([
-            'profile_picture' => $data->avatar->storePublicly('', ['disk' => 'profile_picture']),
+            'profile_picture' => $data->avatar->storePublicly('', ['disk' => 'profile_pictures']),
         ]);
     }
 }

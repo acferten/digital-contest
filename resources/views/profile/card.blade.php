@@ -17,6 +17,9 @@
                         <div class="row">
                             <div class="col-lg-3 col-md-4 col-sm-12 col-12 profile_photo">
                                 <img src="{{ $user->getProfilePictureUrl() }}" alt="profile picture">
+
+                                    <a href="{{ route('avatar.edit') }}" class="btn btn-danger btn-hide">Обновить фотографию</a>
+
                             </div>
                             <div class="offset-lg-1 col-lg-8 col-md-8 col-sm-12 col-12 profile_data">
                                 <div class="name">

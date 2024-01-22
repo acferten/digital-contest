@@ -7,6 +7,7 @@ use App\Http\Controllers\Products\ProductController;
 use App\Http\Controllers\Shared\ContentController;
 use App\Http\Controllers\Shared\PagesController;
 use App\Http\Controllers\User\ProfileController;
+use App\Http\Controllers\User\UserAvatarController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Work\VoteForWorkController;
 use App\Http\Controllers\Work\WorkController;
@@ -34,13 +35,17 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     // Profile
     //----------------------------------
 
-    Route::get('/profile', [ProfileController::class, 'card'])->name('profile.card');
+    Route::get('profile', [ProfileController::class, 'card'])->name('profile.card');
 
-    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
 
-    Route::patch('/profile/edit', [ProfileController::class, 'update'])->name('profile.update');
+    Route::patch('profile/edit', [ProfileController::class, 'update'])->name('profile.update');
 
-    Route::delete('/profile/edit', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::delete('profile/edit', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::post('avatar', [UserAvatarController::class, 'update'])->name('avatar.update');
+
+    Route::get('profile/avatar', [UserAvatarController::class, 'edit'])->name('avatar.edit');
 
     // Works
     //----------------------------------

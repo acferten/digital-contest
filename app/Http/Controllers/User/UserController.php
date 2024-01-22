@@ -26,7 +26,7 @@ class UserController extends Controller
 
         foreach ($users as $user) {
             $letter = $user->letter;
-            if (! $user_group->has($letter)) {
+            if (!$user_group->has($letter)) {
                 $user_group->put($letter, []);
             }
             $user_group->transform(function ($item, $key) use ($letter, $user) {
@@ -44,7 +44,7 @@ class UserController extends Controller
     public function rating(): View
     {
         $data = [
-            'works' => Work::all(),
+            'works' => Work::all()->load('votes')->sortByDesc(fn($work) => $work->votes->count())
         ];
 
         return view('participants.participants_rating', $data);
