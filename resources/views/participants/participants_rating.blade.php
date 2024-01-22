@@ -33,7 +33,7 @@
                         </div>
                         <div class="col-md-2 voices">
                             <div class="number">{{ $work->votes()->count() }}</div>
-                            {{ "'голос', 'голоса', 'голосов')" }}
+                            {{ trans_choice('validation.votes', $work->votes()->count()) }}
                         </div>
                     </div>
                 @endforeach

@@ -24,7 +24,7 @@ Route::get('feedback', [PagesController::class, 'feedback'])->name('feedback');
 Route::get('how_to_become_a_member', [PagesController::class, 'how_to_become_a_member'])
     ->name('how_to_become_a_member');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 // Auth
 //----------------------------------
@@ -60,13 +60,10 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
         Route::resource('news', NewsController::class)->except('index');
 
-        Route::post('contents/{content}/update', [ContentController::class, 'update'])->name('contents.update');
+        Route::resource('contents', ContentController::class)->only('edit', 'update');
 
-        Route::get('contents/{content}/edit', [ContentController::class, 'edit'])->name('contents.edit');
+        Route::resource('products', ProductController::class)->only('edit', 'update');
 
-        Route::post('products/{product}/update', [ProductController::class, 'update'])->name('products.update');
-
-        Route::get('products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
     });
 });
 

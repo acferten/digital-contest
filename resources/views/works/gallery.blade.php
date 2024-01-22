@@ -35,14 +35,14 @@
                                         >{{ $work->title }}</a>
                                     </div>
                                     <div class="description">
-                                        <span class="js-work__rating js-work_{{ $work->id }}_rating">{{ $work->votes()->count() }}</span> голосов</div>
+                                        <span class="js-work__rating js-work_{{ $work->id }}_rating">{{ $work->votes()->count() }}</span> {{ trans_choice('validation.votes', $work->votes()->count()) }}</div>
                                 </div>
-{{--                                <div class="col">--}}
-{{--                                    <form method="POST" action="{{ route('vote', [$work->id]) }}">--}}
-{{--                                        @csrf--}}
-{{--                                        <button type="submit" class="btn btn-danger float-end">Голосовать</button>--}}
-{{--                                    </form>--}}
-{{--                                </div>--}}
+                                <div class="col">
+                                    <form method="POST" action="{{ route('vote', [$work->id]) }}">
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger float-end">Голосовать</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     @endforeach

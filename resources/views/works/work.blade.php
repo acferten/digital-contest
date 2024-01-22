@@ -24,8 +24,7 @@
                                         <div
                                             class="work__rating js-work__rating js-work_{{ $work->id }}_rating">{{$work->votes()->count()}}</div>
                                         <div
-                                            class="work__rating-unit">голосов
-                                        </div>
+                                            class="work__rating-unit">{{ trans_choice('validation.votes', $work->votes()->count()) }}</div>
                                     </div>
                                     <div class="col">
                                         <form method="POST" action="{{ route('vote', [$work->id]) }}">
