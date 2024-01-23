@@ -15,7 +15,7 @@ class NewsController extends Controller
     public function index(): View
     {
         $data = [
-            'news' => News::all(),
+            'news' => News::all()->sortByDesc('publication_date'),
         ];
 
         return view('news.news', $data);

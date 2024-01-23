@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property string $name
- * @property int $id
  */
 class Genre extends BaseModel
 {

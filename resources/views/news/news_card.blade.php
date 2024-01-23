@@ -29,10 +29,11 @@
                                 <a href="{{ route('news.show', $next) }}" class="next" title="Следующая новость"><span class="arrow"></span></a>
                             @endif
                         </div>
+
                     </div>
                 @endif
-                <div class="row">
-                <a href="{{route('news.index')}}">Возврат к списку новостей</a>
+                <div class="row" style="margin-top:100px">
+                    <a href="{{route('news.index')}}" class="next">Возврат к списку новостей</a>
                 </div>
             </div>
         </div>
