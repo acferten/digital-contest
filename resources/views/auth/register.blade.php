@@ -4,10 +4,10 @@
     <div style="background-color:black;" id="background"></div>
 
 
-    {{--    <video autoplay muted loop id="background">--}}
-    {{--        <source src="/dist/video/ArtNFT_Fon1_Gorizont.mp4" type="video/mp4">--}}
-    {{--        Your browser does not support HTML5 video.--}}
-    {{--    </video>--}}
+        <video autoplay muted loop id="background">
+            <source src="/dist/video/ArtNFT_Fon1_Gorizont.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
 @endsection
 @section('content')
     <main class="d-flex flex-column flex-grow-1">
