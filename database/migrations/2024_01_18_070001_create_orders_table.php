@@ -9,7 +9,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->id();
+            $table->bigInteger('id')->autoIncrement();
             $table->bigInteger('product_id');
             $table->bigInteger('user_id');
             $table->bigInteger('work_id');

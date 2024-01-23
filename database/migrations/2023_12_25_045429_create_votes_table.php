@@ -9,7 +9,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('votes', function (Blueprint $table) {
-            $table->id();
+            $table->bigInteger('id')->autoIncrement();
 
             $table->bigInteger('user_id');
             $table->bigInteger('work_id');
