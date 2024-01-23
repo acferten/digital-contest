@@ -6,6 +6,7 @@ use Domain\Shared\Models\BaseModel;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
+ * @property integer $id
  * @property string $name
  */
 class Genre extends BaseModel
