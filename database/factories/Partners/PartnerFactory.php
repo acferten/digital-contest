@@ -12,7 +12,7 @@ class PartnerFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
+            'name' => fake()->company(),
             'logo' => fake()->randomElement(['logo'.fake()->numberBetween(1, 3).'.jpg', 'logo4.png']),
         ];
     }
