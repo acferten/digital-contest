@@ -27,9 +27,7 @@
                                 <input type="email" name="email" class="form-control-plaintext" id="email"
                                        value="{{ old('email') }}" required>
                                 @error('email')
-                                <p class="invalid-feedback">
-                                    {{ $message }}
-                                </p>
+                                <p style="color:red; font-weight: bold">{{$message}}</p>
                                 @enderror
                             </div>
                         </div>
@@ -41,9 +39,7 @@
                                 <input type="password" name="password" class="form-control-plaintext" id="password"
                                        value="" required>
                                 @error('password')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                <p style="color:red; font-weight: bold">{{$message}}</p>
                                 @enderror
                             </div>
                         </div>
