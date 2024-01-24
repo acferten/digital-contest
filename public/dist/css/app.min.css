@@ -84,7 +84,22 @@ main {
 main h1 {
     font-size: calc(1rem + 9vw);
     font-weight: 700;
-    text-transform: uppercase
+    text-transform: uppercase;
+    letter-spacing: 28px;
+}
+
+.work-title {
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: 28.8px;
+    margin: unset;
+    word-wrap: break-word;
+}
+
+.subtitle {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 7.2px;
 }
 
 .background_type5 main h1 {
@@ -450,34 +465,6 @@ footer a {
     text-transform: uppercase
 }
 
-.work {
-    color: #000
-}
-
-.work .work_photo .img {
-    width: 100%;
-    height: 200px;
-    margin-bottom: 25px;
-    overflow: hidden
-}
-
-.work .work_photo .img img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    -o-object-fit: cover;
-    object-fit: cover;
-    -webkit-transition: 1s;
-    -o-transition: 1s;
-    transition: 1s
-}
-
-.work .work_photo .img img:hover {
-    -webkit-transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    transform: scale(1.2)
-}
-
 .work .work_photo .work__rating {
     font-size: 1.5rem;
     line-height: 1;
@@ -496,10 +483,11 @@ footer a {
 }
 
 .work .work_data .name {
-    font-size: 4.3rem;
-    line-height: 4.8rem;
-    text-wrap: balance;
-    margin-bottom: 44px
+    font-weight: 800;
+    font-size: 2rem;
+    letter-spacing: 0.5rem;
+    line-height: normal;
+    /*text-wrap: balance; */
 }
 
 .work .work_data .work__other-work {
@@ -517,6 +505,7 @@ footer a {
 
 .work .work_data .work__other-work li a {
     color: #000;
+    letter-spacing: 0.5rem;
     text-decoration: none
 }
 
