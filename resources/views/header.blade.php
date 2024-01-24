@@ -1,7 +1,7 @@
-<header class="p-3 mb-auto">
-    <div class="container-fluid">
+<header class="py-3 mb-auto">
+    <div class="container">
         <nav class="navbar navbar-dark" aria-label="Tenth navbar example">
-            <div class="container-fluid position-relative">
+            <div class="w-100 d-flex justify-content-between position-relative">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbar_header" aria-controls="navbar_header" aria-expanded="false"
                         aria-label="Toggle navigation">

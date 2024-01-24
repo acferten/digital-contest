@@ -5,7 +5,8 @@ body {
 }
 
 body * {
-    letter-spacing: .1rem
+    letter-spacing: .1rem;
+    font-family: "Inter", sans-serif;
 }
 
 #background {
@@ -100,7 +101,7 @@ footer {
     font-size: 24px;
     font-weight: 700;
     text-transform: uppercase;
-    border-top: 17px solid #d9d9d9
+    border-top: 9px solid #d9d9d9;
 }
 
 .background_type4 footer, .background_type4_1 footer, .background_type5 footer, .background_type6 footer {
@@ -113,8 +114,7 @@ footer {
 }
 
 footer div.col {
-    height: 35px;
-    padding: 0
+    padding: 0;
 }
 
 footer div.col + div.col {
@@ -135,9 +135,10 @@ footer a {
     text-transform: uppercase
 }
 
-.main-text .first-block {
+.main-text .first-block, .main-text .first-block i {
     font-size: calc(1rem + 8vw);
-    line-height: 1;
+    letter-spacing: 0.25rem;
+    line-height: normal;
     font-weight: 700
 }
 
@@ -675,8 +676,9 @@ footer a {
         margin-bottom: 20px
     }
 
-    .main-text .first-block {
-        font-size: 3.5rem
+    .main-text .first-block, .main-text .first-block i {
+        font-size: 4rem;
+        letter-spacing: 0.5rem;
     }
 
     .main-text .second-block {
@@ -701,8 +703,9 @@ footer a {
         margin-bottom: 40px
     }
 
-    .main-text .first-block {
-        font-size: 4rem
+    .main-text .first-block, .main-text .first-block i {
+        font-size: 2.5rem;
+        letter-spacing: 0.75rem;
     }
 
     .main-text .second-block {
@@ -710,11 +713,11 @@ footer a {
     }
 
     footer div.col + div.col {
-        border-left: 10px solid #d9d9d9
+        border-left: 9px solid #d9d9d9;
     }
 
     .background_type4 footer div.col + div.col, .background_type4_1 footer div.col + div.col, .background_type5 footer div.col + div.col, .background_type6 footer div.col + div.col {
-        border-left-color: #000
+        border-left-color: #000;
     }
 }
 
@@ -724,12 +727,13 @@ footer a {
         margin-bottom: 60px
     }
 
-    .main-text .first-block {
-        font-size: 5rem
+    .main-text .first-block, .main-text .first-block i {
+        font-size: 3.5rem;
+        letter-spacing: 1rem;
     }
 
     .main-text .second-block {
-        font-size: 1.8rem
+        font-size: 1.4rem
     }
 }
 
@@ -739,12 +743,13 @@ footer a {
         margin-bottom: 80px
     }
 
-    .main-text .first-block {
-        font-size: 6.5rem
+    .main-text .first-block, .main-text .first-block i {
+        font-size: 4.5rem;
+        letter-spacing: 1.25rem;
     }
 
     .main-text .second-block {
-        font-size: 2rem
+        font-size: 1.6rem
     }
 }
 
@@ -754,8 +759,9 @@ footer a {
         margin-bottom: 100px
     }
 
-    .main-text .first-block {
-        font-size: 7rem
+    .main-text .first-block, .main-text .first-block i {
+        font-size: 5rem;
+        letter-spacing: 1.25rem;
     }
 
     .main-text .second-block {
