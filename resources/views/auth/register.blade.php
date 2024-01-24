@@ -11,10 +11,10 @@
 @endsection
 @section('content')
     <main class="d-flex flex-column flex-grow-1">
-        <div class="container gap-4 d-flex flex-column justify-content-center align-items-center flex-grow-1">
+        <div class="container gap-4 d-flex flex-column justify-content-center align-items-center flex-grow-1 main-text">
             <div class="row w-100">
                 <div>
-                    <h2 class="text-center main-text">регистрация</h2>
+                    <h2 class="text-center">регистрация</h2>
                 </div>
             </div>
             <div class="col-md-4 register_form site_form">

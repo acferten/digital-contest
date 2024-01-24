@@ -15,11 +15,10 @@
                     <div class="col-12 col-md-8 mb-4 themed-grid-col first-block">
                         Конкурс <i>цифрового</i> искусства
                     </div>
-                    <div class="col-6 col-md-4 themed-grid-col second-block d-flex align-items-center">
-                        Стань создателем уникальной метавселенной
-                    </div>
                 </div>
-                <div class="row"></div>
+                <div class="themed-grid-col second-block d-flex align-items-center">
+                    Стань создателем уникальной метавселенной
+                </div>
             </div>
         </div>
     </main>

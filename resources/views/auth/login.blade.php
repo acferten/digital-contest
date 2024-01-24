@@ -10,14 +10,14 @@
 @endsection
 @section('content')
     <main class="d-flex flex-column flex-grow-1">
-        <div class="container gap-4 d-flex flex-column justify-content-center align-items-center flex-grow-1">
+        <div class="container gap-4 d-flex flex-column justify-content-center align-items-center flex-grow-1 main-text">
             <div class="row w-100">
                 <div>
-                    <h2 class="text-center main-text">ВХОД</h2>
+                    <h2 class="text-center">вход</h2>
                 </div>
             </div>
             <div class="row w-100">
-                <div class="col-md-4 offset-md-4 login_form site_form">
+                <div class="col-md-4 offset-md-4 lo     gin_form site_form">
                     <form method="POST" action="/login">
                         @csrf
                         <!-- Email Address -->
