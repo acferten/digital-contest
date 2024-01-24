@@ -26,17 +26,14 @@ class NewsController extends Controller
         return view('news.add_news');
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(NewsData $data): RedirectResponse
     {
-        $request->validate(NewsData::rules());
-        $data = NewsData::fromRequest($request);
-
-        News::create([
+        $news = News::create([
             ...$data->all(),
             'publication_date' => now()
         ]);
 
-        return Redirect::route('news.index');
+        return Redirect::route('news.show', $news);
     }
 
     public function show(News $news): View
@@ -51,14 +48,23 @@ class NewsController extends Controller
         return view('news.news_card', ['news' => $news, 'next' => $next, 'prev' => $prev]);
     }
 
-    public function edit(string $id)
+    public function edit(News $news): View
     {
-        //
+        $data = [
+            'news' => $news
+        ];
+
+        return view('news.edit_news', $data);
     }
 
-    public function update(Request $request, string $id)
+    public function update(NewsData $data, News $news): RedirectResponse
     {
-        //
+        $news->update([
+            ...$data->all(),
+            'publication_date' => now()
+        ]);
+
+        return Redirect::route('news.show', $news);
     }
 
     public function destroy(string $id)
