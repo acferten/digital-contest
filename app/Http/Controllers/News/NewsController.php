@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Domain\News\DataTransferObjects\NewsData;
 use Domain\News\Models\News;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
@@ -30,7 +29,7 @@ class NewsController extends Controller
     {
         $news = News::create([
             ...$data->all(),
-            'publication_date' => now()
+            'publication_date' => now(),
         ]);
 
         return Redirect::route('news.show', $news);
@@ -51,7 +50,7 @@ class NewsController extends Controller
     public function edit(News $news): View
     {
         $data = [
-            'news' => $news
+            'news' => $news,
         ];
 
         return view('news.edit_news', $data);
@@ -61,7 +60,7 @@ class NewsController extends Controller
     {
         $news->update([
             ...$data->all(),
-            'publication_date' => now()
+            'publication_date' => now(),
         ]);
 
         return Redirect::route('news.show', $news);

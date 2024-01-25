@@ -13,7 +13,7 @@ class ContentFactory extends Factory
     {
         return [
             'for' => fake()->word(),
-            'text' => fake()->realTextBetween(300,400),
+            'text' => fake()->realTextBetween(300, 400),
         ];
     }
 }

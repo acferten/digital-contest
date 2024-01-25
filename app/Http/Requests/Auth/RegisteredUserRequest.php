@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests\Auth;
 
-use Domain\Shared\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
 
 class RegisteredUserRequest extends FormRequest
@@ -21,8 +21,8 @@ class RegisteredUserRequest extends FormRequest
         return [
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
-            'username' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'username' => ['required', 'string', 'max:255', Rule::unique('users')],
+            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')],
             'password' => ['required', 'confirmed', Password::defaults()],
             'profile_picture' => ['nullable', 'mimes:'.$allowedTypes, 'max:'.$maxSize],
             'about' => ['nullable', 'string'],

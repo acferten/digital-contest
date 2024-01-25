@@ -93,31 +93,6 @@
                             @enderror
                         </div>
                     </div>
-                    {{--                    <!-- profile_picture -->--}}
-                    {{--                    <div class="mb-3">--}}
-                    {{--                        <label for="profile_picture"--}}
-                    {{--                               class="col-form-label">{{ __('Фото/аватар') }}</label>--}}
-                    {{--                        <div>--}}
-                    {{--                            <input type="file" name="profile_picture" class="form-control-plaintext"--}}
-                    {{--                                   id="profile_picture"--}}
-                    {{--                                   value="">--}}
-                    {{--                            @error('profile_picture')--}}
-                    {{--                            <p style="color:red; font-weight: bold">{{$message}}</p>--}}
-                    {{--                            @enderror--}}
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
-                    {{--                    <!-- about -->--}}
-                    {{--                    <div class="mb-3">--}}
-                    {{--                        <label for="about"--}}
-                    {{--                               class="col-form-label">{{ __('Краткая информация о себе') }}</label>--}}
-                    {{--                        <div>--}}
-                    {{--                                <textarea name="about" class="form-control" id="about"--}}
-                    {{--                                          rows="3">{{ old('about') }}</textarea>--}}
-                    {{--                            @error('about')--}}
-                    {{--                            <p style="color:red; font-weight: bold">{{$message}}</p>--}}
-                    {{--                            @enderror--}}
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
 
                     <div class="d-flex flex-column mb-4 mt-4">
                         <div class="mb-4 flex-grow-1">

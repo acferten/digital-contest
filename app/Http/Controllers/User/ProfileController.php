@@ -4,9 +4,11 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Http\Requests\SecurityProfileDataRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
@@ -30,13 +32,27 @@ class ProfileController extends Controller
     {
         $request->user()->fill($request->validated());
 
+        $request->user()->save();
+
+        return Redirect::route('profile.card')->with('status', 'profile-updated');
+    }
+
+    public function security(SecurityProfileDataRequest $request): RedirectResponse
+    {
+        $request->user()->fill([
+            'email' => $request->validated('email') ?
+                $request->validated('email') : $request->user()->email,
+            'password' => $request->validated('password') ?
+                Hash::make($request->validated('password')) : $request->user()->password,
+        ]);
+
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('profile.card')->with('status', 'profile-updated');
     }
 
     public function destroy(Request $request): RedirectResponse

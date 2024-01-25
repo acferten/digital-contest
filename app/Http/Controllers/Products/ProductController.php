@@ -12,7 +12,7 @@ class ProductController extends Controller
     public function edit(Product $product): View
     {
         $data = [
-            'product' => $product
+            'product' => $product,
         ];
 
         return view('products.edit', $data);
@@ -21,11 +21,11 @@ class ProductController extends Controller
     public function update(Product $product, Request $request): View
     {
         $request->validate([
-           'price' => 'required|int|max:2000'
+            'price' => 'required|int|max:2000',
         ]);
 
         $product->update([
-            'price' => $request->input('price')
+            'price' => $request->input('price'),
         ]);
 
         return view('main');

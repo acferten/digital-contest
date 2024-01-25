@@ -12,9 +12,9 @@ class NewsFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->realTextBetween(50,180),
-            'content' => fake()->realTextBetween(200,500),
-            'publication_date' => fake()->dateTimeBetween('-2 years', 'now')
+            'title' => fake()->realTextBetween(50, 180),
+            'content' => fake()->realTextBetween(200, 500),
+            'publication_date' => fake()->dateTimeBetween('-2 years', 'now'),
         ];
     }
 }

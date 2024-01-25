@@ -15,6 +15,6 @@ class News extends BaseModel
     protected $fillable = [
         'title',
         'content',
-        'publication_date'
+        'publication_date',
     ];
 }

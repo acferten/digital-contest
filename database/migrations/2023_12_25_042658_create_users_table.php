@@ -10,11 +10,11 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigInteger('id')->autoIncrement();
-            $table->string('email');
+            $table->string('email')->unique();
             $table->string('first_name');
             $table->string('last_name');
             $table->string('profile_picture')->default('default.jpg');
-            $table->string('username');
+            $table->string('username')->unique();
             $table->string('password');
             $table->text('about')->nullable();
             $table->timestamp('email_verified_at')->nullable();

@@ -25,7 +25,7 @@ Route::get('feedback', [PagesController::class, 'feedback'])->name('feedback');
 Route::get('how_to_become_a_member', [PagesController::class, 'how_to_become_a_member'])
     ->name('how_to_become_a_member');
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';
 
 // Auth
 //----------------------------------
@@ -40,6 +40,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
 
     Route::patch('profile/edit', [ProfileController::class, 'update'])->name('profile.update');
+
+    Route::patch('profile/security/edit', [ProfileController::class, 'security'])->name('profile.security');
 
     Route::delete('profile/edit', [ProfileController::class, 'destroy'])->name('profile.destroy');
 

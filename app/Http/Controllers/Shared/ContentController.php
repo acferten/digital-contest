@@ -12,7 +12,7 @@ class ContentController extends Controller
     public function edit(Content $content): View
     {
         $data = [
-            'content' => $content
+            'content' => $content,
         ];
 
         return view('contents.edit', $data);
@@ -21,7 +21,7 @@ class ContentController extends Controller
     public function update(Content $content, Request $request): View
     {
         $content->update([
-            'text' => $request->input('text')
+            'text' => $request->input('text'),
         ]);
 
         return view('main');

@@ -27,13 +27,13 @@ use Spatie\Permission\Traits\HasRoles;
  * @property Collection $works
  * @property Collection $votes
  */
-class User extends Authenticatable implements MustVerifyEmail, \Illuminate\Contracts\Auth\CanResetPassword
+class User extends Authenticatable implements \Illuminate\Contracts\Auth\CanResetPassword, MustVerifyEmail
 {
+    use CanResetPassword;
     use HasApiTokens;
     use HasFactory;
     use HasRoles;
     use Notifiable;
-    use CanResetPassword;
 
     protected $fillable = [
         'first_name',

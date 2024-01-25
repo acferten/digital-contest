@@ -17,7 +17,7 @@ class PartnersController extends Controller
     {
         $data = [
             'partners' => Partner::all(),
-            'content' => Content::where(['for' => 'partners'])->first()
+            'content' => Content::where(['for' => 'partners'])->first(),
         ];
 
         return view('partners.partners', $data);

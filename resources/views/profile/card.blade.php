@@ -7,11 +7,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        @role('admin')
-                        <h1>Профиль администратора</h1>
-                        @else
                             <h1>Профиль</h1>
-                            @endrole
                     </div>
                     <div class="container profile">
                         <div class="row">
@@ -19,6 +15,8 @@
                                 <img src="{{ $user->getProfilePictureUrl() }}" alt="profile picture">
 
                                     <a href="{{ route('avatar.edit') }}" class="mt-4 w-100 btn btn-danger">Обновить фотографию</a>
+
+                                    <a href="{{ route('profile.edit') }}" class="mt-4 w-100 btn btn-danger">Редактировать профиль</a>
 
                             </div>
                             <div class="offset-lg-1 col-lg-8 col-md-8 col-sm-12 col-12 profile_data">
