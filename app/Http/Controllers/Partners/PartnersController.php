@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Partners;
 use App\Http\Controllers\Controller;
 use Domain\Partners\DataTransferObjects\PartnerData;
 use Domain\Partners\Models\Partner;
+use Domain\Shared\Models\Content;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -16,6 +17,7 @@ class PartnersController extends Controller
     {
         $data = [
             'partners' => Partner::all(),
+            'content' => Content::where(['for' => 'partners'])->first()
         ];
 
         return view('partners.partners', $data);

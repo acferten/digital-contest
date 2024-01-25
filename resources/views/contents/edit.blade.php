@@ -15,7 +15,7 @@
             <div class="row">
                 <div class="col-md-8 offset-md-2 register_form site_form">
                     <form method="POST" action="{{ route('contents.update', $content) }}">
-
+                        <input type="hidden" name="_method" value="PATCH">
                         @csrf
 
                         <!-- text -->

@@ -17,9 +17,15 @@
                 </div>
 
                 <div class="row">
-                    <p>Pltcnsdf  sdfsdfsdafsdfasd adsf sad fasd fads fasd fsda fasd
-                        fdsafvxcvbcvxb fghg fjhd fgsdgds ds
-                        sd fsdfsd fdsfdsfsa dfsd</p>
+                    <p>{{$content->text}}</p>
+                </div>
+                @role('admin')
+                <div class="col-12">
+                    <a href="{{ route('contents.edit', $content ) }}" class="btn btn-danger">Редактировать
+                        текст</a>
+                </div>
+                <br>
+                @endrole
                 </div>
             </div>
         </div>
