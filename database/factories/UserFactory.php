@@ -18,7 +18,7 @@ class UserFactory extends Factory
             'password' => Hash::make('password'),
             'email' => fake()->email,
             'about' => fake()->realTextBetween(200, 300),
-            'username' => 'username',
+            'username' => fake()->userName,
             'profile_picture' => 'default.jpg',
         ];
     }
