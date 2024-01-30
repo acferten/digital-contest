@@ -3,6 +3,7 @@
 namespace Domain\Shared\Models;
 
 use Database\Factories\UserFactory;
+use Domain\Products\Models\Product;
 use Domain\Work\Models\Work;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -24,8 +25,9 @@ use Spatie\Permission\Traits\HasRoles;
  * @property string $email
  * @property string $about
  * @property string $profile_picture
- * @property Collection $works
- * @property Collection $votes
+ * @property Collection<Work> $works
+ * @property Collection<Product> $orders
+ * @property Collection<Work> $votes
  */
 class User extends Authenticatable implements \Illuminate\Contracts\Auth\CanResetPassword, MustVerifyEmail
 {
@@ -68,5 +70,11 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\CanRese
     public function votes(): belongsToMany
     {
         return $this->belongsToMany(Work::class, 'votes');
+    }
+
+    public function orders(): BelongsToMany
+    {
+        return $this->belongsToMany(Product::class, 'orders')
+            ->withPivot('work_id')->withTimestamps();
     }
 }

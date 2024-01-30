@@ -8,10 +8,11 @@ use Spatie\LaravelData\Data;
 class NewsData extends Data
 {
     public function __construct(
-        public readonly ?int $id,
+        public readonly ?int   $id,
         public readonly string $title,
         public readonly string $content,
-    ) {
+    )
+    {
     }
 
     public static function fromRequest(Request $request): self

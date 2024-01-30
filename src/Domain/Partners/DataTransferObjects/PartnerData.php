@@ -10,10 +10,11 @@ use Spatie\LaravelData\Data;
 class PartnerData extends Data
 {
     public function __construct(
-        public readonly ?int $id,
-        public readonly string $name,
+        public readonly ?int                $id,
+        public readonly string              $name,
         public readonly UploadedFile|string $logo,
-    ) {
+    )
+    {
     }
 
     public static function fromModel(Partner $partner): self

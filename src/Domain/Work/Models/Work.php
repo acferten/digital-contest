@@ -12,6 +12,7 @@ use Spatie\LaravelData\WithData;
 
 /**
  * @property string $title
+ * @property int $id
  * @property string $file
  * @property Genre $genre
  * @property User $user

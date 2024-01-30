@@ -60,6 +60,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     Route::post('orders/payment', [OrderPaymentController::class, 'result']);
 
+    Route::post('orders/create', [OrderPaymentController::class, 'result']);
+
     // Admin
     //----------------------------------
 
