@@ -3,7 +3,7 @@
 use App\Http\Controllers\News\NewsController;
 use App\Http\Controllers\Partners\PartnersController;
 use App\Http\Controllers\Prizes\PrizesController;
-use App\Http\Controllers\Products\OrderPaymentController;
+use App\Http\Controllers\Products\RobokassaPaymentController;
 use App\Http\Controllers\Products\ProductController;
 use App\Http\Controllers\Shared\ContentController;
 use App\Http\Controllers\Shared\PagesController;
@@ -55,12 +55,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     Route::resource('works', WorkController::class)->except('index', 'show');
 
-    // Products
-    //----------------------------------
-
-    Route::post('orders/payment', [OrderPaymentController::class, 'result']);
-
-    Route::post('orders/create', [OrderPaymentController::class, 'result']);
 
     // Admin
     //----------------------------------

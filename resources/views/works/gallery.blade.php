@@ -3,12 +3,12 @@
 @section('body_type', 'background_type4_1')
 @section('background')
     <video autoplay muted loop id="background">
-        <source src="video/ArtNFT_Fon1_Gorizont.mp4" type="video/mp4">
+        <source src="dist/video/ArtNFT_Fon1_Gorizont.mp4" type="video/mp4">
         Your browser does not support HTML5 video.
     </video>
 @endsection
 @section('content')
-    <main class="flex-grow-1">
+    <main class="flex-grow-1" style="margin-top: -2px">
         <div class="container">
             <div class="row">
                 <div class="col-8">
@@ -20,8 +20,8 @@
             </div>
             <div class="gallery">
                 <div class="row">
-                    @foreach($works as $work)
 
+                    @foreach($works as $work)
                         <div class="col-lg-3 col-md-4 col-sm-6 col-12 item">
                             <div class="img">
                                 <img
@@ -37,7 +37,7 @@
                                     <div class="description">
                                         <span class="js-work__rating js-work_{{ $work->id }}_rating">{{ $work->votes()->count() }}</span> {{ trans_choice('validation.votes', $work->votes()->count()) }}</div>
                                 </div>
-                                <x-vote-button :work="$work"/>
+                                <x-vote-button :$work/>
                             </div>
                         </div>
                     @endforeach

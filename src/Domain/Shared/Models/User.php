@@ -26,7 +26,7 @@ use Spatie\Permission\Traits\HasRoles;
  * @property string $about
  * @property string $profile_picture
  * @property Collection<Work> $works
- * @property Collection<Product> $orders
+ * @property Collection<Product> $payments
  * @property Collection<Work> $votes
  */
 class User extends Authenticatable implements \Illuminate\Contracts\Auth\CanResetPassword, MustVerifyEmail
@@ -72,9 +72,9 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\CanRese
         return $this->belongsToMany(Work::class, 'votes');
     }
 
-    public function orders(): BelongsToMany
+    public function payments(): BelongsToMany
     {
-        return $this->belongsToMany(Product::class, 'orders')
-            ->withPivot('work_id')->withTimestamps();
+        return $this->belongsToMany(Product::class, 'payments')
+            ->withPivot('work_id', 'invoice_id')->withTimestamps();
     }
 }
