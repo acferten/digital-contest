@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Products;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RobokassaPaymentRequest;
 use Domain\Products\Models\Product;
+use Domain\Shared\Models\User;
 use Domain\Work\Models\Work;
 use Illuminate\Support\Facades\Log;
 
@@ -16,7 +17,7 @@ class RobokassaPaymentController extends Controller
 
         $work = Work::find($request->input('Shp_WorkId'));
         $product = Product::find($request->input('Shp_ProductId'));
-        $user = Product::find($request->input('Shp_UserId'));
+        $user = User::find($request->input('Shp_UserId'));
         $inv_id = $request->input('InvId');
         $out_sum = $request->input('OutSum');
         $signature_value = $request->input('SignatureValue');
