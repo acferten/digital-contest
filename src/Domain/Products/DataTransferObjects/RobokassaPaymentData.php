@@ -47,12 +47,4 @@ class RobokassaPaymentData extends Data
             'SignatureValue' => 'required|string'
         ];
     }
-
-    public static function attributes(): array
-    {
-        return [
-            'work_id' => 'идентификатор работы',
-            'product_id' => 'идентификатор товара',
-        ];
-    }
 }
