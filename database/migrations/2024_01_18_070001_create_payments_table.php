@@ -14,7 +14,7 @@ return new class extends Migration
             $table->bigInteger('id')->autoIncrement();
             $table->bigInteger('product_id');
             $table->bigInteger('user_id');
-            $table->bigInteger('invoice_id');
+            $table->bigInteger('invoice_id')->unique();
             $table->bigInteger('work_id');
             $table->enum('status', OrderStatus::values())->default(OrderStatus::Pending->value);
 
