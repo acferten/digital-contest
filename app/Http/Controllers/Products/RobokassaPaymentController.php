@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Products;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RobokassaPaymentRequest;
 use Domain\Products\Enums\OrderStatus;
+use Domain\Products\Enums\ProductEnum;
 use Domain\Products\Models\Product;
 use Domain\Shared\Models\User;
 use Domain\Work\Models\Work;
@@ -28,10 +29,15 @@ class RobokassaPaymentController extends Controller
         if ($my_crc != $signature_value)
         {
             return "bad sign\n";
-            exit();
         }
 
-        $payment->payments()->wherePivot('invoice_id', $inv_id)->updateExistingPivot($user->id, ['status' => OrderStatus::Paid->value]);
+        $payment->payments()
+            ->wherePivot('invoice_id', $inv_id)
+            ->updateExistingPivot($user->id, ['status' => OrderStatus::Paid->value]);
+
+        if ($product->name == ProductEnum::Voting->value){
+            $work->votes()->save($user);
+        }
 
         return "OK$inv_id\n";
     }
