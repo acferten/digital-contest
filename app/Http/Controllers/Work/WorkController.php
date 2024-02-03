@@ -7,6 +7,7 @@ use Domain\Products\Enums\ProductEnum;
 use Domain\Products\Models\Product;
 use Domain\Work\Actions\CreateWorkAction;
 use Domain\Work\DataTransferObjects\WorkData;
+use Domain\Work\Enums\WorkStatus;
 use Domain\Work\Models\Genre;
 use Domain\Work\Models\Work;
 use Illuminate\Http\RedirectResponse;
@@ -19,7 +20,7 @@ class WorkController extends Controller
     public function index(): View
     {
         $data = [
-            'works' => Work::all(),
+            'works' => Work::where('status', WorkStatus::Published->value)->get(),
         ];
 
         return view('works.gallery', $data);
