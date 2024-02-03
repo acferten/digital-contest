@@ -8,6 +8,7 @@ use Domain\Products\Enums\OrderStatus;
 use Domain\Products\Enums\ProductEnum;
 use Domain\Products\Models\Product;
 use Domain\Shared\Models\User;
+use Domain\Work\Enums\WorkStatus;
 use Domain\Work\Models\Work;
 
 class RobokassaPaymentController extends Controller
@@ -37,6 +38,8 @@ class RobokassaPaymentController extends Controller
 
         if ($product->name == ProductEnum::Voting->value){
             $work->votes()->save($user);
+        } else {
+            $work->update(['status'=> WorkStatus::Published->value]);
         }
 
         return "OK$inv_id\n";

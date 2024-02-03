@@ -7,9 +7,9 @@ use Domain\Work\Models\Work;
 
 class CreateWorkAction
 {
-    public static function execute(WorkData $data): void
+    public static function execute(WorkData $data): Work
     {
-        Work::updateOrCreate(
+        return Work::updateOrCreate(
             [
                 'id' => $data->id,
             ],

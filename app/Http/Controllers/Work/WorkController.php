@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Work;
 
 use App\Http\Controllers\Controller;
+use Domain\Products\Enums\ProductEnum;
+use Domain\Products\Models\Product;
 use Domain\Work\Actions\CreateWorkAction;
 use Domain\Work\DataTransferObjects\WorkData;
 use Domain\Work\Models\Genre;
@@ -27,6 +29,7 @@ class WorkController extends Controller
     {
         $data = [
             'genres' => Genre::all(),
+            'price' => Product::where('name', ProductEnum::Publish->value)->first()->price,
         ];
 
         return view('works.add_work', $data);
@@ -37,9 +40,18 @@ class WorkController extends Controller
         $request->validate(WorkData::rules());
         $data = WorkData::fromRequest($request);
 
-        CreateWorkAction::execute($data);
+        $work = CreateWorkAction::execute($data);
 
-        return Redirect::route('gallery');
+        $product = Product::where('name', ProductEnum::Publish->value)->first();
+        $merchant_login = env('ROBOKASSA_LOGIN');
+        $password_1 = env('ROBOKASSA_PASSWORD_1');
+        $description = ProductEnum::Publish->value;
+        $out_sum = $product->price;
+        $user_id = auth()->user()->id;
+        $inv_id = (int)(((int)($work->id . $user_id . time())) / 10000);
+        $signature_value = md5("{$merchant_login}:{$out_sum}:{$inv_id}:{$password_1}:Shp_ProductId={$product->id}:Shp_UserId={$user_id}:Shp_WorkId={$work->id}");
+
+        return Redirect::away("https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin={$merchant_login}&OutSum={$out_sum}&InvId={$inv_id}&Description={$description}&SignatureValue={$signature_value}&Shp_ProductId={$product->id}&Shp_UserId={$user_id}&Shp_WorkId={$work->id}&IsTest=1");
     }
 
     public function show(Work $work): View

@@ -19,6 +19,9 @@ return new class extends Migration
 
             $table->foreign('genre_id')->references('id')->on('genres');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->enum('status', \Domain\Work\Enums\WorkStatus::values())->default(\Domain\Work\Enums\WorkStatus::Pending->value
+            );
+
             $table->timestamps();
         });
     }
