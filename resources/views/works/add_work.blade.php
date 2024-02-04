@@ -53,7 +53,7 @@
                             <label for="file"
                                    class="col-xl-3 col-xxl-2 col-form-label">{{ __('Работа (JPG, GIF, WEBM)') }}</label>
                             <div class="col-xl-9 col-xxl-10">
-                                <input type="file" name="file" class="form-control-plaintext" id="file" required>
+                                <input type="file" name="file" class="form-control" style="border-radius: unset;" id="file" required>
                                 @error('file')
                                 <p class="error"> {{$message}} </p>
                                 @enderror

@@ -48,6 +48,10 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     Route::delete('profile/edit', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::get('profile/works', [ProfileController::class, 'works'])->name('profile.works');
+
+    Route::get('profile/payments', [ProfileController::class, 'payments'])->name('profile.payments');
+
     Route::post('avatar', [UserAvatarController::class, 'update'])->name('avatar.update');
 
     Route::get('profile/avatar', [UserAvatarController::class, 'edit'])->name('avatar.edit');

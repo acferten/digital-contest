@@ -55,6 +55,24 @@ class ProfileController extends Controller
         return Redirect::route('profile.card')->with('status', 'profile-updated');
     }
 
+    public function works(): View
+    {
+       $data = [
+           'works' => auth()->user()->works
+       ];
+
+       return view('profile.works', $data);
+    }
+
+    public function payments(): View
+    {
+        $data = [
+            'payments' => auth()->user()->payments
+        ];
+
+        return view('profile.payments', $data);
+    }
+
     public function destroy(Request $request): RedirectResponse
     {
         $request->validateWithBag('userDeletion', [
