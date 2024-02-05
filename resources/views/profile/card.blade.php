@@ -23,19 +23,6 @@
                                     {{ $user->last_name }}
                                 </div>
 
-                                <div class="d-flex justify-content-between">
-
-                                    <div class="d-flex flex-column justify-content-between py-4 pr-4">
-                                        <a href="{{ route('profile.works') }}">Работы</a>
-                                    </div>
-
-                                    <div class="d-flex flex-column justify-content-between py-4">
-                                        <a href="{{ route('profile.payments') }}">Оплаты</a>
-                                    </div>
-
-                                </div>
-
-
                                 @role('admin')
                                 <a href="{{ route('prizes.create') }}" class="btn btn-danger">Добавить
                                             приз</a>
@@ -52,9 +39,19 @@
                                 <a href="{{ route('products.edit', 1) }}" class="btn btn-danger">Изменить цену
                                     размещения</a>
                                 @else
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex flex-column justify-content-between py-4 pr-4">
+                                            <a href="{{ route('profile.works') }}">Работы</a>
+                                        </div>
+
+                                        <div class="d-flex flex-column justify-content-between py-4">
+                                            <a href="{{ route('profile.payments') }}">Оплаты</a>
+                                        </div>
+                                    </div>
+
                                     <a href="{{ route('works.create') }}" class="btn btn-danger">Добавить
                                                 работу</a>
-                                    @endrole
+                                @endrole
                             </div>
                         </div>
                     </div>
