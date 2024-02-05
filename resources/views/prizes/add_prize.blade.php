@@ -41,7 +41,7 @@
                             <label for="photo"
                                    class="col-xl-3 col-xxl-2 col-form-label required">{{ __('Фото приза') }}</label>
                             <div class="col-xl-9 col-xxl-10">
-                                <input type="file" name="photo" class="form-control-plaintext" id="photo" required>
+                                <input type="file" name="photo" class="form-control" id="photo" required>
                                 @error('photo')
                                 <p class="error"> {{$message}} </p>
                                 @enderror

@@ -25,7 +25,8 @@
                         <div class="mb-3 row">
                             <label for="year" class="col-xl-3 col-xxl-2 col-form-label">{{ __('Год создания') }}</label>
                             <div class="col-xl-9 col-xxl-10">
-                                <input type="number" min="2000" max="{{date("Y")}}" name="year" class="form-control-plaintext" id="year"
+                                <input type="number" min="2000" max="{{date("Y")}}" name="year"
+                                       class="form-control-plaintext" id="year"
                                        value="{{ old('year') }}" required>
                                 @error('year')
                                 <p class="error"> {{$message}} </p>
@@ -53,7 +54,8 @@
                             <label for="file"
                                    class="col-xl-3 col-xxl-2 col-form-label">{{ __('Работа (JPG, GIF, WEBM)') }}</label>
                             <div class="col-xl-9 col-xxl-10">
-                                <input type="file" name="file" class="form-control" style="border-radius: unset;" id="file" required>
+                                <input type="file" name="file" class="form-control" style="border-radius: unset;"
+                                       id="file" required>
                                 @error('file')
                                 <p class="error"> {{$message}} </p>
                                 @enderror

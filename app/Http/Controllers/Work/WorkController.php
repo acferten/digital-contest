@@ -21,6 +21,7 @@ class WorkController extends Controller
     {
         $data = [
             'works' => Work::where('status', WorkStatus::Published->value)->get(),
+            'categories' => Genre::all(),
         ];
 
         return view('works.gallery', $data);

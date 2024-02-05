@@ -9,6 +9,14 @@ body * {
     font-family: "Inter", sans-serif;
 }
 
+input {
+    border-radius: unset !important;
+}
+
+select {
+    border-radius: unset !important;
+}
+
 #background {
     position: fixed;
     right: 0;

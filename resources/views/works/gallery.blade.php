@@ -5,12 +5,33 @@
 @section('background')
 @endsection
 @section('content')
-    <main class="flex-grow-1" style="margin-top: -2px">
+    <main class="flex-grow-1">
         <div class="container">
             <div class="row">
                 <div class="col-8">
                     <h1>Галерея</h1>
                 </div>
+
+                <div class="col-12">
+                    <form method="get" action="{{route('search')}}" class="mb-4">
+                        <div class="d-flex">
+                            <input type="text" name="search" class="form-control" id="search" placeholder="Поиск"
+                            value="{{request('search')}}">
+                            <select name="category" class="form-control" id="category">
+                                <option value="" disabled selected>Категория</option>
+                                @foreach($categories as $category)
+                                    <option
+                                        value="{{$category->id}}"
+                                        {{ isset($requested_category) && $requested_category == $category->id ? 'selected' : ''}}>
+                                        {{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                            <input type="submit" class="btn btn-danger" id="search"
+                                   value="Найти" placeholder="Поиск">
+                        </div>
+                    </form>
+                </div>
+
             </div>
             <div class="gallery">
                 <div class="row">

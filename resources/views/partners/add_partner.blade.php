@@ -29,7 +29,7 @@
                             <label for="logo"
                                    class="col-xl-3 col-xxl-2 col-form-label required">{{ __('Логотип партнера') }}</label>
                             <div class="col-xl-9 col-xxl-10">
-                                <input type="file" name="logo" class="form-control-plaintext" id="logo" required>
+                                <input type="file" name="logo" class="form-control" id="logo" required>
                                 @error('logo')
                                 <p class="error"> {{$message}} </p>
                                 @enderror
