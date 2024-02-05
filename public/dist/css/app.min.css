@@ -451,7 +451,7 @@ footer a {
     text-transform: uppercase
 }
 
-.gallery .item .title a {
+.gallery .item a {
     color: #000;
     text-decoration: none
 }
