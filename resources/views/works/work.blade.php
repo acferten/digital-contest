@@ -42,8 +42,7 @@
                                             <ul class="work__other-work">
                                                 @foreach($other_works as $other_work)
                                                     <li>
-                                                        <a href="{{ route('works.show', [$other_work->id]) }}">«{{ $other_work->title }}
-                                                            »</a></li>
+                                                        <a href="{{ route('works.show', [$other_work->id]) }}">«{{ $other_work->title }}»</a>{{ $loop->last ? '' : ',' }}</li>
                                                 @endforeach
                                             </ul>
                                         </div>
