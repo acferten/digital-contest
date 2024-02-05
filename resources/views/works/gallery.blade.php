@@ -16,7 +16,7 @@
                     <form method="get" action="{{route('search')}}" class="mb-4">
                         <div class="d-flex">
                             <input type="text" name="search" class="form-control" id="search" placeholder="Поиск"
-                            value="{{request('search')}}">
+                                   value="{{request('search')}}">
                             <select name="category" class="form-control" id="category">
                                 <option value="" disabled selected>Категория</option>
                                 @foreach($categories as $category)
@@ -35,7 +35,7 @@
             </div>
             <div class="gallery">
                 <div class="row">
-                    @foreach($works as $work)
+                    @forelse($works as $work)
                         <div class="col-lg-3 col-md-4 col-sm-6 col-12 item">
                             <a href="{{ route('works.show', [$work->id]) }}">
                                 <div class="img">
@@ -63,7 +63,9 @@
                                 </div>
                             </a>
                         </div>
-                    @endforeach
+                    @empty
+                        <p>По заданным параметрам поиска работ не найдено</p>
+                    @endforelse
                 </div>
             </div>
         </div>

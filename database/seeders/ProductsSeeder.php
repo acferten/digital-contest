@@ -19,7 +19,7 @@ class ProductsSeeder extends Seeder
                 ['name' => ProductEnum::Publish->value, 'price' => 100],
             ))->create();
 
-        Product::all()->each(function (Product $product){
+        Product::all()->each(function (Product $product) {
 
             $product->payments()->save(User::all()->random(),
                 ['invoice_id' => fake()->numberBetween(2290, 9839),

@@ -3,14 +3,13 @@
 use App\Http\Controllers\News\NewsController;
 use App\Http\Controllers\Partners\PartnersController;
 use App\Http\Controllers\Prizes\PrizesController;
-use App\Http\Controllers\Products\RobokassaPaymentController;
 use App\Http\Controllers\Products\ProductController;
+use App\Http\Controllers\Products\RobokassaPaymentController;
 use App\Http\Controllers\Shared\ContentController;
 use App\Http\Controllers\Shared\PagesController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\UserAvatarController;
 use App\Http\Controllers\User\UserController;
-use App\Http\Controllers\Work\VoteForWorkController;
 use App\Http\Controllers\Work\WorkController;
 use App\Http\Controllers\Work\WorkSearchController;
 use Illuminate\Support\Facades\Route;
@@ -29,7 +28,7 @@ Route::get('how_to_become_a_member', [PagesController::class, 'how_to_become_a_m
 
 Route::post('orders/payment', [RobokassaPaymentController::class, 'result']);
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';
 
 // Auth
 //----------------------------------
@@ -63,7 +62,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::resource('works', WorkController::class)->except('index', 'show');
 
     Route::get('works/search', WorkSearchController::class)->name('search');
-
 
     // Admin
     //----------------------------------

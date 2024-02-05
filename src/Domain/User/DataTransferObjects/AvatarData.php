@@ -14,7 +14,6 @@ class AvatarData extends Data
     public function __construct(
         #[Required, Image, Max(1024), Mimes(['jpg', 'png'])]
         public readonly UploadedFile $avatar
-    )
-    {
+    ) {
     }
 }

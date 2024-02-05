@@ -27,8 +27,7 @@ class RobokassaPaymentController extends Controller
         $mrh_pass2 = env('ROBOKASSA_PASSWORD_2');
         $my_crc = strtoupper(md5("$out_sum:$inv_id:$mrh_pass2:Shp_ProductId={$product->id}:Shp_UserId={$user->id}:Shp_WorkId={$work->id}"));
 
-        if ($my_crc != $signature_value)
-        {
+        if ($my_crc != $signature_value) {
             return "bad sign\n";
         }
 
@@ -36,10 +35,10 @@ class RobokassaPaymentController extends Controller
             ->wherePivot('invoice_id', $inv_id)
             ->updateExistingPivot($user->id, ['status' => OrderStatus::Paid->value]);
 
-        if ($product->name == ProductEnum::Voting->value){
+        if ($product->name == ProductEnum::Voting->value) {
             $work->votes()->save($user);
         } else {
-            $work->update(['status'=> WorkStatus::Published->value]);
+            $work->update(['status' => WorkStatus::Published->value]);
         }
 
         return "OK$inv_id\n";

@@ -14,7 +14,7 @@ class RobokassaPaymentRequest extends FormRequest
             'Shp_UserId' => 'required|int|exists:users,id',
             'OutSum' => 'required|int',
             'InvId' => 'required|int|unique:payments,invoice_id',
-            'SignatureValue' => 'required|string'
+            'SignatureValue' => 'required|string',
         ];
     }
 }

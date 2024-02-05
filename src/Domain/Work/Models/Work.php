@@ -29,7 +29,7 @@ class Work extends BaseModel
         'year',
         'genre_id',
         'user_id',
-        'status'
+        'status',
     ];
 
     public function getWorkFileUrl(): ?string

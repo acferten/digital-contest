@@ -32,7 +32,7 @@
                             <div
                                 class="offset-lg-1 col-lg-8 col-md-8 col-sm-12 col-12 work_data d-flex flex-column justify-content-between">
                                 <div class="name">
-                                    {{ $work->user->first_name }} {{ $work->user->last_name }}
+                                     {{ $work->user->last_name }} {{ $work->user->first_name }}
                                 </div>
 
                                 @if($other_works)

@@ -10,6 +10,7 @@ use Domain\Work\DataTransferObjects\WorkData;
 use Domain\Work\Enums\WorkStatus;
 use Domain\Work\Models\Genre;
 use Domain\Work\Models\Work;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -21,7 +22,9 @@ class WorkController extends Controller
     {
         $data = [
             'works' => Work::where('status', WorkStatus::Published->value)->get(),
-            'categories' => Genre::all(),
+            'categories' => Genre::whereHas('works', function (Builder $query) {
+                $query->where('status', '=', WorkStatus::Published->value);
+            })->get()
         ];
 
         return view('works.gallery', $data);

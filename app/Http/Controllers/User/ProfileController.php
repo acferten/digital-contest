@@ -57,17 +57,17 @@ class ProfileController extends Controller
 
     public function works(): View
     {
-       $data = [
-           'works' => auth()->user()->works
-       ];
+        $data = [
+            'works' => auth()->user()->works,
+        ];
 
-       return view('profile.works', $data);
+        return view('profile.works', $data);
     }
 
     public function payments(): View
     {
         $data = [
-            'payments' => auth()->user()->payments
+            'payments' => auth()->user()->payments,
         ];
 
         return view('profile.payments', $data);

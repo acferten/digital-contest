@@ -20,7 +20,7 @@ class WorkFactory extends Factory
             'genre_id' => Genre::factory()->create()->id,
             'year' => fake()->numberBetween(2000, 2024),
             'user_id' => User::all()->whereNotIn('username', ['admin'])->random()->id,
-            'status' => fake()->randomElement(WorkStatus::values())
+            'status' => fake()->randomElement(WorkStatus::values()),
         ];
     }
 }
