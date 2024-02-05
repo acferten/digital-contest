@@ -42,7 +42,7 @@
 
             <button type="submit" id='start-payment-button' class="btn btn-danger ml-4"
                 {{--                onclick="publish({{ $work->id }},{{ $product->id }},{{ $user_id }},{{ $inv_id }},'{{ md5("{$merchant_login}:{$out_sum}:{$inv_id}:{$password_1}:Shp_UserId={$user_id}:Shp_ProductId={$product->id}:Shp_WorkId={$work->id}") }}')">--}}
-            >Разместить работу
+            >Оплатить и разместить
             </button>
         </form>
 

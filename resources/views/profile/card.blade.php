@@ -17,11 +17,13 @@
                                     фотографию</a>
                                 <a href="{{ route('profile.edit') }}" class="mt-4 w-100 btn btn-danger">Редактировать
                                     профиль</a>
+                                <a href="{{ route('works.create') }}" class="mt-4 w-100 btn btn-danger w-100">Добавить
+                                    работу</a>
                             </div>
 
                             <div
                                 class="offset-lg-1 col-lg-8 col-md-8 col-sm-12 col-12 profile_data d-flex flex-column justify-content-between">
-                                <div class="name mb-4">
+                                <div class="name">
                                     {{ $user->first_name }}<br>
                                     {{ $user->last_name }}
                                 </div>
@@ -47,28 +49,23 @@
                                     </div>
                                 </div>
                                 @else
-                                    <div class="col-lg-9 col-md-4 col-sm-12 col-12">
-                                        <div class="d-flex justify-content-between">
-                                            <div class="d-flex flex-column justify-content-between">
-                                                <a href="{{ route('profile.works') }}">Работы</a>
-                                                <a href="{{ route('profile.works') }}">Работы</a>
-                                            </div>
+                                    <div
+                                        class="col-lg-9 col-md-4 col-sm-12 col-12 d-flex justify-content-between flex-wrap">
+                                        <p class="w-100" style="font-size: 0.9rem;">{{ $user->about }}</p>
 
-                                            <div class="d-flex flex-column justify-content-between">
-                                                <div>
-                                                    <a href="{{ route('profile.payments') }}">Оплаты</a>
-                                                </div>
-                                                <div>
-                                                    <a href="{{ route('profile.payments') }}">Оплаты</a>
-                                                </div>
+                                        <div class="d-flex flex-column justify-content-between">
+                                            <div class="subtitle">
+                                                <a href="{{ route('profile.works') }}">Ваши работы</a>
                                             </div>
                                         </div>
 
+                                        <div class="d-flex flex-column justify-content-between">
+                                            <div class="subtitle">
+                                                <a href="{{ route('profile.payments') }}">Ваши оплаты</a>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-lg-9 col-md-4 col-sm-12 col-12">
-                                        <a href="{{ route('works.create') }}" class="btn btn-danger w-100">Добавить
-                                            работу</a>
-                                    </div>
+
                                     @endrole
                             </div>
                         </div>

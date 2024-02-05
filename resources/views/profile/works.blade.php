@@ -16,13 +16,18 @@
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <div class="title"><a
-                                            href="{{ route('works.show', [$work->id]) }}"
-                                        >{{ $work->title }}</a>
+                                    <div class="title">
+                                        <a href="{{ route('works.show', [$work->id]) }}">{{ $work->title }}</a>
                                     </div>
                                     <div class="description">
                                         <span
-                                            class="js-work__rating js-work_{{ $work->id }}_rating">{{ $work->votes()->count() }}</span> {{ trans_choice('validation.votes', $work->votes()->count()) }}
+                                            class="js-work__rating js-work_{{ $work->id }}_rating">{{ $work->votes()->count() }}
+                                        </span>
+                                        {{ trans_choice('validation.votes', $work->votes()->count()) }}
+                                        {{ $work->status }}
+                                        @if($work->status == \Domain\Work\Enums\WorkStatus::Pending->value)
+                                            <x-publish-work-button :$work/>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
