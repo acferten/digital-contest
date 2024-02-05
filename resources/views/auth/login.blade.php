@@ -4,7 +4,7 @@
     <div style="background-color:black;" id="background"></div>
 
         <video autoplay muted loop id="background">
-            <source src="/dist/video/ArtNFT_Fon1_Gorizont.mp4" type="video/mp4">
+            <source src="/dist/video/ArtNFT_Fon1_Gorizont.webm" type="video/mp4">
             Your browser does not support HTML5 video.
         </video>
 @endsection
