@@ -3,7 +3,8 @@
 @endphp
 @extends('layout')
 @section('title', 'Рейтинг участников')
-@section('body_type', 'background_type4_1')
+@section('body_type', 'background_type6')
+{{--@section('body_type', 'background_type4_1')--}}
 @section('background')
     <video autoplay muted loop id="background">
         <source src="video/ArtNFT_Fon1_Gorizont.webm" type="video/mp4">
