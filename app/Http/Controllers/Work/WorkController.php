@@ -20,14 +20,12 @@ class WorkController extends Controller
 {
     public function index(): View
     {
-        $data = [
-            'works' => Work::where('status', WorkStatus::Published->value)->get(),
-            'categories' => Genre::whereHas('works', function (Builder $query) {
-                $query->where('status', '=', WorkStatus::Published->value);
-            })->get()
-        ];
+        $works = Work::where('status', WorkStatus::Published)->paginate(1);
+        $categories = Genre::whereHas('works', function (Builder $query) {
+            $query->where('status', '=', WorkStatus::Published);
+        })->paginate(12);
 
-        return view('works.gallery', $data);
+        return view('works.gallery', compact('works', 'categories'));
     }
 
     public function create(): View
