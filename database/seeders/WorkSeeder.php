@@ -9,6 +9,6 @@ class WorkSeeder extends Seeder
 {
     public function run(): void
     {
-        Work::factory()->count(30)->create();
+        Work::factory()->count(100)->create();
     }
 }

@@ -23,7 +23,7 @@ class WorkSearchController extends Controller
         }
 
         $data = [
-            'works' => $works->get(),
+            'works' => $works->paginate(12),
             'categories' => Genre::all(),
             'requested_category' => $request->input('category') ?
                 $request->input('category') : null,

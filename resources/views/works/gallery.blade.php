@@ -66,6 +66,9 @@
                     @empty
                         <p>По заданным параметрам поиска работ не найдено</p>
                     @endforelse
+                    @if(!$works->isEmpty())
+                        {{ $works->links() }}
+                    @endif
                 </div>
             </div>
         </div>
