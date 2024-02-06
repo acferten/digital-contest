@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'Dashboard')
+@section('title', 'Вход')
 @section('background')
     <div style="background-color:black;" id="background"></div>
 
