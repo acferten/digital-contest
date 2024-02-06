@@ -10,6 +10,13 @@
                         <h1 class="work-title">
                             {{$work->title}}
                         </h1>
+                        @if (\Session::has('success'))
+                            <div class="alert alert-success">
+                                <ul>
+                                    <li>{!! \Session::get('success') !!}</li>
+                                </ul>
+                            </div>
+                        @endif
                         <p class="subtitle my-4">{{$work->genre->name }}, {{$work->year }} год</p>
                     </div>
                     <div class="container work">

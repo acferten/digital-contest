@@ -10,6 +10,7 @@ use Domain\Products\Models\Product;
 use Domain\Shared\Models\User;
 use Domain\Work\Enums\WorkStatus;
 use Domain\Work\Models\Work;
+use Illuminate\Support\Facades\Redirect;
 
 class RobokassaPaymentController extends Controller
 {
@@ -42,5 +43,29 @@ class RobokassaPaymentController extends Controller
         }
 
         return "OK$inv_id\n";
+    }
+
+    public function success(RobokassaPaymentRequest $request)
+    {
+        $work = Work::find($request->input('Shp_WorkId'));
+        $product = Product::find($request->input('Shp_ProductId'));
+        $user = User::find($request->input('Shp_UserId'));
+        $inv_id = $request->input('InvId');
+        $out_sum = $request->input('OutSum');
+        $signature_value = $request->input('SignatureValue');
+
+        $mrh_pass1 = env('ROBOKASSA_PASSWORD_1');
+        $my_crc = strtoupper(md5("$out_sum:$inv_id:$mrh_pass1:Shp_ProductId={$product->id}:Shp_UserId={$user->id}:Shp_WorkId={$work->id}"));
+
+        if ($my_crc != $signature_value) {
+            return "bad sign\n";
+        }
+
+        if ($product->name == ProductEnum::Voting->value) {
+            return Redirect::route('works.show', $work->id)->with('success', 'Оплата прошла успешно. Ваш голос за работу учтен.');
+        } else {
+            return Redirect::route('works.show', $work->id)->with('success', 'Оплата прошла успешно. Ваша работа опубликована.');
+        }
+
     }
 }

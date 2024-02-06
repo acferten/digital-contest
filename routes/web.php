@@ -26,9 +26,14 @@ Route::get('feedback', [PagesController::class, 'feedback'])->name('feedback');
 Route::get('how_to_become_a_member', [PagesController::class, 'how_to_become_a_member'])
     ->name('how_to_become_a_member');
 
+require __DIR__.'/auth.php';
+
+// Robokassa
+//----------------------------------
+
 Route::post('orders/payment', [RobokassaPaymentController::class, 'result']);
 
-require __DIR__.'/auth.php';
+Route::get('orders/success', [RobokassaPaymentController::class, 'success']);
 
 // Auth
 //----------------------------------
