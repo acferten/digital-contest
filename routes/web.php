@@ -61,8 +61,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     Route::resource('works', WorkController::class)->except('index', 'show');
 
-    Route::get('works/search', WorkSearchController::class)->name('search');
-
     // Admin
     //----------------------------------
 
@@ -85,6 +83,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 //----------------------------------
 
 Route::resource('works', WorkController::class)->only('show');
+
+Route::get('works/search', WorkSearchController::class)->name('search');
 
 Route::get('gallery', [WorkController::class, 'index'])->name('gallery');
 

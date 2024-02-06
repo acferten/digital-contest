@@ -38,14 +38,20 @@
                                 @if($other_works)
                                     <div class="row py-4">
                                         <div class="col-12">
-                                            Работы автора:
+                                            Другие работы автора:
                                             <ul class="work__other-work">
                                                 @foreach($other_works as $other_work)
                                                     <li>
-                                                        <a href="{{ route('works.show', [$other_work->id]) }}">«{{ $other_work->title }}»</a>{{ $loop->last ? '' : ',' }}</li>
+                                                        <a href="{{ route('works.show', [$other_work->id]) }}">«{{ $other_work->title }}»</a>{{ $loop->last ? '' : ',' }}
+                                                    </li>
                                                 @endforeach
                                             </ul>
                                         </div>
+
+
+
+
+
                                     </div>
                                 @endif
                             </div>

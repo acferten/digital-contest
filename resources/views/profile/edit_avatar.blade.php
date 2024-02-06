@@ -13,7 +13,7 @@
                             <label for="avatar"
                                    class="col-xl-3 col-xxl-2 col-form-label required">{{ __('Аватар') }}</label>
                             <div class="col-xl-9 col-xxl-10">
-                                <input type="file" name="avatar" class="form-control-plaintext" id="avatar" required>
+                                <input type="file" name="avatar" class="form-control" id="avatar" required>
                                 @error('avatar')
                                 <p class="error"> {{$message}} </p>
                                 @enderror

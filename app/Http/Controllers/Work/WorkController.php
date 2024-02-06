@@ -20,7 +20,7 @@ class WorkController extends Controller
 {
     public function index(): View
     {
-        $works = Work::where('status', WorkStatus::Published)->paginate(1);
+        $works = Work::where('status', WorkStatus::Published)->paginate(12);
         $categories = Genre::whereHas('works', function (Builder $query) {
             $query->where('status', '=', WorkStatus::Published);
         })->paginate(12);
@@ -61,7 +61,7 @@ class WorkController extends Controller
     {
         $data = [
             'work' => $work,
-            'other_works' => $work->user->works,
+            'other_works' => $work->user->works->take(6),
         ];
 
         return view('works.work', $data);

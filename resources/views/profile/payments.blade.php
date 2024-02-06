@@ -10,8 +10,9 @@
             @else
                 <ol>
                     @foreach($payments as $payment)
-                        <li>{{ $payment->name }} «{{Domain\Work\Models\Work::find($payment->pivot->work_id)->title }}»
-                            -- {{$payment->pivot->updated_at}}</li>
+                        <li>{{ $payment->name }}
+                            <a href="{{ route('works.show', $payment->pivot->work_id) }}">«{{Domain\Work\Models\Work::find($payment->pivot->work_id)->title }}»</a>
+                            — {{$payment->pivot->updated_at}}</li>
                     @endforeach
                 </ol>
             @endif

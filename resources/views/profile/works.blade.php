@@ -19,16 +19,19 @@
                                     <div class="title">
                                         <a href="{{ route('works.show', [$work->id]) }}">{{ $work->title }}</a>
                                     </div>
-                                    <div class="description">
+                                    <div class="description mb-4">
                                         <span
-                                            class="js-work__rating js-work_{{ $work->id }}_rating">{{ $work->votes()->count() }}
+                                            class=" js-work__rating js-work_{{ $work->id }}_rating">{{ $work->votes()->count() }}
                                         </span>
                                         {{ trans_choice('validation.votes', $work->votes()->count()) }}
                                         {{ $work->status }}
                                         @if($work->status == \Domain\Work\Enums\WorkStatus::Pending->value)
-                                            <x-publish-work-button :$work/>
+                                            <div class="mt-4 w-100">
+                                                <x-publish-work-button :$work/>
+                                            </div>
                                         @endif
                                     </div>
+
                                 </div>
                             </div>
                         </div>

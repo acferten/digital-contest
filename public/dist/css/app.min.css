@@ -468,6 +468,23 @@ footer a {
     text-decoration: underline
 }
 
+.active > .page-link, .page-link.active {
+    color: #fff;
+    background-color: #2d3748;
+    border-color: #2d3748;
+    border-radius: unset;
+}
+
+.page-item:first-child .page-link {
+    border-top-left-radius: unset;
+    border-bottom-left-radius: unset;
+}
+
+.page-item:last-child .page-link {
+    border-top-right-radius: unset;
+    border-bottom-right-radius: unset;
+}
+
 .gallery .item .description {
     font-size: .8rem;
     text-transform: uppercase
