@@ -10,6 +10,7 @@ use Domain\Products\Models\Product;
 use Domain\Shared\Models\User;
 use Domain\Work\Enums\WorkStatus;
 use Domain\Work\Models\Work;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
 class RobokassaPaymentController extends Controller
@@ -45,7 +46,7 @@ class RobokassaPaymentController extends Controller
         return "OK$inv_id\n";
     }
 
-    public function success(RobokassaPaymentRequest $request)
+    public function success(Request $request)
     {
         $work = Work::find($request->input('Shp_WorkId'));
         $product = Product::find($request->input('Shp_ProductId'));
