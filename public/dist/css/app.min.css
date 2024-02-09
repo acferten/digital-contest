@@ -105,11 +105,6 @@ main h1 {
     word-wrap: break-word;
 }
 
-.profile-picture {
-    background-size: cover;
-    height: 400px;
-}
-
 .subtitle {
     font-size: 24px;
     font-weight: 700;
@@ -671,6 +666,24 @@ footer a {
     margin-bottom: 2rem
 }
 
+.profile--mobile {
+    display: flex;
+}
+
+.profile--desktop {
+    display: none;
+}
+
+.profile--desktop .profile_photo img {
+    max-width: 100%;
+    max-height: 100%
+}
+
+.profile--mobile .profile_photo img {
+    max-width: 200px;
+    max-height: 200px;
+}
+
 .profile .profile_data {
     font-weight: 700;
     font-size: 2.5rem;
@@ -678,9 +691,10 @@ footer a {
 }
 
 .profile .profile_data .name {
-    font-size: calc(2rem + 2vw);
+    font-size: calc(1rem + 2vw);
+    hyphens: auto;
     font-weight: bold;
-    line-height: 4.8rem;
+    line-height: normal;
     text-wrap: balance;
     letter-spacing: 0.8rem;
     hyphens: auto;
@@ -726,6 +740,14 @@ footer a {
 
     .main-text .second-block {
         font-size: 1.2rem
+    }
+
+    .profile--desktop {
+        display: flex;
+    }
+
+    .profile--mobile {
+        display: none;
     }
 }
 
