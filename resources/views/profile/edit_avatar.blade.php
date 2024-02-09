@@ -2,11 +2,14 @@
 @section('title', 'Обновление фотографии профиля')
 @section('body_type', 'background_type6')
 @section('content')
-    <main class="flex-grow-1">
+    <main class="d-flex flex-grow-1 align-items-center">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 offset-md-2 register_form site_form">
                     <form method="POST" action="{{route('avatar.update')}}" enctype="multipart/form-data">
+                        <div class="row">
+                            <p class="form-title">Обновление фотографии профиля</p>
+                        </div>
                         @csrf
                         <!-- file -->
                         <div class="mb-3 row">

@@ -1,23 +1,17 @@
 @extends('layout')
 @section('title', 'Редактирование текста')
-@section('background')
-    <div style="background-color:black;" id="background"></div>
-
-
-    {{--    <video autoplay muted loop id="background">--}}
-    {{--        <source src="/dist/video/ArtNFT_Fon1_Gorizont.webm" type="video/mp4">--}}
-    {{--        Your browser does not support HTML5 video.--}}
-    {{--    </video>--}}
-@endsection
+@section('body_type', 'background_type1')
 @section('content')
-    <main class="flex-grow-1">
+    <main class="d-flex flex-grow-1 align-items-center">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 offset-md-2 register_form site_form">
+                    <div class="row">
+                        <p class="subtitle my-4">ОБНОВЛЕНИЕ ТЕКСТА</p>
+                    </div>
                     <form method="POST" action="{{ route('contents.update', $content) }}">
                         <input type="hidden" name="_method" value="PATCH">
                         @csrf
-
                         <!-- text -->
                         <div class="mb-3 row">
                             <label for="text"

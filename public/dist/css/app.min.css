@@ -73,8 +73,9 @@ main {
 }
 
 .error {
-    color: red;
+    color: #bc2649;
     font-weight: bold;
+    text-transform: none;
 }
 
 .background_type1 main, .background_type2 main, .background_type3 main {
@@ -95,6 +96,8 @@ main h1 {
     text-transform: uppercase;
     letter-spacing: 20px;
     hyphens: auto;
+    margin-bottom: 50px;
+    margin-top: 50px;
 }
 
 .work-title {
@@ -109,6 +112,13 @@ main h1 {
     font-size: 24px;
     font-weight: 700;
     letter-spacing: 7.2px;
+}
+
+.form-title {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 7.2px;
+    text-transform: uppercase;
 }
 
 .background_type5 main h1 {
@@ -290,7 +300,14 @@ footer a {
 }
 
 .text {
-    margin-bottom: 100px
+    margin-bottom: 100px;
+    hyphens: auto;
+}
+
+.partner-image {
+    height: 200px;
+    width: 200px;
+    background-size: contain;
 }
 
 .site_form textarea {
@@ -333,10 +350,6 @@ footer a {
     color: #bc2649
 }
 
-.prizes .item {
-    margin-bottom: 60px
-}
-
 .prizes .item .place {
     font-size: 2rem;
     margin-bottom: 20px
@@ -355,28 +368,6 @@ footer a {
     max-height: 100%
 }
 
-.partners .first-row, .partners .second-row {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between
-}
-
-.partners .first-row img, .partners .second-row img {
-    width: auto;
-    margin-bottom: 45px
-}
-
-.partners .first-row img {
-    height: 182px
-}
-
-.partners .second-row img {
-    height: 91px
-}
-
 .news .item {
     margin-bottom: 20px
 }
@@ -390,10 +381,6 @@ footer a {
     color: #bc2649;
     font-weight: 700;
     margin-bottom: 20px
-}
-
-.news .item .title {
-    text-transform: uppercase
 }
 
 .news-card .item {
@@ -488,7 +475,8 @@ footer a {
 
 .gallery .item .description {
     font-size: .8rem;
-    text-transform: uppercase
+    text-transform: uppercase;
+    hyphens: auto;
 }
 
 .work .work_photo .work__rating {
@@ -707,7 +695,7 @@ footer a {
 @media (min-width: 576px) {
     main h1 {
         font-size: 3.5rem;
-        margin-bottom: 20px
+        margin-bottom: 50px
     }
 
     .main-text .first-block, .main-text .first-block i {
