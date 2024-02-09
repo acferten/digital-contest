@@ -654,6 +654,10 @@ footer a {
     margin-bottom: 2rem
 }
 
+.profile-title {
+    text-align: center;
+}
+
 .profile--mobile {
     display: flex;
 }
@@ -736,6 +740,10 @@ footer a {
 
     .profile--mobile {
         display: none;
+    }
+
+    .profile-title {
+        text-align: start;
     }
 }
 
