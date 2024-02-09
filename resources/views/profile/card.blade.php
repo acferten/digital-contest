@@ -87,6 +87,10 @@
                                     {{ $user->first_name }}<br>
                                     {{ $user->last_name }}
                                 </div>
+                                <div
+                                    class="col-lg-9 col-md-4 col-sm-12 col-12 d-flex flex-column w-100 justify-content-between flex-wrap flex-grow-1 justify-content-between">
+                                    <p class="w-100 mb-4" style="font-size: 0.9rem;">{{ $user->about }}</p>
+                                </div>
                                 <div class="row mb-3">
                                     <div class="col w-100">
                                         <a href="{{ route('avatar.edit') }}" class="w-100 btn btn-danger">Обновить
@@ -108,7 +112,8 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col">
-                                        <a href="{{ route('products.edit', 2) }}" class="btn btn-danger w-100">Изменить цену
+                                        <a href="{{ route('products.edit', 2) }}" class="btn btn-danger w-100">Изменить
+                                            цену
                                             голосования</a>
                                     </div>
                                 </div>
@@ -140,12 +145,14 @@
                                     </div>
                                     <div class="row mb-3">
                                         <div class="col w-100">
-                                            <a href="{{ route('profile.works') }}" class="btn btn-danger w-100">Ваши работы</a>
+                                            <a href="{{ route('profile.works') }}" class="btn btn-danger w-100">Ваши
+                                                работы</a>
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <div class="col w-100">
-                                            <a href="{{ route('profile.payments') }}" class="btn btn-danger w-100">Ваши оплаты</a>
+                                            <a href="{{ route('profile.payments') }}" class="btn btn-danger w-100">Ваши
+                                                оплаты</a>
                                         </div>
                                     </div>
                                     @endrole
