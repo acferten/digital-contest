@@ -24,7 +24,7 @@
                             </div>
 
                             <div
-                                class="offset-lg-1 col-lg-8 col-md-8 col-sm-12 col-12 profile_data d-flex flex-column">
+                                    class="offset-lg-1 col-lg-8 col-md-8 col-sm-12 col-12 profile_data d-flex flex-column">
                                 <div class="name mb-4">
                                     {{ $user->first_name }}<br>
                                     {{ $user->last_name }}
@@ -36,7 +36,7 @@
                                             приз</a>
                                     </div>
                                     <div class="col">
-                                        <a href="{{ route('products.edit', 2) }}" class="btn btn-danger">Изменить цену
+                                        <a href="{{ route('products.edit', 1) }}" class="btn btn-danger">Изменить цену
                                             голосования</a>
                                     </div>
                                 </div>
@@ -47,7 +47,7 @@
                                     </div>
 
                                     <div class="col">
-                                        <a href="{{ route('products.edit', 1) }}" class="btn btn-danger">Изменить
+                                        <a href="{{ route('products.edit', 2) }}" class="btn btn-danger">Изменить
                                             цену
                                             размещения</a>
                                     </div>
@@ -60,7 +60,7 @@
                                 </div>
                                 @else
                                     <div
-                                        class="col-lg-9 col-md-4 col-sm-12 col-12 d-flex flex-column w-100 justify-content-between flex-wrap flex-grow-1 justify-content-between">
+                                            class="col-lg-9 col-md-4 col-sm-12 col-12 d-flex flex-column w-100 justify-content-between flex-wrap flex-grow-1 justify-content-between">
 
                                         <p class="w-100 mb-4" style="font-size: 0.9rem;">{{ $user->about }}</p>
 
@@ -82,7 +82,7 @@
                                 <img src="{{ $user->getProfilePictureUrl() }}" alt="profile picture">
                             </div>
                             <div
-                                class="offset-lg-1 col-lg-8 col-md-8 col-sm-12 col-12 profile_data d-flex flex-column">
+                                    class="offset-lg-1 col-lg-8 col-md-8 col-sm-12 col-12 profile_data d-flex flex-column">
                                 <div class="name text-center mt-4 mb-4">
                                     {{ $user->first_name }}<br>
                                     {{ $user->last_name }}
@@ -96,7 +96,8 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col">
-                                        <a href="{{ route('products.edit', 2) }}" class="btn btn-danger w-100">Изменить цену
+                                        <a href="{{ route('products.edit', 1) }}" class="btn btn-danger w-100">Изменить
+                                            цену
                                             голосования</a>
                                     </div>
                                 </div>
@@ -108,7 +109,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col">
-                                        <a href="{{ route('products.edit', 1) }}" class="btn btn-danger w-100">Изменить
+                                        <a href="{{ route('products.edit', 2) }}" class="btn btn-danger w-100">Изменить
                                             цену
                                             размещения</a>
                                     </div>
@@ -121,10 +122,11 @@
                                 </div>
                                 @else
                                     <div
-                                        class="col-lg-9 col-md-4 col-sm-12 col-12 d-flex flex-column w-100 justify-content-between flex-wrap flex-grow-1 justify-content-between">
+                                            class="col-lg-9 col-md-4 col-sm-12 col-12 d-flex flex-column w-100 justify-content-between flex-wrap flex-grow-1 justify-content-between">
                                         <p class="w-100 mb-4" style="font-size: 0.9rem;">{{ $user->about }}</p>
                                         <div class="subtitle d-flex flex-column justify-content-between">
-                                            <a href="{{ route('profile.works') }}" class="btn btn-danger w-100 mb-4">Ваши работы</a>
+                                            <a href="{{ route('profile.works') }}" class="btn btn-danger w-100 mb-4">Ваши
+                                                работы</a>
                                             <a href="{{ route('profile.payments') }}" class="btn btn-danger w-100">Ваши оплаты</a>
                                         </div>
                                     </div>

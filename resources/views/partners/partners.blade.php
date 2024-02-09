@@ -10,14 +10,15 @@
                 </div>
             </div>
             <div class="partners">
-                <div class="row first-row">
+                <div class="d-flex flex-wrap gap-4">
                     @foreach($partners as $partner)
-                        <img src="{{$partner->getLogoUrl()}}" alt="{{$partner->name}}">
+                        <div style="background-image: url('{{$partner->getLogoUrl()}}');" class="partner-image">
+                        </div>
                     @endforeach
                 </div>
 
                 <div class="row">
-                    <p>{{$content->text}}</p>
+                    <p class="text mt-4">{{$content->text}}</p>
                 </div>
                 @role('admin')
                 <div class="col-12">
@@ -26,8 +27,8 @@
                 </div>
                 <br>
                 @endrole
-                </div>
             </div>
+        </div>
         </div>
     </main>
 @endsection

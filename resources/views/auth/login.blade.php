@@ -26,34 +26,32 @@
                             <div class="col-sm-12">
                                 <input type="email" name="email" class="form-control-plaintext" id="email"
                                        value="{{ old('email') }}" required>
-                                @error('email')
-                                <p style="color:red; font-weight: bold">{{$message}}</p>
-                                @enderror
                             </div>
                         </div>
 
                         <!-- password -->
-                        <div class="mb-4">
+                        <div>
                             <label for="password" class="col-sm-2 col-form-label">{{ __('Пароль') }}</label>
                             <div class="col-sm-12">
                                 <input type="password" name="password" class="form-control-plaintext" id="password"
                                        value="" required>
-                                @error('password')
-                                <p style="color:red; font-weight: bold">{{$message}}</p>
-                                @enderror
                             </div>
                         </div>
-
+                        @error('email')
+                        <p class="error">{{$message}}</p>
+                        @enderror
                         <div class="d-flex flex-column mb-4 mt-4">
+
                             <div class="mb-4 flex-grow-1">
                                 <button type="submit" class="btn btn-danger w-100">{{ __('Войти') }}</button>
                             </div>
+
                             <a class="text-decoration-none text-center text-sm text-white dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
                                href="{{ route('register') }}">
                                 {{ __('Создать бесплатный аккаунт') }}
                             </a>
                             @if (Route::has('password.request'))
-                                <a class="text-decoration-none text-center text-sm text-white dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
+                                <a class="mt-2 text-decoration-none text-center text-sm text-white dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
                                    href="{{ route('password.request') }}">
                                     {{ __('Забыли пароль?') }}
                                 </a>
