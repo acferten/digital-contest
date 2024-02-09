@@ -12,20 +12,23 @@
                     <div class="container profile">
                         <div class="row">
                             <div class="col-lg-3 col-md-4 col-sm-12 col-12 profile_photo">
-                                <img src="{{ $user->getProfilePictureUrl() }}" alt="profile picture">
-                                <a href="{{ route('avatar.edit') }}" class="mt-4 w-100 btn btn-danger">Обновить
-                                    фотографию</a>
-                                <a href="{{ route('profile.edit') }}" class="mt-4 w-100 btn btn-danger">Редактировать
-                                    профиль</a>
-                                @unlessrole('admin')
-                                <a href="{{ route('works.create') }}" class="mt-4 w-100 btn btn-danger w-100">Добавить
-                                    работу</a>
-                                @endrole
+                                <div class="profile-picture w-100 "
+                                     style="background-image: url('{{ $user->getProfilePictureUrl() }}');">
+                                </div>
+                                <div>
+                                    <a href="{{ route('avatar.edit') }}" class="mt-4 w-100 btn btn-danger">Обновить
+                                        фотографию</a>
+                                    <a href="{{ route('profile.edit') }}" class="mt-4 w-100 btn btn-danger">Редактировать
+                                        профиль</a>
+                                    @unlessrole('admin')
+                                    <a href="{{ route('works.create') }}" class="mt-4 w-100 btn btn-danger w-100">Добавить
+                                        работу</a>
+                                    @endrole
+                                </div>
                             </div>
-
                             <div
                                 class="offset-lg-1 col-lg-8 col-md-8 col-sm-12 col-12 profile_data d-flex flex-column">
-                                <div class="name mb-4">
+                                <div class="name my-4">
                                     {{ $user->first_name }}<br>
                                     {{ $user->last_name }}
                                 </div>
