@@ -87,9 +87,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 // Gallery
 //----------------------------------
 
-Route::resource('works', WorkController::class)->only('show');
-
 Route::get('works/search', WorkSearchController::class)->name('search');
+
+Route::resource('works', WorkController::class)->only('show');
 
 Route::get('gallery', [WorkController::class, 'index'])->name('gallery');
 
