@@ -28,7 +28,7 @@
                                 <input type="text" name="last_name" class="form-control-plaintext" id="last_name"
                                        value="{{ old('last_name') }}">
                                 @error('last_name')
-                                <p style="color:red; font-weight: bold">{{$message}}</p>
+                                <p class="error">{{$message}}</p>
                                 @enderror
                             </div>
                         </div>
@@ -39,7 +39,7 @@
                                 <input type="text" name="first_name" class="form-control-plaintext" id="first_name"
                                        value="{{ old('first_name') }}">
                                 @error('first_name')
-                                <p style="color:red; font-weight: bold">{{$message}}</p>
+                                <p class="error">{{$message}}</p>
                                 @enderror
                             </div>
                         </div>
@@ -52,7 +52,7 @@
                             <input type="email" name="email" class="form-control-plaintext" id="email"
                                    value="{{ old('email') }}" required>
                             @error('email')
-                            <p style="color:red; font-weight: bold">{{$message}}</p>
+                            <p class="error">{{$message}}</p>
                             @enderror
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                             <input type="text" name="username" class="form-control-plaintext" id="username"
                                    value="{{ old('username') }}" required>
                             @error('username')
-                            <p style="color:red; font-weight: bold">{{$message}}</p>
+                            <p class="error">{{$message}}</p>
                             @enderror
                         </div>
                     </div>
@@ -76,7 +76,7 @@
                             <input type="password" name="password" class="form-control-plaintext" id="password"
                                    value="" required>
                             @error('password')
-                            <p style="color:red; font-weight: bold">{{$message}}</p>
+                            <p class="error">{{$message}}</p>
                             @enderror
                         </div>
                     </div>
@@ -89,7 +89,7 @@
                                    id="password_confirmation"
                                    value="" required>
                             @error('password_confirmation')
-                            <p style="color:red; font-weight: bold">{{$message}}</p>
+                            <p class="error">{{$message}}</p>
                             @enderror
                         </div>
                     </div>

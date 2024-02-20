@@ -11,7 +11,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <div class="text" style="word-break: break-all">
+                    <div class="text">
                         {{ $content ? $content->text :  'Текст этого раздела еще не добавлен администратором.' }}
                     </div>
                 </div>

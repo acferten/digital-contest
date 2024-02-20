@@ -1,20 +1,21 @@
 @extends('layout')
-@section('title', 'Добавление приза')
+@section('title', 'Изменение цены')
 @section('body_type', 'background_type6')
 @section('content')
-    <main class="flex-grow-1">
+    <main class="d-flex flex-grow-1 align-items-center">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 offset-md-2 register_form site_form">
+                    <div class="row">
+                        <p class="form-title my-4">{{$product->name}}</p>
+                    </div>
                     <form method="POST" action="{{route('products.update', $product)}}">
-
                         @csrf
-                        <p class="work__rating-unit">{{$product->name}}</p>
                         <!-- price -->
-                        <div class="mb-3 row">
+                        <div class="row">
                             <label for="price"
                                    class="col-xl-3 col-xxl-2 col-form-label required">{{ __('Цена') }}</label>
-                            <div class="col-xl-9 col-xxl-10">
+                            <div class="col-xl-3 col-xxl-3">
                                 <input type="number" name="price" class="form-control-plaintext" id="price"
                                        value="{{ $product->price }}" required>
                                 @error('price')
@@ -23,13 +24,11 @@
                             </div>
                         </div>
 
-
                         <div class="d-flex justify-content-between flex-wrap mt-4">
-                            <div class="mb-4">
+                            <div class="my-4">
                                 <button type="submit" class="btn btn-danger ml-4">{{ __('Обновить') }}</button>
                             </div>
                         </div>
-
                     </form>
                 </div>
             </div>
