@@ -114,6 +114,7 @@ return [
         public_path('artworks') => storage_path('app/artworks'),
         public_path('logos') => storage_path('app/logos'),
         public_path('prizes_photo') => storage_path('app/prizes_photo'),
+        base_path('public_html') => base_path('public'),
     ],
 
 ];
