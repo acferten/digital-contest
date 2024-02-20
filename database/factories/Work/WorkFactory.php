@@ -17,7 +17,7 @@ class WorkFactory extends Factory
         return [
             'title' => fake()->word,
             'file' => fake()->randomElement(['artwork'.fake()->numberBetween(1, 5).'.jpg']),
-            'genre_id' => Genre::factory()->create()->id,
+            'genre_id' => Genre::all()->random()->id,
             'year' => fake()->numberBetween(2000, 2024),
             'user_id' => User::all()->whereNotIn('username', ['admin'])->random()->id,
             'status' => fake()->randomElement(WorkStatus::values()),
