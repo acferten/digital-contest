@@ -9,8 +9,16 @@
                     <div class="row">
                         <p class="form-title my-4">{{$product->name}}</p>
                     </div>
+                    @if (!empty(session('success')))
+                        <div class="col-12">
+                            <div class="alert alert-success" role="alert">
+                                {{ session('success') }}
+                            </div>
+                        </div>
+                    @endif
                     <form method="POST" action="{{route('products.update', $product)}}">
                         @csrf
+                        @method('PUT')
                         <!-- price -->
                         <div class="row">
                             <label for="price"

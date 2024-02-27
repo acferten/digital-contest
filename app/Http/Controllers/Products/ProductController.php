@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Products;
 
 use App\Http\Controllers\Controller;
 use Domain\Products\Models\Product;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -18,7 +19,7 @@ class ProductController extends Controller
         return view('products.edit', $data);
     }
 
-    public function update(Product $product, Request $request): View
+    public function update(Product $product, Request $request): RedirectResponse
     {
         $request->validate([
             'price' => 'required|int|max:2000',
@@ -28,6 +29,6 @@ class ProductController extends Controller
             'price' => $request->input('price'),
         ]);
 
-        return view('main');
+        return redirect()->back()->with('success', 'Информация обновлена');
     }
 }
