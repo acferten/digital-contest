@@ -352,15 +352,19 @@ footer a {
 
 .prizes .item .place {
     font-size: 2rem;
-    margin-bottom: 20px
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 .prizes .item .place span {
     font-size: 2.4rem
+    text-transform: uppercase;
 }
 
 .prizes .item .place.first span {
     font-size: 3.2rem
+    text-transform: uppercase;
 }
 
 .prizes .item img {

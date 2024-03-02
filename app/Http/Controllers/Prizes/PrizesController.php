@@ -54,8 +54,15 @@ class PrizesController extends Controller
         //
     }
 
-    public function destroy(Prize $prize)
+    public function delete(Prize $prize): View
     {
-        //
+        return view('prizes.delete', compact('prize'));
+    }
+
+    public function destroy(Prize $prize): RedirectResponse
+    {
+        $prize->delete();
+
+        return Redirect::route('prizes.index')->with('success', 'Приз успешно удален');
     }
 }

@@ -1,4 +1,7 @@
 @extends('layout')
+<link rel="stylesheet" href="/dist/js/richtexteditor/rte_theme_default.css"/>
+<script type="text/javascript" src="/dist/js/richtexteditor/rte.js"></script>
+<script type="text/javascript" src='/dist/js/richtexteditor/plugins/all_plugins.js'></script>
 @section('title', 'Добавление приза')
 @section('body_type', 'background_type6')
 @section('content')
@@ -29,7 +32,7 @@
                             <label for="description"
                                    class="col-xl-3 col-xxl-2 col-form-label">{{ __('Описание') }}</label>
                             <div class="col-xl-9 col-xxl-10">
-                                <textarea name="description" class="form-control" id="description" required></textarea>
+                                <textarea name="description" class="form-control inp_editor" id="description" required></textarea>
                                 @error('description')
                                 <p class="error"> {{$message}} </p>
                                 @enderror
@@ -56,6 +59,10 @@
                         </div>
 
                     </form>
+
+                    <script defer>
+                        Array.from(document.getElementsByClassName("inp_editor")).forEach(element => new RichTextEditor(element));
+                    </script>
                 </div>
             </div>
         </div>
