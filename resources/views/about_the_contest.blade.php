@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="text">
-                        {{ $content ? $content->text :  'Текст этого раздела еще не добавлен администратором.' }}
+                        {!!  $content ? $content->text :  'Текст этого раздела еще не добавлен администратором.' !!}
                     </div>
                 </div>
                 @role('admin')
