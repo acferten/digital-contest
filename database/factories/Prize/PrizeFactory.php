@@ -12,8 +12,8 @@ class PrizeFactory extends Factory
     public function definition(): array
     {
         return [
-            'place' => fake()->numberBetween(1, 6),
-            'photo' => fake()->randomElement(['prize'.fake()->numberBetween(1, 3).'.jpg']),
+            'title' => fake()->realTextBetween(10, 20),
+            'photo' => fake()->randomElement(['prize' . fake()->numberBetween(1, 3) . '.jpg']),
             'description' => fake()->realTextBetween(100, 500),
         ];
     }

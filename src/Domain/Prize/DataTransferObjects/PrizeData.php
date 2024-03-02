@@ -9,11 +9,12 @@ use Spatie\LaravelData\Data;
 class PrizeData extends Data
 {
     public function __construct(
-        public readonly ?int $id,
-        public readonly string $place,
-        public readonly string $description,
+        public readonly ?int                $id,
+        public readonly string              $title,
+        public readonly string              $description,
         public readonly UploadedFile|string $photo,
-    ) {
+    )
+    {
     }
 
     public static function fromRequest(Request $request): self
@@ -30,14 +31,14 @@ class PrizeData extends Data
         return [
             'photo' => 'required|image|max:4192',
             'description' => 'required|string',
-            'place' => 'required|integer',
+            'title' => 'required|string|max:20',
         ];
     }
 
     public static function attributes(): array
     {
         return [
-            'place' => 'место',
+            'title' => 'название',
             'description' => 'описание',
             'photo' => 'фото приза',
         ];

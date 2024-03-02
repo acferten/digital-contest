@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="row">
-                    <p class="text mt-4">{{$content->text}}</p>
+                    <p class="text mt-4">{!! $content->text !!}</p>
                 </div>
                 @role('admin')
                 <div class="col-12">

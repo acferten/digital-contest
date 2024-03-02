@@ -10,16 +10,13 @@
                 </div>
             </div>
             <div class="prizes">
-
                 <div class="row">
                     @foreach($prizes as $prize)
-
                         <div class="col-md-4 col-12 item my-4">
                             <img src="{{$prize->getPrizePhotoUrl()}}" alt="prize photo">
-                            <div class="place first my-4"><span>{{$loop->iteration}} МЕСТО</span> </div>
+                            <div class="place first my-4"><span>{{ $prize->title }}</span></div>
                             <div class="description">{{$prize->description}}</div>
                         </div>
-
                     @endforeach
                 </div>
             </div>

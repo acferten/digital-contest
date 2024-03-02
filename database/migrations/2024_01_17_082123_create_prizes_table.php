@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('prizes', function (Blueprint $table) {
             $table->bigInteger('id')->autoIncrement();
-            $table->string('place');
+            $table->string('title');
             $table->text('description');
             $table->string('photo');
             $table->timestamps();

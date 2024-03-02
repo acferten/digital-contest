@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Storage;
 class Prize extends BaseModel
 {
     protected $fillable = [
-        'place',
+        'title',
         'description',
         'photo',
     ];
