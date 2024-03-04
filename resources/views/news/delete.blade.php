@@ -1,6 +1,6 @@
 @extends('layout')
-@section('title', 'Призы победителям')
-@section('body_type', 'background_type3')
+@section('title', 'Удаление новости')
+@section('body_type', 'background_type5')
 @section('content')
     <main class="d-flex flex-grow-1 align-items-center">
         <div class="container">
@@ -9,13 +9,12 @@
                     <p class="subtitle my-4">Вы действительно хотите удалить новость?</p>
                 </div>
             </div>
-            <div class="prizes">
+            <div class="news-card">
                 <div class="row">
                     <div class="col-md-4 col-12 item my-4">
                         <div class="row">
                             <div class="col-12 item">
-                                <div
-                                    class="date">{{ \Carbon\Carbon::create($news->publication_date)->translatedFormat('d.m.Y') }}</div>
+                                <div class="date">{{ \Carbon\Carbon::create($news->publication_date)->translatedFormat('d.m.Y') }}</div>
                                 <div class="title">{{ $news->title }}</div>
                                 <div class="description">{{ $news->content }}</div>
                             </div>
