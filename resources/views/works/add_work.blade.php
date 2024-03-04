@@ -2,10 +2,13 @@
 @section('title', 'Добавление работы')
 @section('body_type', 'background_type6')
 @section('content')
-    <main class="flex-grow-1">
+    <main class="d-flex flex-grow-1 align-items-center">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 offset-md-2 register_form site_form">
+                    <div class="row">
+                        <p class="subtitle my-4">ДОБАВЛЕНИЕ РАБОТЫ</p>
+                    </div>
                     <form method="POST" action="{{route('works.store')}}" enctype="multipart/form-data">
                         @csrf
 

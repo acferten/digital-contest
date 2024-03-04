@@ -18,7 +18,7 @@
                                 <a href="{{ route('profile.edit') }}" class="mt-4 w-100 btn btn-danger">Редактировать
                                     профиль</a>
                                 @unlessrole('admin')
-                                <a href="{{ route('works.create') }}" class="mt-4 w-100 btn btn-danger w-100">Добавить
+                                <a href="{{ route('works.create') }}" class="mt-4 btn btn-danger w-100">Добавить
                                     работу</a>
                                 @endrole
                             </div>

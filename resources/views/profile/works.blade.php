@@ -7,7 +7,7 @@
             <div class="gallery">
                 <div class="row">
                     <h1 class="my-4">Ваши работы</h1>
-                    @foreach($works as $work)
+                    @forelse($works as $work)
                         <div class="col-lg-3 col-md-4 col-sm-6 col-12 item">
                             <div class="img">
                                 <img
@@ -31,11 +31,18 @@
                                             </div>
                                         @endif
                                     </div>
-
                                 </div>
                             </div>
                         </div>
-                    @endforeach
+                    @empty
+                        <div class="col-xl-4">
+                            <p>Работ пока нет.</p>
+                            @unlessrole('admin')
+                            <a href="{{ route('works.create') }}" class=" mt-4 btn btn-danger w-100">Добавить
+                                работу</a>
+                            @endrole
+                        </div>
+                    @endforelse
                 </div>
             </div>
         </div>
