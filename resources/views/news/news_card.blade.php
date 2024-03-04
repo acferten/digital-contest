@@ -43,11 +43,14 @@
                         </div>
                     </div>
                 @endif
-                <div class="d-flex flex-row mt-5 justify-content-between">
+                <div class="d-flex flex-row my-4 justify-content-between flex-wrap">
                     <a href="{{route('news.index')}}">Возврат к списку новостей</a>
                     @role('admin')
-                    <a href="{{ route('news.edit', $news)  }}" class="ml-2 btn btn-danger">Редактировать
+                    <div class="d-flex flex-column gap-4">
+                    <a href="{{ route('news.edit', $news)  }}" class="ml-2 mt-4 btn btn-danger">Редактировать
                         новость</a>
+                    <a href="{{ route('news.delete', $news) }}" class="ml-2 btn btn-danger">Удалить новость</a>
+                    </div>
                     @endrole
                 </div>
             </div>

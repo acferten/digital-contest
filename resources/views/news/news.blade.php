@@ -9,6 +9,13 @@
                     <h1>Новости</h1>
                 </div>
             </div>
+            @if (!empty(session('success')))
+                <div class="col-12">
+                    <div class="alert alert-success" role="alert">
+                        {{ session('success') }}
+                    </div>
+                </div>
+            @endif
             <div class="news">
                 <div class="row">
                     @forelse($news as $new)
@@ -18,6 +25,7 @@
                                 <div class="title">{{ $new->title }}</div>
                             </a>
                         </div>
+
                     @empty
                         <div class="col-md-4 col-12">Новостей нет!</div>
                         @endforelse

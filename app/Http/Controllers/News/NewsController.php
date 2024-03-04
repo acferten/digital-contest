@@ -5,6 +5,7 @@ namespace App\Http\Controllers\News;
 use App\Http\Controllers\Controller;
 use Domain\News\DataTransferObjects\NewsData;
 use Domain\News\Models\News;
+use Domain\Prize\Models\Prize;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
@@ -66,8 +67,15 @@ class NewsController extends Controller
         return Redirect::route('news.show', $news);
     }
 
-    public function destroy(string $id)
+    public function delete(News $news): View
     {
-        //
+        return view('news.delete', compact('news'));
+    }
+
+    public function destroy(News $news): RedirectResponse
+    {
+        $news->delete();
+
+        return Redirect::route('news.index')->with('success', 'Новость успешно удалена');
     }
 }
