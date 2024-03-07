@@ -5,6 +5,7 @@ use App\Http\Controllers\Partners\PartnersController;
 use App\Http\Controllers\Prizes\PrizesController;
 use App\Http\Controllers\Products\ProductController;
 use App\Http\Controllers\Products\RobokassaPaymentController;
+use App\Http\Controllers\Shared\ContactFormController;
 use App\Http\Controllers\Shared\ContentController;
 use App\Http\Controllers\Shared\PagesController;
 use App\Http\Controllers\User\ProfileController;
@@ -21,9 +22,10 @@ Route::get('about_the_contest', [PagesController::class, 'about_the_contest'])->
 
 Route::get('/', [PagesController::class, 'main'])->name('main');
 
-Route::get('feedback', [PagesController::class, 'feedback'])->name('feedback');
+Route::resource('contact-form', ContactFormController::class)
+    ->only('create', 'store');
 
-Route::get('how_to_become_a_member', [PagesController::class, 'how_to_become_a_member'])
+Route::get('how_to_become_a_member', [PagesController::class, 'howToBecomeMember'])
     ->name('how_to_become_a_member');
 
 // Robokassa payment
@@ -36,7 +38,7 @@ Route::get('orders/success', [RobokassaPaymentController::class, 'success']);
 // Auth
 //----------------------------------
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
 

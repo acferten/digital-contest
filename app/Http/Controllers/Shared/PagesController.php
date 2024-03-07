@@ -17,16 +17,11 @@ class PagesController extends Controller
     {
         $content = Content::where(['for' => 'about_the_contest'])->first();
 
-        return view('about_the_contest', compact('content'));
+        return view('static.about_the_contest', compact('content'));
     }
 
-    public function how_to_become_a_member(): View
+    public function howToBecomeMember(): View
     {
-        return view('how_to_become_a_member');
-    }
-
-    public function feedback(): View
-    {
-        return view('feedback');
+        return view('static.how_to_become_a_member');
     }
 }

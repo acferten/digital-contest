@@ -32,7 +32,7 @@
                             <a class="nav-link" href="{{ route('news.index') }}">Новости</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('feedback') }}">Обратная связь</a>
+                            <a class="nav-link" href="{{ route('contact-form.create') }}">Обратная связь</a>
                         </li>
                         <!--li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
