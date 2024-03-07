@@ -20,12 +20,12 @@ class PartnersController extends Controller
             'content' => Content::where(['for' => 'partners'])->first(),
         ];
 
-        return view('partners.partners', $data);
+        return view('partners.index', $data);
     }
 
     public function create(): View
     {
-        return view('partners.add_partner');
+        return view('partners.create');
     }
 
     public function store(Request $request): RedirectResponse
@@ -38,7 +38,7 @@ class PartnersController extends Controller
             'logo' => $data->logo->storePublicly('', 'logos'),
         ]);
 
-        return Redirect::route('partners.index');
+        return Redirect::route('partners.index')->with('success', 'Партнер успешно добавлен');
     }
 
     public function destroy(Partner $partner)

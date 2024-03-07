@@ -2,7 +2,6 @@
 
 namespace Domain\News\DataTransferObjects;
 
-use Illuminate\Http\Request;
 use Spatie\LaravelData\Data;
 
 class NewsData extends Data
@@ -12,13 +11,6 @@ class NewsData extends Data
         public readonly string $title,
         public readonly string $content,
     ) {
-    }
-
-    public static function fromRequest(Request $request): self
-    {
-        return self::from([
-            ...$request->all(),
-        ]);
     }
 
     public static function rules(): array

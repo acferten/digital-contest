@@ -5,7 +5,6 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Domain\Shared\Models\User;
 use Domain\Work\Models\Work;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
@@ -38,7 +37,7 @@ class UserController extends Controller
             });
         }
 
-        return view('participants.participants', ['letters' => $letters, 'user_group' => $user_group]);
+        return view('participants.index', ['letters' => $letters, 'user_group' => $user_group]);
     }
 
     public function rating(): View
@@ -47,26 +46,16 @@ class UserController extends Controller
             'works' => Work::all()->load('votes')->sortByDesc(fn ($work) => $work->votes->count()),
         ];
 
-        return view('participants.participants_rating', $data);
+        return view('participants.index-rating', $data);
     }
 
     public function show(int $id): View
     {
         $user = User::find($id);
 
-        return view('participants.participant_card', [
+        return view('participants.show', [
             'user' => $user,
         ]);
-    }
-
-    public function edit(string $id)
-    {
-        //
-    }
-
-    public function update(Request $request, string $id)
-    {
-        //
     }
 
     public function destroy(string $id)

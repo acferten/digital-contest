@@ -34,7 +34,7 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('profile.card')->with('status', 'profile-updated');
+        return Redirect::route('profile.card')->with('success', 'Основные данные успешно обновлены');
     }
 
     public function security(SecurityProfileDataRequest $request): RedirectResponse
@@ -57,20 +57,16 @@ class ProfileController extends Controller
 
     public function works(): View
     {
-        $data = [
-            'works' => auth()->user()->works,
-        ];
+        $works = auth()->user()->works;
 
-        return view('profile.works', $data);
+        return view('profile.works', compact('works'));
     }
 
     public function payments(): View
     {
-        $data = [
-            'payments' => auth()->user()->payments,
-        ];
+        $payments = auth()->user()->payments;
 
-        return view('profile.payments', $data);
+        return view('profile.payments', compact('payments'));
     }
 
     public function destroy(Request $request): RedirectResponse

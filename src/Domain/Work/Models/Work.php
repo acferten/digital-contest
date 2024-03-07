@@ -7,15 +7,19 @@ use Domain\Shared\Models\User;
 use Domain\Work\DataTransferObjects\WorkData;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
 use Spatie\LaravelData\WithData;
 
 /**
- * @property string $title
  * @property int $id
+ * @property string $title
  * @property string $file
+ * @property int $year
+ * @property string $status
  * @property Genre $genre
  * @property User $user
+ * @property Collection<Work> $votes
  */
 class Work extends BaseModel
 {

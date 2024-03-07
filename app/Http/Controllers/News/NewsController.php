@@ -13,16 +13,14 @@ class NewsController extends Controller
 {
     public function index(): View
     {
-        $data = [
-            'news' => News::all()->sortByDesc('publication_date'),
-        ];
+        $news = News::all()->sortByDesc('publication_date');
 
-        return view('news.news', $data);
+        return view('news.index', compact('news'));
     }
 
     public function create(): View
     {
-        return view('news.add_news');
+        return view('news.create');
     }
 
     public function store(NewsData $data): RedirectResponse
@@ -32,7 +30,7 @@ class NewsController extends Controller
             'publication_date' => now(),
         ]);
 
-        return Redirect::route('news.show', $news);
+        return Redirect::route('news.show', $news)->with('success', 'Новость успешно добавлена');
     }
 
     public function show(News $news): View
@@ -40,20 +38,17 @@ class NewsController extends Controller
         $next = News::where('publication_date', '>', $news->publication_date)
             ->oldest('publication_date')
             ->first();
+
         $prev = News::where('publication_date', '<', $news->publication_date)
             ->latest('publication_date')
             ->first();
 
-        return view('news.news_card', ['news' => $news, 'next' => $next, 'prev' => $prev]);
+        return view('news.show', compact(['next', 'prev', 'news']));
     }
 
     public function edit(News $news): View
     {
-        $data = [
-            'news' => $news,
-        ];
-
-        return view('news.edit_news', $data);
+        return view('news.edit', compact('news'));
     }
 
     public function update(NewsData $data, News $news): RedirectResponse
@@ -63,7 +58,7 @@ class NewsController extends Controller
             'publication_date' => now(),
         ]);
 
-        return Redirect::route('news.show', $news);
+        return Redirect::route('news.show', $news)->with('success', 'Новость успешно обновлена');
     }
 
     public function delete(News $news): View

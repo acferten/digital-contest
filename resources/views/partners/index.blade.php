@@ -9,6 +9,7 @@
                     <h1>Партнеры</h1>
                 </div>
             </div>
+            <x-success-alert/>
             <div class="partners">
                 <div class="d-flex flex-wrap gap-4">
                     @foreach($partners as $partner)

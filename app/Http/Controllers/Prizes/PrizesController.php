@@ -18,12 +18,12 @@ class PrizesController extends Controller
             'prizes' => Prize::all(),
         ];
 
-        return view('prizes.prizes_for_winners', $data);
+        return view('prizes.index', $data);
     }
 
     public function create(): View
     {
-        return view('prizes.add_prize');
+        return view('prizes.create');
     }
 
     public function store(Request $request): RedirectResponse
@@ -36,7 +36,7 @@ class PrizesController extends Controller
             'photo' => $data->photo->storePublicly('', 'prizes_photo'),
         ]);
 
-        return Redirect::route('prizes.index');
+        return Redirect::route('prizes.index')->with('success', 'Приз успешно добавлен');
     }
 
     public function delete(Prize $prize): View

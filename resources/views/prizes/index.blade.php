@@ -11,13 +11,7 @@
             </div>
             <div class="prizes">
                 <div class="row">
-                    @if (!empty(session('success')))
-                        <div class="col-12">
-                            <div class="alert alert-success" role="alert">
-                                {{ session('success') }}
-                            </div>
-                        </div>
-                    @endif
+                    <x-success-alert/>
                     @foreach($prizes as $prize)
                         <div class="col-md-4 col-12 item my-4">
                             <img src="{{$prize->getPrizePhotoUrl()}}" alt="prize photo">

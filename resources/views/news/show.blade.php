@@ -9,6 +9,7 @@
                     <h1>Новости</h1>
                 </div>
             </div>
+            <x-success-alert/>
             <div class="news-card">
                 <div class="row">
                     <div class="col-12 item">
