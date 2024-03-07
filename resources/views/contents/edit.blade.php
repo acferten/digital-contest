@@ -1,7 +1,4 @@
 @extends('layout')
-<link rel="stylesheet" href="/dist/js/richtexteditor/rte_theme_default.css"/>
-<script type="text/javascript" src="/dist/js/richtexteditor/rte.js"></script>
-<script type="text/javascript" src='/dist/js/richtexteditor/plugins/all_plugins.js'></script>
 @section('title', 'Редактирование текста')
 @section('body_type', 'background_type1')
 @section('content')
@@ -20,19 +17,17 @@
                             <label for="text"
                                    class="col-xl-3 col-xxl-2 col-form-label">{{ __('Текст') }}</label>
                             <div class="col-xl-9 col-xxl-10">
-                                <textarea name="text" class="form-control inp_editor" id="text"
+                                <textarea name="text" class="form-control html_editor" id="text"
                                           rows="3">{{ $content->text }}</textarea>
                                 @error('about')
                                 <p class="error">{{$message}}</p>
                                 @enderror
                             </div>
-                            <script defer>
-                                Array.from(document.getElementsByClassName("inp_editor")).forEach(element => new RichTextEditor(element));
-                            </script>
                         </div>
 
-                        <div class="d-flex justify-content-between flex-wrap mt-4">
-                            <div class="mb-4">
+                        <!-- submit -->
+                        <div class="my-4">
+                            <div>
                                 <button type="submit" class="btn btn-danger ml-4">{{ __('Обновить текст') }}</button>
                             </div>
                         </div>

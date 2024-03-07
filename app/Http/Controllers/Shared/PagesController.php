@@ -15,11 +15,9 @@ class PagesController extends Controller
 
     public function about_the_contest(): View
     {
-        $data = [
-            'content' => Content::where(['for' => 'about_the_contest'])->first(),
-        ];
+        $content = Content::where(['for' => 'about_the_contest'])->first();
 
-        return view('about_the_contest', $data);
+        return view('about_the_contest', compact('content'));
     }
 
     public function how_to_become_a_member(): View

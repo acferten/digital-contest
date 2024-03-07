@@ -9,6 +9,7 @@
                     <div class="col-12 profile-title">
                         <h1>Профиль</h1>
                     </div>
+                    <x-success-alert/>
                     <div class="container profile profile--desktop">
                         <div class="row">
                             <div class="col-lg-3 col-md-4 col-sm-12 col-12 profile_photo">

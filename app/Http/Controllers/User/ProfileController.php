@@ -52,7 +52,7 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('profile.card')->with('status', 'profile-updated');
+        return Redirect::route('profile.card')->with('success', 'Данные безопасности успешно обновлены');
     }
 
     public function works(): View

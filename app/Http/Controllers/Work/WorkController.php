@@ -51,7 +51,7 @@ class WorkController extends Controller
         $description = ProductEnum::Publish->value;
         $out_sum = $product->price;
         $user_id = auth()->user()->id;
-        $inv_id = (int)(((int)($work->id . $user_id . time())) / 10000);
+        $inv_id = (int) (((int) ($work->id.$user_id.time())) / 10000);
         $signature_value = md5("{$merchant_login}:{$out_sum}:{$inv_id}:{$password_1}:Shp_ProductId={$product->id}:Shp_UserId={$user_id}:Shp_WorkId={$work->id}");
 
         return Redirect::away("https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin={$merchant_login}&OutSum={$out_sum}&InvId={$inv_id}&Description={$description}&SignatureValue={$signature_value}&Shp_ProductId={$product->id}&Shp_UserId={$user_id}&Shp_WorkId={$work->id}&IsTest=1");

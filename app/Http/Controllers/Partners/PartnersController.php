@@ -41,21 +41,6 @@ class PartnersController extends Controller
         return Redirect::route('partners.index');
     }
 
-    public function show(Partner $partner)
-    {
-        //
-    }
-
-    public function edit(Partner $partner)
-    {
-        //
-    }
-
-    public function update(Request $request, Partner $partner)
-    {
-        //
-    }
-
     public function destroy(Partner $partner)
     {
         //

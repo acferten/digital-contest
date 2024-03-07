@@ -17,8 +17,7 @@
                 </div>
                 @role('admin')
                 <div class="col-12">
-                    <a href="{{ route('contents.edit', $content ) }}" class="btn btn-danger">Редактировать
-                        текст</a>
+                    <a href="{{ route('contents.edit', $content ) }}" class="btn btn-danger">Редактировать текст</a>
                 </div>
                 <br>
                 @endrole

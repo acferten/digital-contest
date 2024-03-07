@@ -5,7 +5,6 @@ namespace App\Http\Controllers\News;
 use App\Http\Controllers\Controller;
 use Domain\News\DataTransferObjects\NewsData;
 use Domain\News\Models\News;
-use Domain\Prize\Models\Prize;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;

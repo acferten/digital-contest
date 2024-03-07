@@ -19,16 +19,16 @@
             <div class="news">
                 <div class="row">
                     @forelse($news as $new)
-                        <div class="col-md-4 col-12 item">
+                        <div class="col-md-4 col-12 item mb-4">
                             <a href="{{ route('news.show', $new) }}">
-                                <div class="date">{{ \Carbon\Carbon::create($new->publication_date)->translatedFormat('d.m.Y') }}</div>
+                                <div
+                                    class="date">{{ \Carbon\Carbon::create($new->publication_date)->translatedFormat('d.m.Y') }}</div>
                                 <div class="title">{{ $new->title }}</div>
                             </a>
                         </div>
-
                     @empty
                         <div class="col-md-4 col-12">Новостей нет!</div>
-                        @endforelse
+                    @endforelse
                 </div>
             </div>
         </div>

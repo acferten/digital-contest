@@ -13,7 +13,7 @@ class PrizeFactory extends Factory
     {
         return [
             'title' => fake()->realTextBetween(10, 20),
-            'photo' => fake()->randomElement(['prize' . fake()->numberBetween(1, 3) . '.jpg']),
+            'photo' => fake()->randomElement(['prize'.fake()->numberBetween(1, 3).'.jpg']),
             'description' => fake()->realTextBetween(100, 500),
         ];
     }

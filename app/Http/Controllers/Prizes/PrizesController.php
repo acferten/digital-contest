@@ -39,21 +39,6 @@ class PrizesController extends Controller
         return Redirect::route('prizes.index');
     }
 
-    public function show(Prize $prize)
-    {
-        //
-    }
-
-    public function edit(Prize $prize)
-    {
-        //
-    }
-
-    public function update(Request $request, Prize $prize)
-    {
-        //
-    }
-
     public function delete(Prize $prize): View
     {
         return view('prizes.delete', compact('prize'));

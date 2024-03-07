@@ -1,13 +1,9 @@
 @extends('layout')
-<link rel="stylesheet" href="/dist/js/richtexteditor/rte_theme_default.css"/>
-<script type="text/javascript" src="/dist/js/richtexteditor/rte.js"></script>
-<script type="text/javascript" src='/dist/js/richtexteditor/plugins/all_plugins.js'></script>
 @section('title', 'Добавление приза')
 @section('body_type', 'background_type6')
 @section('content')
     <main class="d-flex flex-grow-1 align-items-center">
         <div class="container">
-
             <div class="row">
                 <div class="col-md-8 offset-md-2 register_form site_form">
                     <div class="row">
@@ -32,7 +28,8 @@
                             <label for="description"
                                    class="col-xl-3 col-xxl-2 col-form-label">{{ __('Описание') }}</label>
                             <div class="col-xl-9 col-xxl-10">
-                                <textarea name="description" class="form-control inp_editor" id="description" required></textarea>
+                                <textarea name="description" class="form-control html_editor" id="description"
+                                          required></textarea>
                                 @error('description')
                                 <p class="error"> {{$message}} </p>
                                 @enderror
@@ -52,17 +49,13 @@
                             </div>
                         </div>
 
-                        <div class="d-flex justify-content-between flex-wrap mt-4">
-                            <div class="mb-4">
+                        <!-- submit -->
+                        <div class="row my-4">
+                            <div>
                                 <button type="submit" class="btn btn-danger ml-4">{{ __('Добавить приз') }}</button>
                             </div>
                         </div>
-
                     </form>
-
-                    <script defer>
-                        Array.from(document.getElementsByClassName("inp_editor")).forEach(element => new RichTextEditor(element));
-                    </script>
                 </div>
             </div>
         </div>
