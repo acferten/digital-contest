@@ -13,6 +13,38 @@ input {
     border-radius: unset !important;
 }
 
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus,
+.form-control:focus {
+    border-color: #ced4da;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem #2d3748;
+}
+
+input[type="radio"]:focus,
+input[type="radio"]:before,
+input[type="radio"]:checked,
+input[type="radio"]:active {
+    background-color: #bc2649;
+    border-color: #bc2649;
+    outline: none;
+    box-shadow: none;
+}
+
 select {
     border-radius: unset !important;
 }
@@ -118,7 +150,14 @@ main h1 {
     font-size: 24px;
     font-weight: 700;
     letter-spacing: 7.2px;
-    text-transform: uppercase;
+}
+
+.contact-form-title {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 7.2px;
+    text-transform: none;
+    color: white;
 }
 
 .background_type5 main h1 {

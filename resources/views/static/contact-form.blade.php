@@ -10,27 +10,28 @@
     <main class="d-flex flex-grow-1 align-items-center">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 offset-md-2 register_form site_form">
+                <div class="col-md-8 offset-md-2 site_form">
                     <div class="row">
-                        <p class="subtitle my-4">По какому вопросу хотите обратиться?
+                        <p class="contact-form-title my-4">По какому вопросу хотите обратиться?
                             Уточните, к каким специалистам направить обращение</p>
                     </div>
+                    <x-success-alert/>
                     <form method="POST" action="{{route('contact-form.store')}}">
                         @csrf
                         <div class="d-flex justify-content-start gap-4 mb-4">
                             <div class="d-flex flex-column gap-2">
                                 <input class="form-check-input" type="radio" name="type" id="tech"
-                                       value="tech">
+                                       value="Техническая поддержка">
                                 <label class="form-check-label" for="tech">Техническая поддержка</label>
                             </div>
                             <div class="d-flex flex-column gap-2">
                                 <input class="form-check-input" type="radio" name="type" id="question"
-                                       value="question">
+                                       value="Вопрос">
                                 <label class="form-check-label" for="question">Вопрос</label>
                             </div>
                             <div class="d-flex flex-column gap-2">
                                 <input class="form-check-input" type="radio" name="type" id="report"
-                                       value="report">
+                                       value="Жалоба">
                                 <label class="form-check-label" for="report">Жалоба</label>
                             </div>
                         </div>
@@ -41,50 +42,50 @@
                                    class="col-xl-3 col-xxl-2 col-form-label">{{ __('ФИО*') }}</label>
                             <div class="col-xl-9 col-xxl-10">
                                 <input type="text" name="name" maxlength="55" class="form-control" id="name" required>
-                                @error('title')
+                                @error('name')
                                 <p class="error"> {{$message}} </p>
                                 @enderror
-                                <p class="error mt-3">Укажите, как к Вам обращаться</p>
+                                <p class="error mt-1">Укажите, как к Вам обращаться</p>
                             </div>
                         </div>
 
                         <!-- email -->
                         <div class="mb-3 row">
-                            <label for="photo"
+                            <label for="email"
                                    class="col-xl-3 col-xxl-2 col-form-label">{{ __('E-mail*') }}</label>
                             <div class="col-xl-9 col-xxl-10">
-                                <input type="email" name="photo" class="form-control" id="photo" required>
-                                @error('photo')
+                                <input type="email" name="email" class="form-control" id="email" required>
+                                @error('email')
                                 <p class="error"> {{$message}} </p>
                                 @enderror
-                                <p class="error mt-3">Адрес для отправки ответа</p>
+                                <p class="error mt-1">Адрес для отправки ответа</p>
                             </div>
                         </div>
 
                         <!-- phone -->
                         <div class="mb-3 row">
-                            <label for="photo"
+                            <label for="phone"
                                    class="col-xl-3 col-xxl-2 col-form-label">{{ __('Телефон') }}</label>
                             <div class="col-xl-9 col-xxl-10">
-                                <input type="text" name="photo" class="form-control" id="photo" required>
-                                @error('photo')
+                                <input type="text" name="phone" class="form-control" id="phone" required>
+                                @error('phone')
                                 <p class="error"> {{$message}} </p>
                                 @enderror
-                                <p class="error mt-3">Контактный номер телефона (необязательно)</p>
+                                <p class="error mt-1">Контактный номер телефона (необязательно)</p>
                             </div>
                         </div>
 
-                        <!-- description -->
+                        <!-- content -->
                         <div class="mb-3 row">
-                            <label for="description"
+                            <label for="content"
                                    class="col-xl-3 col-xxl-2 col-form-label">{{ __('Текст обращения*') }}</label>
                             <div class="col-xl-9 col-xxl-10">
-                                <textarea name="description" class="form-control" id="description"
+                                <textarea name="content" class="form-control" id="content"
                                           required></textarea>
-                                @error('description')
+                                @error('content')
                                 <p class="error"> {{$message}} </p>
                                 @enderror
-                                <p class="error mt-3">Подробно изложите ваш вопрос и все сопутствующие детали</p>
+                                <p class="error mt-1">Подробно изложите ваш вопрос и все сопутствующие детали</p>
                             </div>
 
                         </div>

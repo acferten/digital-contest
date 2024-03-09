@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Shared;
 
 use App\Http\Controllers\Controller;
+use Domain\Shared\DataTransferObjects\ContactFormData;
+use Domain\Shared\Models\ContactForm;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
 class ContactFormController extends Controller
@@ -12,8 +15,10 @@ class ContactFormController extends Controller
         return view('static.contact-form');
     }
 
-    public function store(): View
+    public function store(ContactFormData $data): RedirectResponse
     {
-        return view('main');
+        ContactForm::create([...$data->all()]);
+
+        return redirect()->back()->with('success', 'Ваше обращение сохранено. Ответ придет на указанную электронную почту');
     }
 }

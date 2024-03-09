@@ -35,7 +35,7 @@ class WorkController extends Controller
             'price' => Product::where('name', ProductEnum::Publish->value)->first()->price,
         ];
 
-        return view('works.add_work', $data);
+        return view('works.create', $data);
     }
 
     public function store(Request $request): RedirectResponse
@@ -64,7 +64,7 @@ class WorkController extends Controller
             'other_works' => $work->user->works->take(6),
         ];
 
-        return view('works.work', $data);
+        return view('works.show', $data);
     }
 
     public function edit(string $id): View
