@@ -13,6 +13,7 @@ use App\Http\Controllers\User\UserAvatarController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Work\WorkController;
 use App\Http\Controllers\Work\WorkSearchController;
+use App\Http\Controllers\Work\WorkVoteController;
 use Illuminate\Support\Facades\Route;
 
 // Main pages
@@ -76,6 +77,10 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::resource('partners', PartnersController::class)->except('index');
 
         Route::resource('prizes', PrizesController::class)->except('index');
+
+        Route::get('works/{work}/vote', [WorkVoteController::class, 'create'])->name('works.vote.create');
+
+        Route::post('works/{work}/vote', [WorkVoteController::class, 'store'])->name('works.vote.store');
 
         Route::get('prizes/{prize}/delete', [PrizesController::class, 'delete'])->name('prizes.delete');
 

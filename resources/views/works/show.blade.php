@@ -10,14 +10,8 @@
                         <h1 class="work-title">
                             {{$work->title}}
                         </h1>
-                        @if (\Session::has('success'))
-                            <div class="alert alert-success">
-                                <ul>
-                                    <li>{!! \Session::get('success') !!}</li>
-                                </ul>
-                            </div>
-                        @endif
                         <p class="subtitle my-4">{{$work->genre->name }}, {{$work->year }} год</p>
+                        <x-success-alert/>
                     </div>
                     <div class="container work">
                         <div class="d-flex row flex-wrap justify-content-between">
@@ -33,13 +27,20 @@
                                             class="work__rating-unit">{{ trans_choice('validation.votes', $work->votes()->count()) }}</div>
                                     </div>
                                     <x-vote-button :work="$work"/>
+                                    @role('admin')
+                                    <div class="col my-4">
+                                        <a href="{{ route('works.vote.create', $work) }}"
+                                           class="col-lg-10 btn btn-danger">Добавить
+                                            голоса</a>
+                                    </div>
+                                    @endrole
                                 </div>
                             </div>
 
                             <div
                                 class="offset-lg-1 col-lg-8 col-md-8 col-sm-12 col-12 work_data d-flex flex-column justify-content-between">
                                 <div class="name">
-                                     {{ $work->user->last_name }} {{ $work->user->first_name }}
+                                    {{ $work->user->last_name }} {{ $work->user->first_name }}
                                 </div>
 
                                 @if($other_works)
@@ -49,16 +50,12 @@
                                             <ul class="work__other-work">
                                                 @foreach($other_works as $other_work)
                                                     <li>
-                                                        <a href="{{ route('works.show', [$other_work->id]) }}">«{{ $other_work->title }}»</a>{{ $loop->last ? '' : ',' }}
+                                                        <a href="{{ route('works.show', [$other_work->id]) }}">«{{ $other_work->title }}
+                                                            »</a>{{ $loop->last ? '' : ',' }}
                                                     </li>
                                                 @endforeach
                                             </ul>
                                         </div>
-
-
-
-
-
                                     </div>
                                 @endif
                             </div>
