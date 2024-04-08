@@ -15,7 +15,7 @@ class ProfileUpdateData extends Data
     ) {
     }
 
-    public function static rules(): array
+    public static function rules(): array
     {
         return [
             'first_name' => ['required', 'string', 'max:255'],
