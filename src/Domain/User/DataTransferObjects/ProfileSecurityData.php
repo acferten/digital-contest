@@ -19,10 +19,10 @@ class ProfileSecurityData extends Data
     public static function fromRequest(Request $request): self
     {
         return self::from([
-            'email' => $request->validated('email') ?
-                $request->validated('email') : $request->user()->email,
-            'password' => $request->validated('password') ?
-                Hash::make($request->validated('password')) : $request->user()->password,
+            'email' => $request->input('email') ?
+                $request->input('email') : $request->user()->email,
+            'password' => $request->input('password') ?
+                Hash::make($request->input('password')) : $request->user()->password,
         ]);
     }
 
