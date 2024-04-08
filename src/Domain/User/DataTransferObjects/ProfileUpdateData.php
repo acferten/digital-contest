@@ -29,7 +29,7 @@ class ProfileUpdateData extends Data
     {
         return [
             'first_name' => 'имя',
-            'last_name' => 'фамилия компании',
+            'last_name' => 'фамилия',
             'username' => 'псевдоним',
             'about' => 'краткая информация о себе',
         ];
