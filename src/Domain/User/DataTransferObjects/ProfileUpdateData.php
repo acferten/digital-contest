@@ -15,7 +15,7 @@ class ProfileUpdateData extends Data
     ) {
     }
 
-    public function rules(): array
+    public function static rules(): array
     {
         return [
             'first_name' => ['required', 'string', 'max:255'],
@@ -25,7 +25,7 @@ class ProfileUpdateData extends Data
         ];
     }
 
-    public function attributes(...$args): array
+    public static function attributes(...$args): array
     {
         return [
             'first_name' => 'имя',
