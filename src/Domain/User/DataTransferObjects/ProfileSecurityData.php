@@ -26,7 +26,7 @@ class ProfileSecurityData extends Data
         ]);
     }
 
-    public function rules(): array
+    public static function rules(): array
     {
         return [
             'email' => ['nullable', 'string', 'email', 'max:255', Rule::unique('users')->ignore(auth()->user())],
