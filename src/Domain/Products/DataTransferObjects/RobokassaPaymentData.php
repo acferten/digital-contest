@@ -29,8 +29,8 @@ class RobokassaPaymentData extends Data
             'work' => Work::find($request->input('Shp_WorkId')),
             'product' => Product::find($request->input('Shp_ProductId')),
             'user' => Product::find($request->input('Shp_UserId')),
-            'inv_id' => $request->input('inv_id'),
-            'out_sum' => $request->input('out_sum'),
+            'inv_id' => $request->input('InvId'),
+            'out_sum' => $request->input('OutSum'),
             'signature_value' => $request->input('SignatureValue'),
         ]);
     }

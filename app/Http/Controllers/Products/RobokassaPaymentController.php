@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Products;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RobokassaPaymentRequest;
+use Domain\Products\DataTransferObjects\RobokassaPaymentData;
 use Domain\Products\Enums\OrderStatus;
 use Domain\Products\Enums\ProductEnum;
 use Domain\Products\Models\Product;
@@ -11,12 +12,16 @@ use Domain\Shared\Models\User;
 use Domain\Work\Enums\WorkStatus;
 use Domain\Work\Models\Work;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 
 class RobokassaPaymentController extends Controller
 {
-    public function result(RobokassaPaymentRequest $request)
+    public function result(RobokassaPaymentData $data)
     {
+        Log::debug($data->product->name);
+        die();
+
         $work = Work::find($request->input('Shp_WorkId'));
         $product = Product::find($request->input('Shp_ProductId'));
         $user = User::find($request->input('Shp_UserId'));

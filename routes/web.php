@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 // Main pages
 //----------------------------------
 
-Route::get('about_the_contest', [PagesController::class, 'about_the_contest'])->name('about_the_contest');
+Route::get('about_the_contest', [PagesController::class, 'aboutTheContest'])->name('about_the_contest');
 
 Route::get('/', [PagesController::class, 'main'])->name('main');
 

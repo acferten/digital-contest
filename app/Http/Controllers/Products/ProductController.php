@@ -12,11 +12,7 @@ class ProductController extends Controller
 {
     public function edit(Product $product): View
     {
-        $data = [
-            'product' => $product,
-        ];
-
-        return view('products.edit', $data);
+        return view('products.edit', compact('product'));
     }
 
     public function update(Product $product, Request $request): RedirectResponse

@@ -13,7 +13,7 @@ class PagesController extends Controller
         return view('main');
     }
 
-    public function about_the_contest(): View
+    public function aboutTheContest(): View
     {
         $content = Content::where(['for' => 'about_the_contest'])->first();
 
