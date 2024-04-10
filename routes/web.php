@@ -39,7 +39,7 @@ Route::get('orders/success', [RobokassaPaymentController::class, 'success']);
 // Auth
 //----------------------------------
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
 

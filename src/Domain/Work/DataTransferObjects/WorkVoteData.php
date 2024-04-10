@@ -12,9 +12,8 @@ class WorkVoteData extends Data
     public function __construct(
         #[WithoutValidation]
         public readonly Work $work,
-        public readonly int  $amount
-    )
-    {
+        public readonly int $amount
+    ) {
     }
 
     public static function fromRequest(Request $request): self

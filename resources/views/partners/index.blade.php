@@ -11,30 +11,28 @@
             </div>
             <x-success-alert/>
             <div class="partners">
-                <div class="d-flex flex-wrap gap-4">
+                <div class="d-flex flex-wrap justify-content-between">
                     @foreach($partners as $partner)
                         <div>
-                        <div style="background-image: url('{{$partner->getLogoUrl()}}');" class="partner-image">
-                            {{ $partner->name }}
-                        </div>
-                        @role('admin')
-                        <div class="col-4 my-4 w-100">
-                            <a href="{{ route('partners.delete', $partner) }}" class="w-100 btn btn-danger">Удалить</a>
-                        </div>
-                        @endrole
+                            <img class="mt-4" src="{{ $partner->getLogoUrl() }}" alt="{{ $partner->name }}">
+                            @role('admin')
+                            <div class="col-4 my-4 w-100">
+                                <a href="{{ route('partners.delete', $partner) }}"
+                                   class="w-100 btn btn-danger">Удалить</a>
+                            </div>
+                            @endrole
                         </div>
                     @endforeach
                 </div>
 
                 <div class="row">
-                    <p class="text mt-4">{!! $content->text !!}</p>
+                    <p class="text">{!! $content->text !!}</p>
                 </div>
                 @role('admin')
                 <div class="col-12">
                     <a href="{{ route('contents.edit', $content ) }}" class="btn btn-danger">Редактировать
                         текст</a>
                 </div>
-                <br>
                 @endrole
             </div>
         </div>

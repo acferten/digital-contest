@@ -4,21 +4,20 @@ namespace Domain\Shared\DataTransferObjects;
 
 use Domain\Shared\Enums\ContactFormType;
 use Spatie\LaravelData\Attributes\WithCast;
-use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Casts\EnumCast;
+use Spatie\LaravelData\Data;
 
 class ContactFormData extends Data
 {
     public function __construct(
-        public readonly ?int            $id,
-        public readonly string          $name,
-        public readonly string          $content,
-        public readonly string          $phone,
-        public readonly string          $email,
+        public readonly ?int $id,
+        public readonly string $name,
+        public readonly string $content,
+        public readonly string $phone,
+        public readonly string $email,
         #[WithCast(EnumCast::class)]
         public readonly ContactFormType $type,
-    )
-    {
+    ) {
     }
 
     public static function rules(): array

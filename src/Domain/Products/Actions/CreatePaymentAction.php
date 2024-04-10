@@ -12,9 +12,9 @@ class CreatePaymentAction
     public static function execute(RobokassaPaymentData $data): string
     {
         $payment = $data->user->payments()->save($data->product, [
-                'invoice_id' => $data->inv_id,
-                'work_id' => $data->work->id
-            ]
+            'invoice_id' => $data->inv_id,
+            'work_id' => $data->work->id,
+        ]
         );
 
         $mrh_pass2 = env('ROBOKASSA_PASSWORD_2');

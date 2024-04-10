@@ -74,7 +74,7 @@ select {
 }
 
 .background_type4 {
-    background: #b4bcc3
+    background: linear-gradient(90deg,#80429D , #8A689E 35%,#6B89DE 100%);
 }
 
 .background_type5, .background_type6 {
@@ -110,11 +110,11 @@ main {
     text-transform: none;
 }
 
-.background_type1 main, .background_type2 main, .background_type3 main {
+.background_type1 main, .background_type2 main, .background_type3 main, .background_type4 main {
     color: #fff
 }
 
-.background_type4 main, .background_type4_1 main, .background_type5 main, .background_type6 main {
+.background_type4_1 main, .background_type5 main, .background_type6 main {
     color: #000
 }
 
@@ -177,13 +177,25 @@ footer {
     border-top: 9px solid #d9d9d9;
 }
 
-.background_type4 footer, .background_type4_1 footer, .background_type5 footer, .background_type6 footer {
+.background_type4_1 footer, .background_type5 footer, .background_type6 footer {
     color: #000;
     border-color: #000
 }
 
 .background_type4_1 footer {
     background: #b4bcc3
+}
+
+.partners {
+    margin-bottom: 40px;
+}
+
+.partners img {
+    width: 300px;
+    height: 200px;
+    background-color: white;
+    object-fit: contain;
+    border-radius: 5px;
 }
 
 footer div.col {
@@ -199,7 +211,7 @@ footer a {
     text-decoration: none
 }
 
-.background_type4 footer a, .background_type4_1 footer a, .background_type5 footer a, .background_type6 footer a {
+.background_type4_1 footer a, .background_type5 footer a, .background_type6 footer a {
     color: #000
 }
 
@@ -234,7 +246,7 @@ footer a {
     white-space: nowrap
 }
 
-.background_type4 .navbar-brand .navbar-item, .background_type4_1 .navbar-brand .navbar-item, .background_type5 .navbar-brand .navbar-item, .background_type6 .navbar-brand .navbar-item {
+.background_type4_1 .navbar-brand .navbar-item, .background_type5 .navbar-brand .navbar-item, .background_type6 .navbar-brand .navbar-item {
     color: #000
 }
 
@@ -271,7 +283,7 @@ footer a {
     top: 46px
 }
 
-.background_type4 .navbar-toggler .navbar-toggler-row, .background_type4_1 .navbar-toggler .navbar-toggler-row, .background_type6 .navbar-toggler .navbar-toggler-row {
+.background_type4_1 .navbar-toggler .navbar-toggler-row, .background_type6 .navbar-toggler .navbar-toggler-row {
     background-color: #bc2649
 }
 
@@ -339,14 +351,9 @@ footer a {
 }
 
 .text {
-    margin-bottom: 100px;
+    margin-top: 100px;
     hyphens: auto;
-}
-
-.partner-image {
-    height: 200px;
-    width: 200px;
-    background-size: contain;
+    font-size: 1.5rem;
 }
 
 .site_form textarea {
@@ -461,10 +468,10 @@ footer a {
 }
 
 .gallery .item .img {
-    width: 100%;
-    height: 400px;
+    width: 300px;
+    height: 300px;
     margin-bottom: 25px;
-    overflow: hidden
+    overflow: hidden;
 }
 
 .gallery .item .img img {
@@ -825,7 +832,7 @@ footer a {
         border-left: 9px solid #d9d9d9;
     }
 
-    .background_type4 footer div.col + div.col, .background_type4_1 footer div.col + div.col, .background_type5 footer div.col + div.col, .background_type6 footer div.col + div.col {
+    .background_type4_1 footer div.col + div.col, .background_type5 footer div.col + div.col, .background_type6 footer div.col + div.col {
         border-left-color: #000;
     }
 }
