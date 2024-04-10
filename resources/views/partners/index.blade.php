@@ -10,8 +10,9 @@
                 </div>
             </div>
             <x-success-alert/>
+
             <div class="partners">
-                <div class="d-flex flex-wrap justify-content-between">
+                <div class="d-flex flex-wrap justify-content-between align-content-start">
                     @foreach($partners as $partner)
                         <div>
                             <img class="mt-4" src="{{ $partner->getLogoUrl() }}" alt="{{ $partner->name }}">
@@ -35,7 +36,6 @@
                 </div>
                 @endrole
             </div>
-        </div>
         </div>
     </main>
 @endsection
