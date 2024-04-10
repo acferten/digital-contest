@@ -13,7 +13,15 @@
             <div class="partners">
                 <div class="d-flex flex-wrap gap-4">
                     @foreach($partners as $partner)
+                        <div>
                         <div style="background-image: url('{{$partner->getLogoUrl()}}');" class="partner-image">
+                            {{ $partner->name }}
+                        </div>
+                        @role('admin')
+                        <div class="col-4 my-4 w-100">
+                            <a href="{{ route('partners.delete', $partner) }}" class="w-100 btn btn-danger">Удалить</a>
+                        </div>
+                        @endrole
                         </div>
                     @endforeach
                 </div>

@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'Добавление новости')
+@section('title', 'Редактирование профиля')
 @section('body_type', 'background_type6')
 @section('content')
     <main class="flex-grow-1">

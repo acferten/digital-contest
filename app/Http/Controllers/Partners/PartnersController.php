@@ -41,8 +41,15 @@ class PartnersController extends Controller
         return Redirect::route('partners.index')->with('success', 'Партнер успешно добавлен');
     }
 
-    public function destroy(Partner $partner)
+    public function delete(Partner $partner): View
     {
-        //
+        return view('partners.delete', compact('partner'));
+    }
+
+    public function destroy(Partner $partner): RedirectResponse
+    {
+        $partner->delete();
+
+        return Redirect::route('partners.index')->with('success', 'Партнер успешно удален');
     }
 }

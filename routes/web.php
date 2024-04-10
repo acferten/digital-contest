@@ -86,6 +86,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
         Route::get('news/{news}/delete', [NewsController::class, 'delete'])->name('news.delete');
 
+        Route::get('partners/{partner}/delete', [PartnersController::class, 'delete'])->name('partners.delete');
+
         Route::resource('news', NewsController::class)->except('index');
 
         Route::resource('contents', ContentController::class)->only('edit', 'update');

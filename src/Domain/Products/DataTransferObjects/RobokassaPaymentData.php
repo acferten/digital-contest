@@ -12,12 +12,12 @@ use Spatie\LaravelData\Data;
 class RobokassaPaymentData extends Data
 {
     public function __construct(
-        public                      $work,
-        public                      $product,
-        public                      $user,
-        public                      $out_sum,
-        public                      $inv_id,
-        public                      $signature_value,
+        public Work                 $work,
+        public Product              $product,
+        public User                 $user,
+        public int                  $out_sum,
+        public int                  $inv_id,
+        public string               $signature_value,
         public readonly OrderStatus $status = OrderStatus::Pending,
     )
     {
