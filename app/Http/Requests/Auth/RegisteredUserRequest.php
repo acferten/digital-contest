@@ -19,9 +19,9 @@ class RegisteredUserRequest extends FormRequest
         $allowedTypes = 'jpeg,jpg,png,gif';
 
         return [
-            'first_name' => ['required', 'string', 'max:255'],
-            'last_name' => ['required', 'string', 'max:255'],
-            'username' => ['required', 'string', 'max:255', Rule::unique('users')],
+            'first_name' => ['required', 'string', 'max:100'],
+            'last_name' => ['required', 'string', 'max:100'],
+            'username' => ['required', 'string', 'max:50', Rule::unique('users')],
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')],
             'password' => ['required', 'confirmed', Password::defaults()],
             'profile_picture' => ['nullable', 'mimes:'.$allowedTypes, 'max:'.$maxSize],
