@@ -122,10 +122,6 @@ main {
     background: #b4bcc3
 }
 
-main .container {
-    padding-right: 10%;
-}
-
 main h1 {
     font-size: calc(1rem + 3vw);
     font-weight: 700;
