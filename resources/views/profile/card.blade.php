@@ -70,7 +70,6 @@
 
                                             <a href="{{ route('profile.works') }}">Ваши работы</a>
 
-                                            <a href="{{ route('profile.payments') }}">Ваши оплаты</a>
                                         </div>
                                     </div>
                                     @endrole
@@ -148,12 +147,6 @@
                                         <div class="col w-100">
                                             <a href="{{ route('profile.works') }}" class="btn btn-danger w-100">Ваши
                                                 работы</a>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <div class="col w-100">
-                                            <a href="{{ route('profile.payments') }}" class="btn btn-danger w-100">Ваши
-                                                оплаты</a>
                                         </div>
                                     </div>
                                     @endrole

@@ -9,11 +9,11 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
-class WorkVoteController extends Controller
+class AddAdminVotesToWorkController extends Controller
 {
     public function create(Work $work): View
     {
-        return view('works.vote', compact('work'));
+        return view('works.admin-vote', compact('work'));
     }
 
     public function store(WorkVoteData $data): RedirectResponse

@@ -53,6 +53,8 @@ class Work extends BaseModel
 
     public function votes(): belongsToMany
     {
-        return $this->belongsToMany(User::class, 'votes');
+        return $this->belongsToMany(User::class, 'votes')
+            ->withPivot('is_free')
+            ->withTimestamps();
     }
 }

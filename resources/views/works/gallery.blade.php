@@ -1,7 +1,6 @@
 @extends('layout')
 @section('title', 'Галерея')
 @section('body_type', 'background_type6')
-{{--@section('body_type', 'background_type4_1')--}}
 @section('background')
 @endsection
 @section('content')
@@ -51,15 +50,13 @@
                                 <div class="row mt-2">
                                     <div class="col">
                                         <div class="description d-flex flex-column items-start">
-                                            <span
-                                                class="js-work__rating js-work_{{ $work->id }}_rating">{{ $work->votes()->count() }}
+                                            <span class="js-work__rating js-work_{{ $work->id }}_rating">
+                                                {{ $work->votes()->count() }}
                                             </span>
                                             {{ trans_choice('validation.votes', $work->votes()->count()) }}
                                         </div>
                                     </div>
-                                    <div class="col">
-                                        <x-vote-button :$work/>
-                                    </div>
+                                    <x-main-vote-button :$work/>
                                 </div>
                             </a>
                         </div>

@@ -11,9 +11,11 @@ use App\Http\Controllers\Shared\PagesController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\UserAvatarController;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\Work\AddAdminVotesToWorkController;
 use App\Http\Controllers\Work\WorkController;
 use App\Http\Controllers\Work\WorkSearchController;
 use App\Http\Controllers\Work\WorkVoteController;
+use App\Http\Controllers\Work\WorkVotingController;
 use Illuminate\Support\Facades\Route;
 
 // Main pages
@@ -36,10 +38,17 @@ Route::post('orders/payment', [RobokassaPaymentController::class, 'result']);
 
 Route::get('orders/success', [RobokassaPaymentController::class, 'success']);
 
+// Voting
+//----------------------------------
+
+Route::get('works/{work}/voting-confirmation', [WorkVotingController::class, 'confirm'])->name('voting_confirmation');
+
+Route::post('works/{work}/vote', [WorkVotingController::class, 'vote'])->name('works.vote');
+
 // Auth
 //----------------------------------
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
 
@@ -78,9 +87,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
         Route::resource('prizes', PrizesController::class)->except('index');
 
-        Route::get('works/{work}/vote', [WorkVoteController::class, 'create'])->name('works.vote.create');
+        Route::get('works/{work}/add-admin-votes', [AddAdminVotesToWorkController::class, 'create'])->name('works.vote.admin.create');
 
-        Route::post('works/{work}/vote', [WorkVoteController::class, 'store'])->name('works.vote.store');
+        Route::post('works/{work}/add-admin-votes', [AddAdminVotesToWorkController::class, 'store'])->name('works.vote.admin.store');
 
         Route::get('prizes/{prize}/delete', [PrizesController::class, 'delete'])->name('prizes.delete');
 

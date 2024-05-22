@@ -17,6 +17,8 @@ return new class extends Migration
             $table->foreign('work_id')->references('id')->on('works');
             $table->foreign('user_id')->references('id')->on('users');
 
+            $table->boolean('is_free')->default(true);
+
             $table->timestamps();
         });
     }

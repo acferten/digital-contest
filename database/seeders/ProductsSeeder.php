@@ -15,7 +15,7 @@ class ProductsSeeder extends Seeder
     {
         Product::factory()->count(2)
             ->state(new Sequence(
-                ['name' => ProductEnum::Voting->value, 'price' => 20],
+                ['name' => ProductEnum::Voting->value, 'price' => 10],
                 ['name' => ProductEnum::Publish->value, 'price' => 100],
             ))->create();
 

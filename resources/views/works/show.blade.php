@@ -26,14 +26,7 @@
                                         <div
                                             class="work__rating-unit">{{ trans_choice('validation.votes', $work->votes()->count()) }}</div>
                                     </div>
-                                    <x-vote-button :work="$work"/>
-                                    @role('admin')
-                                    <div class="col my-4">
-                                        <a href="{{ route('works.vote.create', $work) }}"
-                                           class="col-lg-10 btn btn-danger">Добавить
-                                            голоса</a>
-                                    </div>
-                                    @endrole
+                                    <x-main-vote-button :$work/>
                                 </div>
                             </div>
 

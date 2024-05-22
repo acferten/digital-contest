@@ -62,6 +62,14 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\CanRese
         return Storage::disk('profile_pictures')->url($this->profile_picture);
     }
 
+    public function hasVotedToday(): bool
+    {
+        return $this->votes()
+            ->where(['votes.is_free' => true])
+            ->whereDate('votes.created_at', '=', date('Y-m-d'))
+            ->exists();
+    }
+
     public function works(): hasMany
     {
         return $this->hasMany(Work::class, 'user_id');
@@ -69,7 +77,8 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\CanRese
 
     public function votes(): belongsToMany
     {
-        return $this->belongsToMany(Work::class, 'votes');
+        return $this->belongsToMany(Work::class, 'votes')
+            ->withTimestamps();
     }
 
     public function payments(): BelongsToMany

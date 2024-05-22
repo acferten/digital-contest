@@ -10,7 +10,7 @@
                         <p class="form-title my-4">Добавление голосов к работе «{{ $work->title }}»</p>
                     </div>
                     <x-success-alert/>
-                    <form method="POST" action="{{route('works.vote.store', $work)}}">
+                    <form method="POST" action="{{route('works.vote.admin.store', $work)}}">
                         @csrf
                         <!-- price -->
                         <div class="row">
