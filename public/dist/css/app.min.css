@@ -400,26 +400,20 @@ footer a {
 }
 
 .prizes .item .place {
-    width: 360px;
     font-size: 2.2rem;
-    margin-bottom: 20px;
     text-transform: uppercase;
     font-weight: bold;
 }
 
 .prizes .item .place span {
-    font-size: 2.4rem
-    text-transform: uppercase;
-}
-
-.prizes .item .place.first span {
-    font-size: 3.2rem
+    font-size: 2.2rem;
     text-transform: uppercase;
 }
 
 .prizes .item img {
-    width: 360px;
-    height: 300px;
+    max-width: 360px;
+    width: 100%;
+    aspect-ratio: 12/10;
     background-color: white;
     object-fit: cover;
     border-radius: 10px;
