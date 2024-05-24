@@ -418,7 +418,9 @@ footer a {
 }
 
 @media screen and (mix-width: 576px) {
-    max-width: 360px;
+    .prizes__image {
+        max-width: 360px;
+    }
 }
 
 .news .item {
