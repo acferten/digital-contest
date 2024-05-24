@@ -23,16 +23,6 @@
                             </div>
                             @endrole
                         </div>
-                        <div class="col">
-                            <img src="{{$prize->getPrizePhotoUrl()}}" alt="{{ $prize->title }}" class="prizes__image">
-                            <div class="place my-4"><span class="prizes__title">{{ $prize->title }}</span></div>
-                            <p class="prizes__description">{!! $prize->description !!}</p>
-                            @role('admin')
-                            <div class="col-4 my-4 w-100">
-                                <a href="{{ route('prizes.delete', $prize) }}" class="w-100 btn btn-danger">Удалить</a>
-                            </div>
-                            @endrole
-                        </div>
                     @endforeach
                 </div>
             </div>
