@@ -18,20 +18,5 @@ class ProductsSeeder extends Seeder
                 ['name' => ProductEnum::Voting->value, 'price' => 10],
                 ['name' => ProductEnum::Publish->value, 'price' => 100],
             ))->create();
-
-        Product::all()->each(function (Product $product) {
-
-            $product->payments()->save(User::all()->random(),
-                ['invoice_id' => fake()->numberBetween(2290, 9839),
-                    'work_id' => Work::all()->random()->id]);
-
-            $product->payments()->save(User::all()->random(),
-                ['invoice_id' => fake()->numberBetween(2290, 9839),
-                    'work_id' => Work::all()->random()->id]);
-
-            $product->payments()->save(User::all()->random(),
-                ['invoice_id' => fake()->numberBetween(2290, 9839),
-                    'work_id' => Work::all()->random()->id]);
-        });
     }
 }

@@ -49,6 +49,19 @@
                             </div>
                         </div>
 
+                        <!-- importance -->
+                        <div class="mb-3 row">
+                            <label for="title"
+                                   class="col-xl-3 col-xxl-2 col-form-label">{{ __('Важность') }}</label>
+                            <div class="col-xl-9 col-xxl-10">
+                                <input type="number" name="importance" min="1" class="form-control" id="importance"
+                                       required>
+                                @error('importance')
+                                <p class="error"> {{$message}} </p>
+                                @enderror
+                            </div>
+                        </div>
+
                         <!-- submit -->
                         <div class="row my-4">
                             <div>

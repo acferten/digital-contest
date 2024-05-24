@@ -15,6 +15,7 @@ class PrizeFactory extends Factory
             'title' => fake()->realTextBetween(10, 20),
             'photo' => fake()->randomElement(['prize'.fake()->numberBetween(1, 3).'.jpg']),
             'description' => fake()->realTextBetween(100, 500),
+            'importance' => fake()->numberBetween(1,100),
         ];
     }
 }

@@ -17,6 +17,7 @@ class Prize extends BaseModel
         'title',
         'description',
         'photo',
+        'importance'
     ];
 
     public function getPrizePhotoUrl(): ?string
