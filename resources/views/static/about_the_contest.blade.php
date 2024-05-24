@@ -11,7 +11,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <div class="text">
+                    <div class="text mt-4">
                         {!!  $content ? $content->text :  'Текст этого раздела еще не добавлен администратором.' !!}
                     </div>
                 </div>

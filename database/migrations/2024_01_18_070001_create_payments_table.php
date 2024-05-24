@@ -15,6 +15,7 @@ return new class extends Migration
             $table->bigInteger('user_id');
             $table->bigInteger('invoice_id')->unique();
             $table->bigInteger('work_id');
+            $table->float('price');
             $table->enum('status', OrderStatus::values())->default(OrderStatus::Pending->value);
 
             $table->foreign('work_id')->references('id')->on('works');

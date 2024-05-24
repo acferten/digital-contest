@@ -12,7 +12,7 @@
             <x-success-alert/>
 
             <div class="partners">
-                <div class="d-flex flex-wrap justify-content-between align-content-start">
+                <div class="d-flex flex-wrap justify-content-between align-content-start mb-4">
                     @foreach($partners as $partner)
                         <div>
                             <img class="mt-4" src="{{ $partner->getLogoUrl() }}" alt="{{ $partner->name }}">
@@ -26,8 +26,8 @@
                     @endforeach
                 </div>
 
-                <div class="row">
-                    <p class="text">{!! $content->text !!}</p>
+                <div class="row mt-4">
+                    <p class="text mt-4">{!! $content->text !!}</p>
                 </div>
                 @role('admin')
                 <div class="col-12">

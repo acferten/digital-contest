@@ -21,6 +21,6 @@ class Product extends BaseModel
     public function payments(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'payments')
-            ->withPivot('work_id', 'invoice_id')->withTimestamps();
+            ->withPivot('work_id', 'invoice_id', 'price')->withTimestamps();
     }
 }

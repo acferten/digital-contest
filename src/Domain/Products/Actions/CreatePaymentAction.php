@@ -12,10 +12,10 @@ class CreatePaymentAction
     public static function execute(RobokassaPaymentData $data): string
     {
         $payment = $data->user->payments()->save($data->product, [
-            'invoice_id' => $data->inv_id,
-            'work_id' => $data->work->id,
-        ]
-        );
+                'invoice_id' => $data->inv_id,
+                'work_id' => $data->work->id,
+                'price' => $data->out_sum
+        ]);
 
         $mrh_pass2 = env('ROBOKASSA_PASSWORD_2');
         $my_crc = strtoupper(
@@ -31,7 +31,12 @@ class CreatePaymentAction
             ->updateExistingPivot($data->user->id, ['status' => OrderStatus::Paid->value]);
 
         if ($data->product->name == ProductEnum::Voting->value) {
-            $data->work->votes()->save($data->user);
+            $votes = $data->price / $data->product->price;
+
+            foreach ($votes as $vote) {
+                $data->work->votes()->save($data->user);
+            }
+
         } else {
             $data->work->update(['status' => WorkStatus::Published->value]);
         }

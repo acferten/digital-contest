@@ -84,6 +84,6 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\CanRese
     public function payments(): BelongsToMany
     {
         return $this->belongsToMany(Product::class, 'payments')
-            ->withPivot('work_id', 'invoice_id')->withTimestamps();
+            ->withPivot('work_id', 'invoice_id', 'price')->withTimestamps();
     }
 }

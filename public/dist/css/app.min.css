@@ -59,8 +59,7 @@ select {
 }
 
 .background_type1 {
-    background: url(../images/dest/o_konkurse.png) 50% no-repeat fixed;
-    background-size: cover
+    background: linear-gradient(90deg, #81729f, #a45c8d 35%, #ef5578 100%);
 }
 
 .background_type2 {
@@ -123,6 +122,7 @@ main {
 
 main h1 {
     font-size: calc(1rem + 3vw);
+    word-break: break-word;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 20px;
@@ -354,9 +354,8 @@ footer a {
 }
 
 .text {
-    margin-top: 100px;
     hyphens: auto;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .site_form textarea {
@@ -399,13 +398,18 @@ footer a {
     color: #bc2649
 }
 
-.prizes__title {
+.prizes .item .place {
     font-size: 2.2rem;
     text-transform: uppercase;
     font-weight: bold;
 }
 
-.prizes__image {
+.prizes .item .place span {
+    font-size: 2.2rem;
+    text-transform: uppercase;
+}
+
+.prizes .item img {
     width: 100%;
     aspect-ratio: 12/10;
     background-color: white;
@@ -415,12 +419,6 @@ footer a {
     -webkit-backdrop-filter: blur(10px);
     border: 2px solid rgba(255, 255, 255, 0.18);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
-}
-
-@media screen and (mix-width: 576px) {
-    .prizes__image {
-        max-width: 360px;
-    }
 }
 
 .news .item {
@@ -747,10 +745,10 @@ footer a {
 }
 
 @media (min-width: 576px) {
-    main h1 {
-        font-size: 3.5rem;
-        margin-bottom: 50px
-    }
+    /*main h1 {*/
+    /*    font-size: 3.5rem;*/
+    /*    margin-bottom: 50px*/
+    /*}*/
 
     .main-text .first-block, .main-text .first-block i {
         font-size: 4rem;
@@ -774,10 +772,10 @@ footer a {
 }
 
 @media (min-width: 768px) {
-    main h1 {
-        font-size: 4rem;
-        margin-bottom: 40px
-    }
+    /*main h1 {*/
+    /*    font-size: 4rem;*/
+    /*    margin-bottom: 40px*/
+    /*}*/
 
     .main-text .first-block, .main-text .first-block i {
         font-size: 2.5rem;
@@ -815,8 +813,7 @@ footer a {
 
 @media (min-width: 992px) {
     main h1 {
-        font-size: 5.5rem;
-        margin-bottom: 60px
+        letter-spacing: 10px;
     }
 
     .main-text .first-block, .main-text .first-block i {
@@ -843,8 +840,7 @@ footer a {
 
 @media (min-width: 1200px) {
     main h1 {
-        font-size: 6.5rem;
-        margin-bottom: 80px
+        letter-spacing: 10px;
     }
 
     .main-text .first-block, .main-text .first-block i {
@@ -859,8 +855,7 @@ footer a {
 
 @media (min-width: 1400px) {
     main h1 {
-        font-size: 7rem;
-        margin-bottom: 100px
+        letter-spacing: 10px;
     }
 
     .main-text .first-block, .main-text .first-block i {

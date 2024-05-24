@@ -15,7 +15,7 @@ class RobokassaPaymentData extends Data
         public Work $work,
         public Product $product,
         public User $user,
-        public int $out_sum,
+        public float $out_sum,
         public int $inv_id,
         public string $signature_value,
         public readonly OrderStatus $status = OrderStatus::Pending,

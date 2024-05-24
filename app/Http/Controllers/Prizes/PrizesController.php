@@ -15,7 +15,7 @@ class PrizesController extends Controller
     public function index(): View
     {
         $data = [
-            'prizes' => Prize::all(),
+            'prizes' => Prize::orderBy('importance')->get(),
         ];
 
         return view('prizes.index', $data);
