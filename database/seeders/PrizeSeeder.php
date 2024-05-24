@@ -11,13 +11,19 @@ class PrizeSeeder extends Seeder
     public function run(): void
     {
         Prize::factory()
-            ->count(1)
+            ->count(2)
             ->state(new Sequence(
                 [
-                    'title' => '3 лучшие работы',
+                    'title' => 'Выставка в музее в Париже',
                     'photo' => 'prize1.jpg',
-                    'description' => 'Выставка в музее в Париже',
+                    'description' => '3 лучшие работы',
                     'importance' => 1
+                ],
+                [
+                    'title' => 'Выставка в Русском музее',
+                    'photo' => 'prize2.jpg',
+                    'description' => '15 лучших работ',
+                    'importance' => 2
                 ]
             ))
             ->create();

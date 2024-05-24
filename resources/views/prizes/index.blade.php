@@ -10,12 +10,12 @@
                 </div>
             </div>
             <div class="prizes">
-                <div class="row">
+                <div class="d-flex flex-wrap justify-content-between align-content-start">
                     <x-success-alert/>
                     @foreach($prizes as $prize)
                         <div class="col-md-4 col-12 item my-4">
-                            <img src="{{$prize->getPrizePhotoUrl()}}" alt="prize photo">
-                            <div class="place first my-4"><span>{{ $prize->title }}</span></div>
+                            <img src="{{$prize->getPrizePhotoUrl()}}" alt="{{ $prize->title }}">
+                            <div class="place my-4"><span>{{ $prize->title }}</span></div>
                             <div class="description">{!! $prize->description !!}</div>
                             @role('admin')
                             <div class="col-4 my-4 w-100">
