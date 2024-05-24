@@ -9,14 +9,24 @@
                     <h1>Призы победителям</h1>
                 </div>
             </div>
-            <div class="prizes">
-                <div class="d-flex flex-wrap justify-content-between align-content-start gap-4">
-                    <x-success-alert/>
+            <x-success-alert />
+            <div class="prizes container">
+                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-5">
                     @foreach($prizes as $prize)
-                        <div class="col-md-6 col-lg-4 col-12 item my-4">
-                            <img src="{{$prize->getPrizePhotoUrl()}}" alt="{{ $prize->title }}">
-                            <div class="place my-4"><span>{{ $prize->title }}</span></div>
-                            <div class="description">{!! $prize->description !!}</div>
+                        <div class="col">
+                            <img src="{{$prize->getPrizePhotoUrl()}}" alt="{{ $prize->title }}" class="prizes__image">
+                            <div class="place my-4"><span class="prizes__title">{{ $prize->title }}</span></div>
+                            <p class="prizes__description">{!! $prize->description !!}</p>
+                            @role('admin')
+                            <div class="col-4 my-4 w-100">
+                                <a href="{{ route('prizes.delete', $prize) }}" class="w-100 btn btn-danger">Удалить</a>
+                            </div>
+                            @endrole
+                        </div>
+                        <div class="col">
+                            <img src="{{$prize->getPrizePhotoUrl()}}" alt="{{ $prize->title }}" class="prizes__image">
+                            <div class="place my-4"><span class="prizes__title">{{ $prize->title }}</span></div>
+                            <p class="prizes__description">{!! $prize->description !!}</p>
                             @role('admin')
                             <div class="col-4 my-4 w-100">
                                 <a href="{{ route('prizes.delete', $prize) }}" class="w-100 btn btn-danger">Удалить</a>
