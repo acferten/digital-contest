@@ -11,6 +11,8 @@ class SuccessfulPaymentRedirectAction
 {
     public static function execute(RobokassaPaymentData $data): RedirectResponse
     {
+        dd($data);
+
         $mrh_pass1 = env('ROBOKASSA_PASSWORD_1');
         $my_crc = strtoupper(md5("$data->out_sum:$data->inv_id:$mrh_pass1:Shp_ProductId={$data->product->id}:Shp_UserId={$data->user->id}:Shp_WorkId={$data->work->id}"));
 

@@ -6,11 +6,14 @@ use Domain\Products\DataTransferObjects\RobokassaPaymentData;
 use Domain\Products\Enums\OrderStatus;
 use Domain\Products\Enums\ProductEnum;
 use Domain\Work\Enums\WorkStatus;
+use Illuminate\Support\Facades\Log;
 
 class CreatePaymentAction
 {
     public static function execute(RobokassaPaymentData $data): string
     {
+        Log::debug(print_r($data));
+
         $payment = $data->user->payments()->save($data->product, [
                 'invoice_id' => $data->inv_id,
                 'work_id' => $data->work->id,
