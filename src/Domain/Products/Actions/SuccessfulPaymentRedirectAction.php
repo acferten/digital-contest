@@ -10,13 +10,10 @@ use Illuminate\Support\Facades\Redirect;
 
 class SuccessfulPaymentRedirectAction
 {
-    public static function execute(RobokassaPaymentData $data): RedirectResponse
+    public static function execute(RobokassaPaymentData $data): RedirectResponse|string
     {
         $mrh_pass1 = env('ROBOKASSA_PASSWORD_1');
         $my_crc = strtoupper(md5("$data->out_sum:$data->inv_id:$mrh_pass1:Shp_ProductId={$data->product->id}:Shp_UserId={$data->user->id}:Shp_WorkId={$data->work->id}"));
-
-        Log::debug($my_crc);
-        Log::debug($data->signature_value);
 
         if ($my_crc != strtoupper($data->signature_value)) {
             return "bad sign\n";
