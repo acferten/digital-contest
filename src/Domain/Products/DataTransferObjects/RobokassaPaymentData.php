@@ -12,14 +12,15 @@ use Spatie\LaravelData\Data;
 class RobokassaPaymentData extends Data
 {
     public function __construct(
-        public Work $work,
-        public Product $product,
-        public User $user,
-        public float $out_sum,
-        public int $inv_id,
-        public string $signature_value,
+        public Work                 $work,
+        public Product              $product,
+        public User                 $user,
+        public                      $out_sum,
+        public int                  $inv_id,
+        public string               $signature_value,
         public readonly OrderStatus $status = OrderStatus::Pending,
-    ) {
+    )
+    {
     }
 
     public static function fromRequest(Request $request): self
@@ -41,7 +42,7 @@ class RobokassaPaymentData extends Data
             'Shp_WorkId' => 'required|int|exists:works,id',
             'Shp_ProductId' => 'required|int|exists:products,id',
             'Shp_UserId' => 'required|int|exists:users,id',
-            'OutSum' => 'required|int',
+            'OutSum' => 'required',
             'InvId' => 'required|int',
             'SignatureValue' => 'required|string',
         ];
