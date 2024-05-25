@@ -12,18 +12,19 @@ class CreatePaymentAction
 {
     public static function execute(RobokassaPaymentData $data): string
     {
-        Log::debug(print_r($data));
-
         $payment = $data->user->payments()->save($data->product, [
-                'invoice_id' => $data->inv_id,
-                'work_id' => $data->work->id,
-                'price' => $data->out_sum
+            'invoice_id' => $data->inv_id,
+            'work_id' => $data->work->id,
+            'price' => $data->out_sum
         ]);
 
         $mrh_pass2 = env('ROBOKASSA_PASSWORD_2');
         $my_crc = strtoupper(
             md5("$data->out_sum:$data->inv_id:$mrh_pass2:Shp_ProductId={$data->product->id}:Shp_UserId={$data->user->id}:Shp_WorkId={$data->work->id}")
         );
+
+        Log::debug($my_crc);
+        Log::debug($data->signature_value);
 
         if ($my_crc != $data->signature_value) {
             return "bad sign\n";
@@ -34,9 +35,9 @@ class CreatePaymentAction
             ->updateExistingPivot($data->user->id, ['status' => OrderStatus::Paid->value]);
 
         if ($data->product->name == ProductEnum::Voting->value) {
-            $votes = $data->price / $data->product->price;
+            $votes = (int)$data->out_sum / $data->product->price;
 
-            foreach ($votes as $vote) {
+            for ($i = 1; $i <= $votes; $i++) {
                 $data->work->votes()->save($data->user);
             }
         } else {

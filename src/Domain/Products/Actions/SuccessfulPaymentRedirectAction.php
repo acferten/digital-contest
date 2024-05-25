@@ -5,16 +5,18 @@ namespace Domain\Products\Actions;
 use Domain\Products\DataTransferObjects\RobokassaPaymentData;
 use Domain\Products\Enums\ProductEnum;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 
 class SuccessfulPaymentRedirectAction
 {
     public static function execute(RobokassaPaymentData $data): RedirectResponse
     {
-        dd($data);
-
         $mrh_pass1 = env('ROBOKASSA_PASSWORD_1');
         $my_crc = strtoupper(md5("$data->out_sum:$data->inv_id:$mrh_pass1:Shp_ProductId={$data->product->id}:Shp_UserId={$data->user->id}:Shp_WorkId={$data->work->id}"));
+
+        Log::debug($my_crc);
+        Log::debug($data->signature_value);
 
         if ($my_crc != $data->signature_value) {
             return "bad sign\n";
