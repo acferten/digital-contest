@@ -17,7 +17,9 @@
                         <div class="d-flex row flex-wrap justify-content-between">
                             <div class="d-flex flex-column col-lg-3 col-md-4 col-sm-12 col-12 work_photo">
                                 <div class="w-100 h-100">
+                                    <a href="{{ $work->getWorkFileUrl() }}">
                                     <img class="w-100" src="{{ $work->getWorkFileUrl() }}" alt="{{ $work->title }}">
+                                    </a>
                                 </div>
                                 <div class="row py-4">
                                     <div class="col">
