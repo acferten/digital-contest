@@ -15,7 +15,6 @@ class CreatePaymentAction
             'invoice_id' => $data->inv_id,
             'work_id' => $data->work->id,
             'price' => $data->out_sum,
-            'is_free' => false
         ]);
 
         $mrh_pass2 = env('ROBOKASSA_PASSWORD_2');
@@ -35,7 +34,8 @@ class CreatePaymentAction
             $votes = (int)$data->out_sum / $data->product->price;
 
             for ($i = 1; $i <= $votes; $i++) {
-                $data->work->votes()->save($data->user);
+                $data->work->votes()->save($data->user,
+                    ['is_free' => false]);
             }
         } else {
             $data->work->update(['status' => WorkStatus::Published->value]);
