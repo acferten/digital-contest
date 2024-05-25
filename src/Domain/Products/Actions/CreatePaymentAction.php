@@ -26,7 +26,7 @@ class CreatePaymentAction
         Log::debug($my_crc);
         Log::debug($data->signature_value);
 
-        if ($my_crc != $data->signature_value) {
+        if ($my_crc != strtoupper($data->signature_value)) {
             return "bad sign\n";
         }
 
