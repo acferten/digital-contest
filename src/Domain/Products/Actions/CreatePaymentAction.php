@@ -36,7 +36,6 @@ class CreatePaymentAction
             foreach ($votes as $vote) {
                 $data->work->votes()->save($data->user);
             }
-
         } else {
             $data->work->update(['status' => WorkStatus::Published->value]);
         }

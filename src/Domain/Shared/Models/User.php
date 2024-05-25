@@ -3,6 +3,7 @@
 namespace Domain\Shared\Models;
 
 use Database\Factories\UserFactory;
+use Domain\Products\Enums\ProductEnum;
 use Domain\Products\Models\Product;
 use Domain\Work\Models\Work;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -70,6 +71,27 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\CanRese
             ->exists();
     }
 
+    public function todaySumSpentOnVotes(Work $work): float
+    {
+        return $this->payments()
+            ->where('payments.status', \Domain\Products\Enums\OrderStatus::Paid)
+            ->where('payments.work_id', $work->id)
+            ->where('payments.product_id', Product::where('name', ProductEnum::Voting->value)->first()->id)
+            ->whereDate('payments.created_at', '=', date('Y-m-d'))
+            ->sum('payments.price');
+    }
+
+
+    public function hasReachedVotesLimit(Work $work): bool
+    {
+        return $this->todaySumSpentOnVotes($work) >= 500;
+    }
+
+    public function canVoteAgain(Work $work, $newPaymentSum): bool
+    {
+        return $this->todaySumSpentOnVotes($work) + $newPaymentSum <= 500;
+    }
+
     public function works(): hasMany
     {
         return $this->hasMany(Work::class, 'user_id');
@@ -84,6 +106,7 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\CanRese
     public function payments(): BelongsToMany
     {
         return $this->belongsToMany(Product::class, 'payments')
-            ->withPivot('work_id', 'invoice_id', 'price')->withTimestamps();
+            ->withPivot('work_id', 'invoice_id', 'price')
+            ->withTimestamps();
     }
 }

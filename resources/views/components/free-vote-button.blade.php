@@ -15,7 +15,7 @@
 
 
     <div class="col">
-        <form action="{{route('voting_confirmation', $work)}}" method="get">
+        <form action="{{route('free_voting_confirmation', $work)}}" method="get">
             <button type="submit" id='start-payment-button' class="btn btn-danger float-end">Голосовать</button>
         </form>
     </div>

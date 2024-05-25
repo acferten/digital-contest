@@ -41,7 +41,11 @@ Route::get('orders/success', [RobokassaPaymentController::class, 'success']);
 // Voting
 //----------------------------------
 
-Route::get('works/{work}/voting-confirmation', [WorkVotingController::class, 'confirm'])->name('voting_confirmation');
+Route::get('works/{work}/voting-confirmation', [WorkVotingController::class, 'confirmFreeVoting'])
+    ->name('free_voting_confirmation');
+
+Route::get('works/{work}/paid-voting-confirmation', [WorkVotingController::class, 'confirmPaidVoting'])
+    ->name('paid_voting_confirmation');
 
 Route::post('works/{work}/vote', [WorkVotingController::class, 'vote'])->name('works.vote');
 
