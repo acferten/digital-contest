@@ -34,6 +34,7 @@ class Work extends BaseModel
         'genre_id',
         'user_id',
         'status',
+        'bonus_points'
     ];
 
     public function getWorkFileUrl(): ?string
