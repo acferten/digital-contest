@@ -10,7 +10,7 @@
                 <div class="col-12">
                     <h1>Галерея</h1>
                 </div>
-
+                <x-success-alert/>
                 <div class="col-12">
                     <form method="get" action="{{route('search')}}" class="mb-4">
                         <div class="d-flex">

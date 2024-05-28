@@ -14,7 +14,6 @@ use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Work\AddAdminVotesToWorkController;
 use App\Http\Controllers\Work\WorkController;
 use App\Http\Controllers\Work\WorkSearchController;
-use App\Http\Controllers\Work\WorkVoteController;
 use App\Http\Controllers\Work\WorkVotingController;
 use Illuminate\Support\Facades\Route;
 
@@ -96,6 +95,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::post('works/{work}/add-admin-votes', [AddAdminVotesToWorkController::class, 'store'])->name('works.vote.admin.store');
 
         Route::get('prizes/{prize}/delete', [PrizesController::class, 'delete'])->name('prizes.delete');
+
+        Route::get('works/{work}/delete', [WorkController::class, 'delete'])->name('works.delete');
 
         Route::get('news/{news}/delete', [NewsController::class, 'delete'])->name('news.delete');
 

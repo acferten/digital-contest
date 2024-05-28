@@ -18,8 +18,11 @@
                             <div class="d-flex flex-column col-lg-3 col-md-4 col-sm-12 col-12 work_photo">
                                 <div class="w-100 h-100">
                                     <a href="{{ $work->getWorkFileUrl() }}">
-                                    <img class="w-100" src="{{ $work->getWorkFileUrl() }}" alt="{{ $work->title }}">
+                                        <img class="w-100" src="{{ $work->getWorkFileUrl() }}" alt="{{ $work->title }}">
                                     </a>
+                                    @role('admin')
+                                    <a class="btn btn-danger w-100 mt-4" href="{{route('works.delete', $work)}}">Удалить</a>
+                                    @endrole
                                 </div>
                                 <div class="row py-4">
                                     <div class="col">
