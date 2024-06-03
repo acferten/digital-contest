@@ -11,7 +11,7 @@ class PrizeSeeder extends Seeder
     public function run(): void
     {
         Prize::factory()
-            ->count(6)
+            ->count(2)
             ->state(new Sequence(
                 [
                     'title' => 'Выставка в музее в Париже',

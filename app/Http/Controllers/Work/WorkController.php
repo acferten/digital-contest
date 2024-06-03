@@ -24,7 +24,7 @@ class WorkController extends Controller
         $works = Work::where('status', WorkStatus::Published)->paginate(10);
         $categories = Genre::whereHas('works', function (Builder $query) {
             $query->where('status', '=', WorkStatus::Published);
-        });
+        })->get();
 
         return view('works.gallery', compact('works', 'categories'));
     }

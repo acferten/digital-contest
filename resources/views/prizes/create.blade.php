@@ -45,7 +45,6 @@
                                 @error('photo')
                                 <p class="error"> {{$message}} </p>
                                 @enderror
-                                <p class="error mt-3">Лучше всего загружать png-картинку без фона (transparent)</p>
                             </div>
                         </div>
 
