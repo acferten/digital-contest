@@ -132,9 +132,9 @@ main h1 {
 }
 
 .work-title {
-    font-size: 4rem;
+    font-size: calc(2rem + 2vw);
     font-weight: 700;
-    letter-spacing: 28.8px;
+    letter-spacing: 20px;
     margin: unset;
     word-wrap: break-word;
 }
