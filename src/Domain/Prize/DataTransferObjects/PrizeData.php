@@ -13,7 +13,7 @@ class PrizeData extends Data
         public readonly string              $title,
         public readonly string              $description,
         public readonly int                 $importance,
-        public readonly UploadedFile|string $photo,
+        public readonly null|UploadedFile|string $photo,
     )
     {
     }

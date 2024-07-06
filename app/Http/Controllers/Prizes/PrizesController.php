@@ -28,8 +28,7 @@ class PrizesController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
-        $request->validate(PrizeData::rules());
-        $data = PrizeData::fromRequest($request);
+        $data = PrizeData::validateAndCreate($request);
 
         Prize::create([
             ...$data->all(),
@@ -37,6 +36,31 @@ class PrizesController extends Controller
         ]);
 
         return Redirect::route('prizes.index')->with('success', 'Приз успешно добавлен');
+    }
+
+    public function edit(Prize $prize): View
+    {
+        return view('prizes.edit', compact('prize'));
+    }
+
+    public function update(Request $request, Prize $prize): RedirectResponse
+    {
+        $request->validate([
+            'description' => 'required|string',
+            'title' => 'required|string|max:30',
+            'importance' => 'required|integer|unique:prizes,importance',
+        ]);
+
+        $data = PrizeData::fromRequest($request);
+
+        $prize->update([
+            ...$data->all(),
+            'photo' => $data->photo ?
+                $data->photo->storePublicly('', 'prizes_photo')
+                : $prize->photo,
+        ]);
+
+        return redirect()->route('prizes.index')->with('success', 'Succeed');
     }
 
     public function delete(Prize $prize): View

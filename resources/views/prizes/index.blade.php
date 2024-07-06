@@ -19,8 +19,12 @@
                             <p class="prizes__description">{!! $prize->description !!}</p>
                             @role('admin')
                             <div class="col-4 my-4 w-100">
+                                <a href="{{ route('prizes.edit', $prize) }}" class="w-100 btn btn-danger">Редактировать</a>
+                            </div>
+                            <div class="col-4 my-4 w-100">
                                 <a href="{{ route('prizes.delete', $prize) }}" class="w-100 btn btn-danger">Удалить</a>
                             </div>
+
                             @endrole
                         </div>
                     @endforeach
