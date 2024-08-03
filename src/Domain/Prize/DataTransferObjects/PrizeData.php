@@ -32,7 +32,7 @@ class PrizeData extends Data
         return [
             'photo' => 'required|image|max:4192',
             'description' => 'required|string',
-            'title' => 'required|string|max:20',
+            'title' => 'required|string|max:50',
             'importance' => 'required|integer|unique:prizes,importance',
         ];
     }

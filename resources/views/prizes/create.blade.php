@@ -16,7 +16,7 @@
                             <label for="title"
                                    class="col-xl-3 col-xxl-2 col-form-label">{{ __('Краткое название') }}</label>
                             <div class="col-xl-9 col-xxl-10">
-                                <input type="text" name="title" maxlength="20" class="form-control" id="title" required>
+                                <input type="text" name="title" maxlength="50" class="form-control" id="title" required>
                                 @error('title')
                                 <p class="error"> {{$message}} </p>
                                 @enderror
