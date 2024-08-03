@@ -13,7 +13,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        $schedule->call(new ResetWorksVotesAction)->monthly();
+        //TODO: change to monthly
+        $schedule->call(new ResetWorksVotesAction)->daily();
     }
 
     /**
