@@ -41,6 +41,14 @@
                                     {{ $work->user->last_name }} {{ $work->user->first_name }}
                                 </div>
 
+                                @if($work->bonus_points)
+                                    <div class="row py-4">
+                                        <div class="col-12">
+                                            Бонусные баллы: {{ $work->bonus_points }}
+                                        </div>
+                                    </div>
+                                @endif
+
                                 @if($other_works)
                                     <div class="row py-4">
                                         <div class="col-12">

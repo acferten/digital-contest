@@ -9,7 +9,7 @@ class ResetWorksVotesAction
 {
     public function __invoke(): void
     {
-        $best_works = Work::withCount('votes')
+        $best_works = Work::query()->withCount('votes')
             ->orderBy('votes_count', 'DESC')
             ->limit(10)
             ->get()
