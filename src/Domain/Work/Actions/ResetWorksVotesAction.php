@@ -19,7 +19,9 @@ class ResetWorksVotesAction
             $bonuses = 10;
 
             foreach ($best_works as $work) {
-                $work->update(['bonus_points' => $bonuses]);
+                $work->bonus_points ?
+                    $work->update(['bonus_points' => $work->bonus_points + $bonuses])
+                    : $work->update(['bonus_points' => $bonuses]);
                 $work->refresh();
                 $bonuses = $bonuses - 1;
             }
