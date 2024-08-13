@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Domain\Shared\Models\User;
+use Domain\Work\Enums\WorkStatus;
 use Domain\Work\Models\Work;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
@@ -25,7 +26,7 @@ class UserController extends Controller
 
         foreach ($users as $user) {
             $letter = $user->letter;
-            if (! $user_group->has($letter)) {
+            if (!$user_group->has($letter)) {
                 $user_group->put($letter, []);
             }
             $user_group->transform(function ($item, $key) use ($letter, $user) {
@@ -43,7 +44,12 @@ class UserController extends Controller
     public function rating(): View
     {
         $data = [
-            'works' => Work::all()->load('votes')->sortByDesc(fn ($work) => $work->votes->count()),
+            'works' => Work::query()
+                ->where('status', WorkStatus::Published)
+                ->withCount('votes')
+                ->orderBy('votes_count', 'desc')
+                ->paginate(10),
+            'page' => request()->page ?? 1
         ];
 
         return view('participants.index-rating', $data);

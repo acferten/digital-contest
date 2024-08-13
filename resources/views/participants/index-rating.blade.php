@@ -16,28 +16,47 @@
         <div class="container">
             <div class="row">
                 <div class="col-8">
-                    <h1>Рейтинг участников</h1>
+                    <h1>Рейтинг работ</h1>
                 </div>
                 <div class="col-4">
                     <a href="#" class="btn btn-danger float-end mt-3">Поиск</a>
                 </div>
             </div>
             <div class="rating">
-                @foreach($works as $work)
+                @forelse($works as $work)
                     @php
                         $class = collect(['first', 'second', 'third']);
                     @endphp
                     <div class="row place align-items-end {{ $class[$loop->iteration] ?? '' }}">
                         <div class="col-8">
-                            <div class="title">{{ $loop->iteration }}. <a href="{{ route('works.show', [$work->id]) }}">«{{ $work->title }}»</a></div>
-                            <div class="participant">{{ $work->user->first_name }}</div>
+                            <div class="title">{{ ($page - 1) * 10 + $loop->iteration }}. <a href="{{ route('works.show', [$work->id]) }}">«{{ $work->title }}
+                                    »</a></div>
+                            <div class="participant">{{ $work->user->last_name }} {{ $work->user->first_name }}</div>
                         </div>
-                        <div class="col-md-2 voices">
-                            <div class="number">{{ $work->votes()->count() }}</div>
-                            {{ trans_choice('validation.votes', $work->votes()->count()) }}
+
+                        <div class="col voices d-flex flex-nowrap gap-4 align-items-center">
+                            <div>
+                                <div class="number">{{ $work->votes()->count() }}</div>
+                                {{ trans_choice('validation.votes', $work->votes()->count()) }}
+                            </div>
+                            @if($work->bonus_points)
+                                <div>
+                                    <div class="number">+</div>
+                                </div>
+                                <div>
+                                    <div class="number">{{ $work->bonus_points }}</div>
+                                    {{ trans_choice('validation.bonus_points', $work->bonus_points) }}
+                                </div>
+                            @endif
                         </div>
                     </div>
-                @endforeach
+                    <br>
+                @empty
+                    <p>Работ не найдено</p>
+                @endforelse
+                @if(!$works->isEmpty())
+                    {{ $works->links() }}
+                @endif
             </div>
         </div>
     </main>
