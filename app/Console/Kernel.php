@@ -14,7 +14,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         //TODO: change to monthly
-        $schedule->call(new ResetWorksVotesAction)->everyFiveMinutes();
+        $schedule->call(new ResetWorksVotesAction)->everyFifteenMinutes();
     }
 
     /**
